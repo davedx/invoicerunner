@@ -1,0 +1,30 @@
+/* CSS declarations go here */
+
+body {
+	background-color: #eee;
+	padding-top: 40px;
+}
+.tab {
+	width: 50%;
+	float: left;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+}
+.invoice {
+	border: 1px solid black;
+	margin: 15px 15px 15px 0;
+	padding: 10px;
+	min-height: 300px;
+	background-color: white;
+}
+.invoice h3 {
+	margin: 0;
+}
+.invoice .badge {
+	margin-bottom: 4px;
+}
+footer {
+	clear: both;
+}

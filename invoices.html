@@ -1,0 +1,114 @@
+<head>
+  <title>Invoices</title>
+</head>
+
+<body>
+</body>
+
+<template name="layout">
+  <div class="container">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li class="hidden-phone">
+            <a href="{{pathFor 'invoices'}}">Invoices</a>
+          </li>
+          <li class="visible-phone">
+            <a id="nav_processing" href="{{pathFor 'invoices'}}">Processing</a>
+          </li>
+          <li class="visible-phone">
+            <a id="nav_payable" href="{{pathFor 'invoices'}}">Payable</a>
+          </li>
+          <li>
+            <a href="{{pathFor 'home'}}">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="main">
+      {{yield}}
+    </section>
+
+    <footer>
+      {{yield "footer"}}
+    </footer>
+  </div>
+</template>
+
+<template name="home">
+  <h1>Home Page</h1>
+</template>
+
+<template name="invoices">
+
+<div id="payment_modal" class="modal hide">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Pay invoice</h3>
+  </div>
+  <div class="modal-body">
+    <p>Complete payment of this invoice using the company's payment details then click 'Paid' when done, or 'Cancel' to go back.</p>
+    <div class="modal-details"></div>
+  </div>
+  <div class="modal-footer">
+    <a href="#" data-dismiss="modal" class="btn">Cancel</a>
+    <a href="#" class="btn btn-primary btn-paid">Paid</a>
+  </div>
+</div>
+
+<div class="processing-tab tab">
+  <h3>Processing</h3>
+
+  <ul class="processing">
+    {{#each processing}}
+      <li>
+      	<div class="invoice">
+      		<a class="pull-right btn">Open PDF</a>
+	      	<h3>{{company}}</h3>
+	      	{{invoice_number}}<br>
+	      	<span class="{{date_badge date_due}}">{{long_date date_due}}{{in_days date_due}}</span><br>
+	      	Subtotal: <input type="text" class="subtotal" value="{{subtotal}}"><br>
+	      	Tax: <input type="text" class="tax" value="{{tax}}"><br>
+	      	Total: <input type="text" class="total" value="{{total}}"><br>
+	      	Approved: <input class="approved" type="checkbox"><br>
+	      	<button class="btn">Save</button>
+      	</div>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+<div class="payable-tab tab">
+  <h3>Payable</h3>
+
+  <ul class="payable">
+    {{#each payable}}
+      <li>
+      	<div class="invoice">
+      		<a class="pull-right btn">Open PDF</a>
+	      	<h3>{{company}}</h3>
+	      	{{invoice_number}}<br>
+	      	<span class="{{date_badge date_due}}">{{long_date date_due}}{{in_days date_due}}</span><br>
+	      	Subtotal: {{subtotal}}<br>
+	      	Tax: {{tax}}<br>
+	      	Total: {{total}}<br>
+	      	Approved: <input class="approved" type="checkbox" checked="checked"><br>
+	      	<button data-company-id="{{company_id}}" class="payment-button btn">Pay</button>
+      	</div>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+</template>
+
+<template name="invoicesFooter">
+  <h3>Invoices Footer</h3>
+</template>
+
+<template name="loading">
+  <h1>Loading...</h1>
+</template>
+
+<template name="notFound">
+  <h1>Not Found!</h1>
+</template>
