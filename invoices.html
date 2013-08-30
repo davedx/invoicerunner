@@ -10,6 +10,9 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <ul class="nav">
+          <li>
+            <a href="{{pathFor 'home'}}">Home</a>
+          </li>
           <li class="hidden-phone">
             <a href="{{pathFor 'invoices'}}">Invoices</a>
           </li>
@@ -20,7 +23,7 @@
             <a id="nav_payable" href="{{pathFor 'invoices'}}">Payable</a>
           </li>
           <li>
-            <a href="{{pathFor 'home'}}">Home</a>
+            <a href="{{pathFor 'new-invoice'}}">New</a>
           </li>
         </ul>
       </div>
@@ -64,7 +67,7 @@
     {{#each processing}}
       <li>
       	<div class="invoice">
-      		<a class="pull-right btn">Open PDF</a>
+      		<a class="pull-right btn" href="{{url}}">Open PDF</a>
 	      	<h3>{{company}}</h3>
 	      	{{invoice_number}}<br>
 	      	<span class="{{date_badge date_due}}">{{long_date date_due}}{{in_days date_due}}</span><br>
