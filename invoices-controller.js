@@ -114,30 +114,24 @@ if (Meteor.isClient) {
   Template.new_invoice.events({
     'click button' : function () {
       filepicker.pick(function (ink) {
-        Invoices.insert(
-          {
-            company: 'Company name',
-            company_id: 0,
-            invoice_number: '0',
-            date_due: new Date().setDate('2020-01-01'),
-            subtotal: 0,
-            tax: 0,
-            total: 0,
-            pa_number: '',
-            approved: false,
-            status: 'processing',
-            url: ink.url,
-            filename: ink.filename,
-            mimetype: ink.mimetype
+
+        Meteor.call('createInvoice', {
+          url: ink.url,
+          filename: ink.filename,
+          mimetype: ink.mimetype
+        }, function (error, invoice) {
+          if (!error) {
+            if(confirm("Invoice created. Upload another?")) {
+              // redirect back to this page
+              Router.go('new-invoice');
+            } else {
+              // redirect to home
+              Router.go('invoices');
+            }
+          } else {
+            console.error(error);
           }
-        );
-        if(confirm("Invoice created. Upload another?")) {
-          // redirect back to this page
-          Router.go('new-invoice');
-        } else {
-          // redirect to home
-          Router.go('invoices');
-        }
+        });
       });
     }
   });

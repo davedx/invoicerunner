@@ -31,6 +31,9 @@ ul {
 .tax {
 	width: 100px;
 }
+.nav-login {
+	padding: 8px;
+}
 footer {
 	clear: both;
 }

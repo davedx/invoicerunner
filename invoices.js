@@ -1,5 +1,3 @@
-Invoices = new Meteor.Collection('invoices');
-Companies = new Meteor.Collection('companies');
 /**
 TODO:
 1. Company information: payment instructions (displayed when 'pay' clicked on)
@@ -69,11 +67,11 @@ if (Meteor.isServer) {
   Meteor.startup(seed);
 
   Meteor.publish('invoices', function () {
-    return(Invoices.find());
+    return Invoices.find({owner: this.userId});
   });
 
   Meteor.publish('companies', function () {
-    return(Companies.find());
+    return Companies.find({owner: this.userId});
   });
 }
 
