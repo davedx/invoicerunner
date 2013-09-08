@@ -16,7 +16,7 @@ ul {
 	border: 1px solid black;
 	margin: 15px 15px 15px 0;
 	padding: 10px;
-	min-height: 300px;
+	min-height: 356px;
 	background-color: white;
 }
 .invoice h3 {
@@ -24,6 +24,12 @@ ul {
 }
 .invoice .badge {
 	margin-bottom: 4px;
+}
+.subtotal, .total {
+	width: 150px;
+}
+.tax {
+	width: 100px;
 }
 footer {
 	clear: both;

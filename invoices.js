@@ -6,6 +6,8 @@ TODO:
 2. Upload invoice (displays thumbnail next to 'open' button on each invoice)
 3. Archives
 4. Financial reports
+5. Change currency for invoice AND global settings
+6. Change DATE of invoices
 ****
 Checklist for 'minimum' requirements (regulatory examples): http://www.einvoicingbasics.co.uk/selecting-einvoicing/selecting-einvoicing-solutions/
 
@@ -32,32 +34,35 @@ if (Meteor.isServer) {
       var d = new Date();
       return d.setDate(d.getDate()+i);
     }
-    Invoices.remove({});
-    Companies.remove({});
+    var resetData = false;
+    if(resetData) {
+      Invoices.remove({});
+      Companies.remove({});
 
-    Companies.insert({
-      id: 1,
-      name: 'Red Sky Forge',
-      payment: 'Account: 755143728\nName: D W Clayton',
-      tax_number: '366274582B01'
-    });
+      Companies.insert({
+        id: 1,
+        name: 'Red Sky Forge',
+        payment: 'Account: 755143728\nName: D W Clayton',
+        tax_number: '366274582B01'
+      });
 
-    for (var i = 9; i >= 0; i--) {
-      Invoices.insert(
-        {
-          id: i,
-          company: 'Red Sky Forge',
-          company_id: 1,
-          invoice_number: '' + (1000+i),
-          date_due: genDate(i),//new Date().setDate('2013-08-'+(1+i)),
-          subtotal: 1000,
-          tax: 200,
-          total: 1200,
-          pa_number: 'SS-54012',
-          approved: i < 5,
-          status: 'processing'
-        }
-      );
+      for (var i = 9; i >= 0; i--) {
+        Invoices.insert(
+          {
+            id: i,
+            company: 'Red Sky Forge',
+            company_id: 1,
+            invoice_number: '' + (1000+i),
+            date_due: genDate(i),//new Date().setDate('2013-08-'+(1+i)),
+            subtotal: 1000,
+            tax: 200,
+            total: 1200,
+            pa_number: 'SS-54012',
+            approved: i < 5,
+            status: 'processing'
+          }
+        );
+      }
     }
   };
 

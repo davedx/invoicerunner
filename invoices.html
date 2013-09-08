@@ -67,15 +67,64 @@
     {{#each processing}}
       <li>
       	<div class="invoice">
-      		<a class="pull-right btn" href="{{url}}">Open PDF</a>
-	      	<h3>{{company}}</h3>
-	      	{{invoice_number}}<br>
-	      	<span class="{{date_badge date_due}}">{{long_date date_due}}{{in_days date_due}}</span><br>
-	      	Subtotal: <input type="text" class="subtotal" value="{{subtotal}}"><br>
-	      	Tax: <input type="text" class="tax" value="{{tax}}"><br>
-	      	Total: <input type="text" class="total" value="{{total}}"><br>
-	      	Approved: <input class="approved" type="checkbox"><br>
-	      	<button class="btn">Save</button>
+      		<a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>
+          <form id="invoice-form_{{id}}" class="form-horizontal">
+  	      	<h3>{{company}}</h3>
+            <div>
+    	      	Invoice {{invoice_number}}
+            </div>
+  	      	<div class="{{date_badge date_due}}">
+              Due: {{long_date date_due}}{{in_days date_due}}
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="subtotal">
+                Subtotal:
+              </label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on">$</span>
+                  <input type="text" name="subtotal" class="subtotal" value="{{subtotal}}">
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+    	      	<label class="control-label" for="tax">
+                Tax:
+              </label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on">$</span>
+                  <input type="text" name="tax" class="tax" value="{{tax}}">
+                </div>
+                <span class="tax-rate text-info">=~<strong class="tax_rate_amount">{{tax_rate}}%</strong></span>
+              </div>
+            </div>
+            <div class="control-group">
+    	      	<label class="control-label" for="total">
+                Total:
+              </label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on">$</span>
+                  <input type="text" name="total" class="total" value="{{total}}">
+                </div>
+                <span class="text-error"><span class="{{total_validates true}}"></span>{{total_validates false}}</span>
+              </div>
+            </div>
+            <div class="control-group">
+    	      	<label class="control-label" for="approved">
+                Approved:
+              </label>
+              <div class="controls">
+                <input class="approved" type="checkbox" name="approved">
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+      	      	<button class="btn-save btn">Save</button>
+              </div>
+            </div>
+          </form>
       	</div>
       </li>
     {{/each}}
@@ -88,15 +137,61 @@
     {{#each payable}}
       <li>
       	<div class="invoice">
-      		<a class="pull-right btn">Open PDF</a>
+      		<a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>
 	      	<h3>{{company}}</h3>
-	      	{{invoice_number}}<br>
+	      	Invoice {{invoice_number}}<br>
 	      	<span class="{{date_badge date_due}}">{{long_date date_due}}{{in_days date_due}}</span><br>
-	      	Subtotal: {{subtotal}}<br>
-	      	Tax: {{tax}}<br>
-	      	Total: {{total}}<br>
-	      	Approved: <input class="approved" type="checkbox" checked="checked"><br>
-	      	<button data-company-id="{{company_id}}" class="payment-button btn">Pay</button>
+          <div class="form-horizontal">
+
+            <div class="control-group">
+              <label class="control-label" for="subtotal">
+                Subtotal:
+              </label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on">$</span>
+                  <input type="text" class="subtotal" value="{{subtotal}}" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="tax">
+                Tax:
+              </label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on">$</span>
+                  <input type="text" class="tax" value="{{tax}}" disabled>
+                </div>
+                <span class="tax-rate text-info">=~<strong class="tax_rate_amount">{{tax_rate}}%</strong></span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="total">
+                Total:
+              </label>
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on">$</span>
+                  <input type="text" class="total" value="{{total}}" disabled>
+                </div>
+                <span class="text-error"><span class="{{total_validates true}}"></span>{{total_validates false}}</span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="approved">
+                Approved:
+              </label>
+              <div class="controls">
+                <input class="approved" type="checkbox" name="approved">
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <button class="btn-save btn">Save</button>
+      	      	<button data-company-id="{{company_id}}" class="payment-button btn btn-primary">Pay invoice</button>
+              </div>
+            </div>
       	</div>
       </li>
     {{/each}}

@@ -31,11 +31,25 @@ if (Meteor.isClient) {
 
   Template.invoices.events({
     'change .subtotal': function (event) {
-      Invoices.update(this._id, {$set: {subtotal: event.target.value}});
+      //Invoices.update(this._id, {$set: {subtotal: event.target.value}});
     },
+    'click .btn-save': function (event) {
+      $(event.target).prop('disabled', true);
+      form={};
+      $.each($(event.target).closest('form').serializeArray(), function() {
+          form[this.name] = this.value;
+      });
+      form['approved'] = form['approved'] == 'on' ? true : false;
+      Invoices.update(this._id, {$set: form}, function (err) {
+        console.log("Result: "+err);
+        $(event.target).prop('disabled', false);
+      });
+      event.preventDefault();
+    },
+    /*
     'change .approved': function (event) {
       Invoices.update(this._id, {$set: {approved: event.target.checked}});
-    },
+    },*/
     'click .payment-button': function (event, template) {
       var company_id = parseInt(event.target.getAttribute('data-company-id'));
       var invoice_id = this._id;
@@ -71,6 +85,20 @@ if (Meteor.isClient) {
     },
     in_days: function (date) {
       return inDays(date);
+    },
+    tax_rate: function () {
+      //console.log(this); // total = tax * subtotal; tax = total / subtotal
+      return parseInt(100 * ((this.total / this.subtotal) - 1));
+    },
+    total_validates: function (mode) {
+      var ds = parseInt(this.total) - (parseInt(this.subtotal) + parseInt(this.tax));
+      var ok = ds === 0;
+      if(!ok)
+        if(mode)
+          return 'icon-remove';
+        else
+          return 'Off by '+ds;
+      return '';
     }
   });
 
