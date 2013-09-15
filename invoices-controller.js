@@ -10,6 +10,10 @@ if (Meteor.isClient) {
     companies: Meteor.subscribe('companies')
   };
 
+  function getPageVar (sVar) {
+    return decodeURI(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURI(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+  }
+
   var longDate = function (date) {
     if(!date) return '';
       return moment(date).format("MMM Do YYYY");
@@ -99,6 +103,12 @@ if (Meteor.isClient) {
         else
           return 'Off by '+ds;
       return '';
+    },
+    tab_visible: function (tab) {
+      var currTab = getPageVar('tab');
+      if(currTab === tab) return '';
+      if(tab === 'processing' && !currTab) return '';
+      return 'hidden-phone';
     }
   });
 
@@ -106,6 +116,7 @@ if (Meteor.isClient) {
   var key = "Aze1xrJhFSb62pRcbCGTNz";
 
   Template.new_invoice.rendered = function ( ) { 
+    //FIXME: seems buggy when navigating to this page
     if (!Session.get("widgetSet")) {  
       loadPicker(key);
     }
@@ -139,49 +150,20 @@ if (Meteor.isClient) {
   InvoicesController = RouteController.extend({
     template: 'invoices',
 
-    /*
-     * During rendering, wait on the invoices subscription and show the loading
-     * template while the subscription is not ready. This can also be a function
-     * that returns on subscription handle or an array of subscription handles.
-     */
-
     waitOn: function () {
       return [Subscriptions['invoices'], Subscriptions['companies']];
     },
 
-    /*
-     * The data function will be called after the subscrition is ready, at
-     * render time.
-     */
-
     data: function () {
-      // we can return anything here, but since I don't want to use 'this' in
-      // as the each parameter, I'm just returning an object here with a named
-      // property.
       return {
         processing: Invoices.find({approved: false}, {sort: [["date_due", "asc"]]}),
         payable: Invoices.find({approved: true, status: 'processing'}, {sort: [["date_due", "asc"]]})
       };
     },
 
-    /*
-     * By default the router will call the *run* method which will render the
-     * controller's template (or the template with the same name as the route)
-     * to the main yield area {{yield}}. But you can provide your own action
-     * methods as well.
-     */
     index: function () {
-
-      /* render customController into the main yield */
       this.render('invoices');
 
-      /*
-       * You can call render multiple times. You can even pass an object of
-       * template names (keys) to render options (values). Typically, the
-       * options object would include a *to* property specifiying the named
-       * yield to render to.
-       *
-       */
       this.render({
         invoicesFooter: { to: 'footer', waitOn: false, data: false }
       });

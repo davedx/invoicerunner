@@ -2,11 +2,15 @@
 
 body {
 	background-color: #eee;
-	padding-top: 40px;
 }
-.tab {
-	width: 50%;
-	float: left;
+@media (min-width: 980px) {
+  body {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+}
+.tab h3 {
+	margin-top: 0;
 }
 ul {
 	list-style-type: none;
@@ -31,8 +35,50 @@ ul {
 .tax {
 	width: 100px;
 }
+.navbar-inner {
+	background-color: #f8f8f8; /* fallback color, place your own */
+	background-image: none;
+}
+.nav-left {
+	margin-left: 12px !important;
+}
+@media (min-width: 980px) {
+	.navbar-inner {
+		padding-top: 10px;
+		min-height: 50px !important;
+	}
+}
+.navbar-inner a {
+	color: #111 !important;
+}
+@media (max-width: 979px) {
+	.nav-left li a {
+/*		padding: 15px 15px 15px !important;*/
+	}
+}
+.nav-left li a:active {
+	border-radius: 4px;
+	background-image: -webkit-linear-gradient(top, #eef, #dde);
+}
+
+.nav-left li {
+	border-radius: 4px;
+	margin: 0 4px;
+	border: 1px solid #ccc;
+	/* Gradients for modern browsers, replace as you see fit */
+	background-image: -moz-linear-gradient(top, #ccc, #eee);
+	background-image: -ms-linear-gradient(top, #333333, #222222);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ccc), to(#eee));
+	background-image: -webkit-linear-gradient(top, #ddf, #cce);
+	background-image: -o-linear-gradient(top, #333333, #222222);
+	background-image: linear-gradient(top, #333333, #222222);
+	background-repeat: repeat-x;
+
+	/* IE8-9 gradient filter */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+}
 .nav-login {
-	padding: 8px;
+	padding: 8px 15px;
 }
 footer {
 	clear: both;

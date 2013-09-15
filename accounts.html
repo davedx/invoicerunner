@@ -1,0 +1,68 @@
+<template name="new_account">
+	<script type="text/javascript">
+	  
+	</script>
+<!--
+	<script type="text/javascript" src="https://bridge.paymill.com/"></script>
+-->
+
+	<h3>New account</h3>
+
+    <form id="payment-form" class="form-horizontal">
+    	 <p class="payment-errors alert-error span3" style="display:none;"></p>
+
+      <div class="control-group">
+        <label class="control-label" for="subtotal">
+          Email:
+        </label>
+        <div class="controls">
+	        <input type="text" name="email">
+        </div>
+      </div>
+			<div id="payment-form-cc">
+				<div class="controls controls-row">
+					<div class="span2">
+						<label class="card-number-label">Credit card:</label>
+						<input class="card-number span2" type="text" size="20" value="4111111111111111"/>
+					</div>
+					<div class="span1">
+						<label class="card-cvc-label">CVC</label>
+						<input class="card-cvc span1" type="text" size="4" value="111"/>
+					</div>
+				</div>
+				<div class="controls controls-row">
+					<div class="span3 card-icon"></div>
+				</div>
+				<div class="controls controls-row">
+					<div class="span3">
+						<label class="card-holdername-label">Name on card:</label>
+						<input class="card-holdername span3" type="text" size="20" value="Joe Test"/>
+					</div>
+				</div>
+				<div class="controls controls-row">
+					<div class="span3">
+					<label class="card-expiry-label">Expiry date: (MM/YYYY)</label>
+					<input class="card-expiry-month span1" type="text" size="2" value="12"/>
+
+					<span style="float:left;"> / </span>
+
+					<input class="card-expiry-year span1" type="text" size="4" value="2015"/>
+					</div>
+				</div>
+			</div>
+      <div class="control-group">
+      	<label class="control-label" for="subscription">
+      		Subscription:
+      	</label>
+      	<div class="controls">
+      		<select name="subscription">
+      			<option value="offer_6c9a1f0b9b29cd434b57">Small</option>
+      			<option value="offer_8e1fd0a5602d0b868e1f">Medium</option>
+      			<option value="offer_0eabe23ec810943a7673">Large</option>
+      		</select>
+      	</div>
+      </div>
+	<button class="btn submit-btn">Submit</button>
+	</form>
+
+</template>

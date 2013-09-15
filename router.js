@@ -12,4 +12,9 @@ Router.map(function () {
     controller: 'InvoicesController',
     action: 'new'
   });
+
+  this.route('accounts/new', {
+    controller: 'AccountsController',
+    action: 'new'
+  });
 });

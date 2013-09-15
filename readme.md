@@ -38,3 +38,5 @@ Future features:
 3. OCR module (2nd tier of pricing plan)
 
 4. Generate and send invoices? (module)
+
+5. Localization
