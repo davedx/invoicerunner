@@ -34,9 +34,6 @@ if (Meteor.isClient) {
   }
 
   Template.invoices.events({
-    'change .subtotal': function (event) {
-      //Invoices.update(this._id, {$set: {subtotal: event.target.value}});
-    },
     'click .btn-save': function (event) {
       $(event.target).prop('disabled', true);
       form={};
@@ -44,8 +41,18 @@ if (Meteor.isClient) {
           form[this.name] = this.value;
       });
       form['approved'] = form['approved'] == 'on' ? true : false;
-      Invoices.update(this._id, {$set: form}, function (err) {
+      var id = this._id;
+      Invoices.update(id, {$set: form}, function (err) {
         console.log("Result: "+err);
+        var feedback = $(event.target).next();
+        feedback.show().css('opacity', '1.0');
+        setTimeout(function () {
+          feedback.animate({
+            opacity: 0.25,
+          }, 500, function () {
+            feedback.hide();
+          });
+        }, 1000);
         $(event.target).prop('disabled', false);
       });
       event.preventDefault();

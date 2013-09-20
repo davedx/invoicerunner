@@ -30,10 +30,26 @@ ul {
 	margin-bottom: 4px;
 }
 .subtotal, .total {
-	width: 150px;
+	width: 120px;
+}
+.invoice_number {
+	width: 147px;
+}
+.date_due {
+	width: 147px;
 }
 .tax {
-	width: 100px;
+	width: 80px;
+}
+.btn-save {
+	float: left;
+}
+.save-feedback {
+	display: none;
+	margin: 0 14px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	float: left;
 }
 .navbar-inner {
 	background-color: #f8f8f8; /* fallback color, place your own */

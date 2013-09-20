@@ -82,11 +82,22 @@
         		<a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>
             <form id="invoice-form_{{id}}" class="form-horizontal">
     	      	<h3>{{company}}</h3>
-              <div>
-      	      	Invoice {{invoice_number}}
+              <div class="control-group">
+                <label class="control-label" for="subtotal">
+                  Invoice number:
+                </label>
+                <div class="controls">
+                  <input type="text" name="invoice_number" class="invoice_number" value="{{invoice_number}}">
+                </div>
               </div>
-    	      	<div class="{{date_badge date_due}}">
-                Due: {{long_date date_due}}{{in_days date_due}}
+              <div class="control-group">
+                <label class="control-label" for="subtotal">
+                  Due on:
+                </label>
+                <div class="controls">
+                  <input type="date" name="date_due" class="date_due" value="{{date_due}}">
+                  <div class="{{date_badge date_due}}">{{in_days date_due}}</div>
+                </div>
               </div>
               <div class="control-group">
                 <label class="control-label" for="subtotal">
@@ -134,6 +145,9 @@
               <div class="control-group">
                 <div class="controls">
         	      	<button class="btn-save btn">Save</button>
+                  <div class="alert save-feedback">
+                    Invoice saved.
+                  </div>
                 </div>
               </div>
             </form>
