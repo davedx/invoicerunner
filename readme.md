@@ -4,25 +4,25 @@ PLAN
 TODO
 ----
 
-DONE - 1. Company information: payment instructions (displayed when 'pay' clicked on)
+- VAT For European companies: Note that VAT is included. We will deduct VAT from the subscription prices...
 
-2. Upload invoice (displays thumbnail next to 'open' button on each invoice) - thumbnail??
+- Edit invoice company name field
 
-3. Archives (just make another status called 'archived' that's not displayed easily)
+- Restrict trial account to 3 invoices
 
-4. Change currency for invoice AND global settings
+- Brand filepicker.io styling
 
-5. Change DATE of invoices
+- Set S3 bucket for filepicker to mine
 
-6. Ensure user permissions work
+- Archives (just make another status called 'archived' that's not displayed easily)
 
-7. Write non-logged in static copy/webpages
+- Change currency for invoice AND global settings
 
-8. Payment integration (Paymill?)
+- Ensure user permissions work
 
-9. Make CSS look a little less Bootstrap and a little more professional (more subdued colours?)
-
-10. Test and fix any responsive issues (make it kick ass on mobile)
+- Write non-logged in static copy/webpages:
+	- MARKETING / HOME PAGE
+	- Cancellation/account upgrade page
 
 Launch: Google AdWords it up and advertise on LinkedIn, Twitter, G+
 
@@ -37,6 +37,8 @@ Future features:
 
 3. OCR module (2nd tier of pricing plan)
 
-4. Generate and send invoices? (module)
+4. Email imports
 
-5. Localization
+5. Generate and send invoices? (module)
+
+6. Localization

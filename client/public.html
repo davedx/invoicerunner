@@ -4,7 +4,7 @@
       <div class="navbar-inner">
         <ul class="nav nav-left">
           <li>
-            <a href="{{pathFor 'home'}}">Invoice Tracker</a>
+            <a href="{{pathFor 'home'}}">Invoice Runner</a>
           </li>
           <li>
             <a href="{{pathFor 'pricing'}}">Plans and pricing</a>
@@ -24,20 +24,36 @@
     <section class="main">
       {{yield}}
     </section>
-
-    <footer>
-      {{yield "footer"}}
-    </footer>
   </div>
+  <footer>
+    {{yield "footer"}}
+  </footer>
 </template>
 
 
 <template name="public_home">
-	<h3>Home</h3>
+	<div class="span12 box main-box">
+		<div class="hero-unit">
+			<h1>Invoice Runner</h1>
+			<p>Invoice management software to streamline your business.</p>
+		</div>
+
+		<p>Tracking invoices is time consuming. Ensuring invoices are correct, approved and get paid on time is a critical part of your business's process. There's a lot of software out there that can help, but it's often built to service large enterprises with complicated accounting systems.</p>
+
+		<p>Invoicerunner is designed to help you stay nimble while keeping your business running smoothly. It's always available at your fingertips no matter where you are, but still gets out of the way to let you do what's important -- managing your invoices -- instead of encumbering or confusing you.</p>
+
+		<p>Imagine how much time and paperwork you could save if your invoice management software let you add invoices as you open them, whether you're in your office at your desktop computer or on the move with your smartphone.</p>
+
+		<p>With software it's important that you're able to make an informed decision. We are convinced you will find our software a valuable tool, so we give all users access to a demonstration before they commit to buy. Simply sign up and you'll instantly be able to add, manage and archive invoices to see how the software works.</p>
+
+		<p class="lead pull-left">Sign up now to get instant access to our demo.&nbsp;</p>
+
+		<button class="pull-left btn btn-success freetrial-go freetrial-btn">Start free demo account</button>
+
+	</div>
 </template>
 
 <template name="public_pricing">
-	<h2>Pricing</h2>
 	<div class="row pricing-row">
 		<div class="span4">
 			<div class="box pricing-box">
@@ -125,14 +141,223 @@
 </template>
 
 <template name="public_shortlist">
-	<h2>Sign up to our public beta</h2>
-	<p>The plan you have selected is not yet available, but don't worry -- we are working hard to make sure the most powerful invoice tracking features are available to our premium customers. Enter your email address below to sign up to our public beta mailing list. We will only ever send you <strong>emails about the beta</strong> and how you can get started using our software.</p>
+	<div class="span12 box main-box">
+		<h3>Sign up to our public beta</h3>
+		<p>The plan you have selected is not yet available, but don't worry -- we are working hard to make sure the most powerful invoice tracking features are available to our premium customers. Enter your email address below to sign up to our public beta mailing list. We will only ever send you <strong>emails about the beta</strong> and how you can get started using our software.</p>
 
-	<form>
-		<input type="text" name="shortlist_email"> <button>Submit</button>
-	</form>
+		<form>
+			<input type="text" name="shortlist_email"> <button>Submit</button>
+		</form>
+	</div>
+</template>
+<template name="public_privacypolicy">
+	<div class="span12 box main-box">
+		<h3>Privacy Policy</h3>
+
+		<h4>What information do we collect?</h4>
+
+		<p>We collect information from you when you register on our site.</p>
+
+		<p>When ordering or registering on our site, as appropriate, you may be asked to enter your: name, e-mail address, or credit card information. You may, however, visit our site anonymously.</p>
+
+		<h4>What do we use your information for?</h4>
+
+		<p>Any of the information we collect from you may be used in one of the following ways:</p>
+
+		<ul>
+			<li>To improve our website (we continually strive to improve our website service based on the information and feedback we receive from you)</li>
+			<li>To improve customer service (your information helps us to more effectively respond to your customer service requests and support needs)</li>
+			<li>To process transactions</li>
+		</ul>
+
+		<p>Your information, whether public or private, will not be sold, exchanged, transferred, or given to any other company for any reason whatsoever, without your consent, other than for the express purpose of delivering the purchased product or service requested.</p>
+
+		<h4>How do we protect your information?</h4>
+
+		<p>We implement a variety of security measures to maintain the safety of your personal information when you place an order or enter, submit, or access your personal information.</p>
+
+		<p>We offer the use of a secure server. All supplied sensitive/credit information is transmitted via Secure Socket Layer (SSL) technology and then encrypted into our Payment gateway providers database only to be accessible by those authorized with special access rights to such systems, and are required to keep the information confidential.</p>
+
+		<p>After a transaction, your private information (credit cards, social security numbers, financials, etc.) will not be stored on our servers.</p>
+
+		<h4>Do we use cookies?</h4>
+
+		<p>Yes. Cookies are small files that a site or its service provider transfers to your computers hard drive through your Web browser (if you allow) that enables the sites or service providers systems to recognize your browser and capture and remember certain information.</p>
+
+		<h4>Do we disclose any information to outside parties?</h4>
+
+		<p>We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety.</p>
+
+		<h4>California Online Privacy Protection Act Compliance</h4>
+
+		<p>Because we value your privacy we have taken the necessary precautions to be in compliance with the California Online Privacy Protection Act. We therefore will not distribute your personal information to outside parties without your consent.</p>
+
+		<p>All users of our site may make any changes to their information at anytime by logging into their control panel and going to the 'Edit Profile' page.</p>
+
+		<h4>Childrens Online Privacy Protection Act Compliance</h4>
+
+		<p>We are in compliance with the requirements of COPPA (Childrens Online Privacy Protection Act), we do not collect any information from anyone under 13 years of age. Our website, products and services are all directed to people who are at least 13 years old or older.</p>
+
+		<h4>Terms and Conditions</h4>
+
+		<p>Please also visit our Terms and Conditions section establishing the use, disclaimers, and limitations of liability governing the use of our website at http://www.invoicerunner.com/termsandconditions</p>
+
+		<h4>Your Consent</h4>
+
+		<p>By using our site, you consent to our online privacy policy.</p>
+
+		<h4>Changes to our Privacy Policy</h4>
+
+		<p>If we decide to change our privacy policy, we will post those changes on this page, and/or update the Privacy Policy modification date below.</p>
+
+		<p><strong>This policy was last modified on 29-09-2013</strong></p>
+
+		<h4>Contacting Us</h4>
+
+		<p>If there are any questions regarding this privacy policy you may contact us using the information below.</p>
+
+		<p>Red Sky Forge<br>
+		Groenhof 12<br>
+		Ede, GLD 6715 EM<br>
+		The Netherlands</p>
+
+		<p>support@invoicerunner.com</p>
+	</div>
 </template>
 <template name="public_termsandconditions">
-	<h3>Terms and Conditions</h3>
-	<p>Terms and conditions</p>
+	<div class="span12 box main-box">
+		<h3>Terms and Conditions</h3>
+
+		<h4>User Agreement</h4>
+
+		<p>This document (the &quot;User Agreement&quot;) is a legally binding agreement between you and Red Sky Forge  that governs your use of Red Sky Forge's online services.
+
+		<p>For information about your data privacy, please see our <a href="{{pathFor 'privacypolicy'}}">Privacy Policy.</a></p>
+
+		<h4>Contract Formation</h4>
+
+		<p>By using the InvoiceRunner.com web site (&quot;Service&quot;), or any services of Red Sky Forge, you are agreeing to be bound by the following terms and conditions (&quot;User Agreement&quot;).</p>
+
+		<h4>Changes to the User Agreement</h4>
+
+		<p>Red Sky Forge reserves the right to update and change the User Agreement from time to time without notice and at its sole discretion.</p>
+
+		<p>Any new features or tools which are added to the current Service shall be also subject to the Terms of Service. Continued use of the Service after any such changes shall constitute your consent to such changes.</p>
+
+		<p>You can review the most current version of the User Agreement at any time at: http://invoicerunner.com/termsandconditions. Red Sky Forge reserves the right to update and change the User Agreement by posting updates and changes to the Service website. You are advised to check the Terms of Service from time to time for any updates or changes that may impact you.</p>
+
+		<h4>Violation</h4>
+
+		<p>Violation of any of the terms below will result in the termination of your Account. You agree to use the Service at your own risk.</p>
+
+		<h4>Account Terms</h4>
+
+		<ul>
+			<li>You must be 18 years or older to use this Service.</li>
+			<li>You must provide your full name, a valid email address, and any other information requested in order to complete the signup process.</li>
+			<li>A single username and password (&quot;login&quot;) may only be used by one person.</li>
+			<li>You are responsible for keeping your password secure. Red Sky Forge cannot and will not be liable for any loss or damage from your failure to maintain the security of your account and password.</li>
+			<li>You are responsible for all activity and Content (data, graphics, photos, links) that is uploaded under your Service account.</li>
+			<li>You must not upload, post, host, or transmit unsolicited email, SMS, Instant Messenger, Twitter or spam messages.</li>
+			<li>You must not transmit any worms or viruses or any code of a destructive nature.</li>
+			<li>You may not use the Service for any illegal or unauthorized purpose.</li>
+			<li>You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service without the express written permission by Red Sky Forge.</li>
+			<li>A breach or violation of any of the Account Terms as determined in the sole discretion of Red Sky Forge will result in an immediate termination of your services.</li>
+		</ul>
+
+		<h4>General Conditions</h4>
+
+		<p>You must read, agree with and accept all of the terms and conditions contained in this User Agreement before you may become a member of the Service.</p>
+
+		<ul>
+			<li>We reserve the right to modify or terminate the Service for any reason, without notice at any time.</li>
+			<li>We reserve the right to refuse service to anyone for any reason at any time.</li>
+			<li>Your use of the Service is at your sole risk. The Service is provided on an “as is” and “as available” basis without any warranty or condition, express, implied or statutory.</li>
+			<li>Red Sky Forge does not warrant that the Service will be uninterrupted, timely, secure, or error-free.</li>
+			<li>Red Sky Forge does not warrant that the results that may be obtained from the use of the service will be accurate or reliable.</li>
+			<li>Technical support is only provided to paying account holders and is only available as specified in the subscription plan being paid for.</li>
+			<li>You understand that Red Sky Forge uses third party vendors and hosting partners to provide the necessary hardware, software, networking, storage, and related technology required to run the Service.</li>
+			<li>We may, but have no obligation to, remove Content and Accounts containing Content that we determine in our sole discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party’s intellectual property or these Terms of Service.</li>
+			<li>You understand that your Content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices. Credit Card information is always encrypted during transfer over networks.</li>
+			<li>Red Sky Forge does not warrant that (i) the service will meet your specific requirements, (ii) the service will be uninterrupted, timely, secure, or error-free, (iii) the results that may be obtained from the use of the service will be accurate or reliable, (iv) the quality of any products, services, information, or other material purchased or obtained by you through the service will meet your expectations, and (v) any errors in the Service will be corrected.</li>
+			<li>You expressly understand and agree that in no event shall Red Sky Forge, its affiliates, officers, directors and employees be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data or other intangible losses (even if Red Sky Forge has been advised of the possibility of such damages), resulting from: (i) the use or the inability to use the service; (ii) the cost of procurement of substitute goods and services resulting from any goods, data, information or services purchased or obtained or messages received or transactions entered into through or from the service; (iii) unauthorized access to or alteration of your transmissions or data; (iv) statements or conduct of any third party on the service; (v) or any other matter relating to the service.</li>
+			<li>The failure of Red Sky Forge to exercise or enforce any right or provision of the Terms of Service shall not constitute a waiver of such right or provision. The Terms of Service constitutes the entire agreement between you and Red Sky Forge and govern your use of the Service, superceding any prior agreements between you and Red Sky Forge (including, but not limited to, any prior versions of the Terms of Service).</li>
+			<li>Red Sky Forge reserves the right to assign this User Agreement or any part thereof without restrictions.</li>
+			<li>Questions about the Terms of Service should be sent to support email support@invoicerunner.com.</li>
+		</ul>
+
+		<h4>Modifications to the Service and Prices</h4>
+
+		<p>Red Sky Forge reserves the right at any time and from time to time to modify or discontinue, temporarily or permanently, the Service (or any part thereof) with or without notice.</p>
+
+		<p>Prices of all Services, including but not limited to monthly subscription plan fees to the Service, are subject to change upon 30 days notice from us. Such notice may be provided at any time by posting the changes to the Service site (invoicerunner.com) or the Service itself.</p>
+
+		<p>Red Sky Forge shall not be liable to you or to any third party for any modification, price change, suspension or discontinuance of the Service.</p>
+
+		<h4>Payment of Fees, Refunds, Upgrading and Downgrading</h4>
+
+		<p>The Service is billed in advance on a monthly basis and is non-refundable. There will be no refunds or credits for partial months of service, upgrade/downgrade refunds, or refunds for months unused with an open account.</p>
+
+		<p>An upgrade from the free plan to any paid plan will immediately bill you.</p>
+
+		<p>All fees are exclusive of all taxes, levies, or duties imposed by taxing authorities, and you shall be responsible for payment of all such taxes, levies, or duties, excluding only European VAT taxes.</p>
+
+		<p>For any upgrade or downgrade in plan level outside of a 30-day trial period, the credit card that you provided will automatically be charged the new rate on your next billing cycle.</p>
+
+		<p>Downgrading your Service may cause the loss of Content, features, or capacity of your Account. Red Sky Forge does not accept any liability for such loss. Downgrading your Service may not be completed without direct action from you to remove Content, features, or capacity in place that exceeds the Content, features, or capacity offered by the lesser plan.</p>
+
+		<p>Canceling your Service will result in the immediate and irrevocable deletion of your Content.</p>
+
+		<h4>Cancellation and Termination</h4>
+
+		<p>Verbal, physical, written or other abuse (including threats of abuse) of any Red Sky Forge customer, employee, member, or officer will result in immediate account termination.</p>
+
+		<p>You can cancel your account at any time by emailing support@invoicerunner.com.</p>
+
+		<p>Your cancellation will take effect immediately and you will not be charged again. However, no refunds will be issued for any previous charges, in whole or in part.</p>
+
+		<p>All of your Content will be immediately deleted from the Service upon cancellation. This information can not be recovered once your account is cancelled.</p>
+
+		<p>We reserve the right to modify or terminate your Service for any reason, without notice at any time.</p>
+
+		<h4>Entire Agreement</h4>
+
+		<p>This User Agreement constitutes all the terms and conditions agreed upon between you and Red Sky Forge and supercedes any prior agreements, whether written or oral. Any additional or different terms or conditions in any written or oral communication from you to Red Sky Forge are void. You agree and accept that you have not accepted the terms and conditions of this User Agreement in reliance of or to any oral or written representations made by Red Sky Forge not contained in this User Agreement.</p>
+
+		<h4>Severability</h4>
+
+		<p>Should for any reason or to any extent any provision of this User Agreement be held invalid or unenforceable, such invalidity or enforceability shall not in any manner affect or render invalid or unenforceable the remaining provisions of this User Agreement and the application of that provision shall be enforced to the extent permitted by law.</p>
+
+		<h4>Governing Law and Disputes</h4>
+
+		<p>This User Agreement shall be governed and construed in accordance with the substantive laws of the Netherlands. Any dispute, controversy or claim arising out of or in connection with this User Agreement will be subject to the jurisdiction of the courts of the Netherlands.</p>
+
+		<h4>Red Sky Forge Mailing Address</h4>
+
+		<p>Red Sky Forge<br>
+		Groenhof 12<br>
+		Ede 6715 EM<br>
+		The Netherlands</p>
+
+	</div>
+</template>
+<template name="publicFooter">
+	<div class="span8 offset4">
+		<ul>
+			<li>
+				<a href="{{pathFor 'termsandconditions'}}">Terms and conditions</a>
+			</li>
+			<li>
+				<a href="{{pathFor 'privacypolicy'}}">Privacy policy</a>
+			</li>
+			<li>
+				<a href="{{pathFor 'pricing'}}">Pricing</a>
+			</li>
+			<li>
+				<a href="{{pathFor 'home'}}">Invoice management software</a>
+		</ul>
+	</div>
+	<p class="clearfix"></p>
+	<p class="lead redskyforge">· A <a href="http://redskyforge.com">Red Sky Forge</a> product ·</p>
+	</div>
 </template>

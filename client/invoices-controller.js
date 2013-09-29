@@ -37,8 +37,14 @@ if (Meteor.isClient) {
       form['approved'] = form['approved'] == 'on' ? true : false;
       var id = this._id;
       Invoices.update(id, {$set: form}, function (err) {
-        console.log("Result: "+err);
+        var msg;
+        if(err) {
+          msg = 'Error saving invoice. Try again in a moment.';
+        } else {
+          msg = 'Invoice saved.';
+        }
         var feedback = $(event.target).next();
+        feedback.html(msg);
         feedback.show().css('opacity', '1.0');
         setTimeout(function () {
           feedback.animate({
@@ -79,7 +85,6 @@ if (Meteor.isClient) {
   Template.layout.helpers({
     if: function(conditional, options) {
       var user = Meteor.user();
-      console.log(user);
       if(user && user.profile && user.profile.accountType && user.profile.accountType === 'trial') {
         return options.fn(this);
       }
@@ -175,7 +180,7 @@ if (Meteor.isClient) {
       this.render('invoices');
 
       this.render({
-        invoicesFooter: { to: 'footer', waitOn: false, data: false }
+        publicFooter: { to: 'footer', waitOn: false, data: false }
       });
     },
 
@@ -183,7 +188,7 @@ if (Meteor.isClient) {
       this.render('new_invoice');
 
       this.render({
-        invoicesFooter: { to: 'footer', waitOn: false, data: false }
+        publicFooter: { to: 'footer', waitOn: false, data: false }
       });
     }
   });

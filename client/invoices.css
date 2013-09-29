@@ -47,3 +47,9 @@ ul {
   border-radius: 6px;
   margin-bottom: 20px;
 }
+
+.upload-btn {
+	height: 40px;
+	width: 220px;
+	margin: 40px;
+}

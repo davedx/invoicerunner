@@ -54,5 +54,11 @@ Router.map(function () {
     action: 'public_termsandconditions'
   });
 
+  this.route('privacypolicy', {
+    controller: 'PublicController',
+    layoutTemplate: 'public_layout',
+    action: 'public_privacypolicy'
+  });
+
 });
 

@@ -12,3 +12,4 @@ loadpicker
 accounts-password
 accounts-ui
 http
+force-ssl

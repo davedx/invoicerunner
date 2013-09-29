@@ -1,10 +1,10 @@
 body {
 	background-color: #ddd;
+	background-image: url('/low_contrast_linen.png');
 }
 @media (min-width: 980px) {
   body {
     padding-top: 80px;
-    padding-bottom: 40px;
   }
 }
 .navbar-inner {
@@ -54,12 +54,33 @@ body {
 .nav-login {
 	padding: 8px 15px;
 }
+.main h4 {
+	color: #eee;
+}
 .box {
 	background-color: white;
 	border-radius: 5px;
 	border: 1px solid #777;
-	box-shadow: 2px 2px 4px 1px #bbb;
+	box-shadow: 2px 2px 4px 1px #222;
 }
 footer {
 	clear: both;
+	padding-top: 60px;
+	margin-top: 60px;
+	margin-bottom: 0;
+	background: white;
+	height: 500px;
+}
+footer ul {
+}
+footer li {
+	float: left;
+	margin-right: 30px;
+}
+.redskyforge {
+	color: #222;
+	text-align: center;
+}
+.redskyforge a {
+	color: #500;
 }

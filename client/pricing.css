@@ -5,6 +5,9 @@
 	padding-top: 10px;
 	line-height: 30px;
 }
+.pricing-row h4 {
+	color: #444;
+}
 .pricing-row a {
 	margin: 10px;
 }
