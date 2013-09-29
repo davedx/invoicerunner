@@ -10,7 +10,7 @@
             <a href="{{pathFor 'pricing'}}">Plans and pricing</a>
           </li>
           <li>
-            <a href="{{pathFor 'accounts/new'}}">Sign up</a>
+            <a href="{{pathFor 'freetrial'}}">Sign up</a>
           </li>
         </ul>
         <ul class="nav pull-right nav-login">
@@ -61,6 +61,7 @@
 				<a href="{{pathFor 'shortlist'}}" class="btn btn-primary">Try now, free</a>
 				<ul>
 					<li><i class="icon-check"></i> Automatic invoice entry (OCR)</li>
+					<li><i class="icon-check"></i> Automatic invoice entry (email attachments)</li>
 					<li><i class="icon-check"></i> Unlimited invoices</li>
 					<li><i class="icon-check"></i> Unlimited companies</li>
 					<li><i class="icon-check"></i> Nothing to install, runs in your browser</li>
@@ -77,6 +78,7 @@
 				<a href="{{pathFor 'shortlist'}}" class="btn btn-primary">Try now, free</a>
 				<ul>
 					<li><i class="icon-check"></i> Automatic invoice entry (OCR)</li>
+					<li><i class="icon-check"></i> Automatic invoice entry (email attachments)</li>
 					<li><i class="icon-check"></i> Financial charts and reporting</li>
 					<li><i class="icon-check"></i> Unlimited invoices</li>
 					<li><i class="icon-check"></i> Unlimited companies</li>
@@ -91,7 +93,35 @@
 </template>
 
 <template name="public_freetrial">
-	<h3>Free trial</h3>
+	<div class="span12 box main-box">
+	<h3>Start consolidating the management of your invoices today. Take the stress out of tracking what's due, when, and to who.</h3>
+  <form class="form-horizontal">
+    <div class="control-group">
+      <label class="control-label" for="subtotal">
+        Email:
+      </label>
+      <div class="controls">
+        <input type="text" name="email">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="subtotal">
+        Password:
+      </label>
+      <div class="controls">
+        <input type="password" name="password">
+      </div>
+    </div>
+    <div class="control-group">
+    	<div class="controls">
+				<button class="btn btn-success freetrial-btn">Submit</button>
+			</div>
+		</div>
+    <div class="trial-footer">
+    	<h4>Signing up to our free trial gives you a fully functional account with up to three invoices, so you can learn how Invoice Runner works and how it will help you in the day-to-day running of your business. If you like what you see, click the <strong>&quot;Open full account&quot;</strong> button at any time to upgrade to one of our paid plans.</h4>
+    </div>
+  </form>
+</div>
 </template>
 
 <template name="public_shortlist">
@@ -101,4 +131,8 @@
 	<form>
 		<input type="text" name="shortlist_email"> <button>Submit</button>
 	</form>
+</template>
+<template name="public_termsandconditions">
+	<h3>Terms and Conditions</h3>
+	<p>Terms and conditions</p>
 </template>

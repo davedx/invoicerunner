@@ -11,11 +11,6 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <ul class="nav nav-left">
-          <!--
-          <li>
-            <a href="{{pathFor 'home'}}">Home</a>
-          </li>
-        -->
           <li class="hidden-phone">
             <a href="{{pathFor 'invoices'}}">Invoices</a>
           </li>
@@ -26,11 +21,13 @@
             <a id="nav_payable" href="{{pathFor 'invoices'}}?tab=payable">Payable</a>
           </li>
           <li>
-            <a href="{{pathFor 'new-invoice'}}">New</a>
+            <a href="{{pathFor 'new-invoice'}}">New invoice</a>
           </li>
-          <li>
-            <a href="{{pathFor 'accounts/new'}}">New account</a>
+          {{#if isTrialAccount}}
+          <li id="openfull-btn">
+            <a href="{{pathFor 'accounts/new'}}">Open full account</a>
           </li>
+          {{/if}}
         </ul>
         <ul class="nav pull-right nav-login">
           <li>

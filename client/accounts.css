@@ -1,0 +1,14 @@
+.newaccount-btn {
+	height: 40px;
+	width: 220px;
+}
+.newaccount-footer {
+	margin: 30px 40px 20px;
+}
+.newaccount-footer h4 {
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+.newaccount-footer h4 span {
+	font-weight: bold;
+}

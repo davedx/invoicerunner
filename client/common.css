@@ -37,17 +37,19 @@ body {
 	border-radius: 4px;
 	margin: 0 4px;
 	border: 1px solid #ccc;
-	/* Gradients for modern browsers, replace as you see fit */
-	background-image: -moz-linear-gradient(top, #ccc, #eee);
-	background-image: -ms-linear-gradient(top, #333333, #222222);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ccc), to(#eee));
-	background-image: -webkit-linear-gradient(top, #ddf, #cce);
-	background-image: -o-linear-gradient(top, #333333, #222222);
-	background-image: linear-gradient(top, #333333, #222222);
-	background-repeat: repeat-x;
 
-	/* IE8-9 gradient filter */
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+	background-image: -moz-linear-gradient(top, #ddf, #cce);
+	background-image: -ms-linear-gradient(top, #ddf, #cce);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ddf), to(#cce));
+	background-image: -webkit-linear-gradient(top, #ddf, #cce);
+	background-image: -o-linear-gradient(top, #ddf, #cce);
+	background-image: linear-gradient(top, #ddf, #cce);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ddf', endColorstr='#cce', GradientType=0);
+}
+#openfull-btn {
+	font-weight: bold;
+	border: 1px solid #444;
 }
 .nav-login {
 	padding: 8px 15px;

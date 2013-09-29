@@ -1,61 +1,71 @@
 <template name="new_account">
-	<h3>New account</h3>
+<div class="span12 box main-box">
+	<h3>Consolidate your invoice management. Choose the plan that suits your business.</h3>
 
-    <form id="payment-form" class="form-horizontal">
-    	 <p class="payment-errors alert-error span3" style="display:none;"></p>
+  <form id="payment-form" class="form-horizontal">
+		<p class="payment-errors alert-error span3" style="display:none;"></p>
 
-      <div class="control-group">
-        <label class="control-label" for="subtotal">
-          Email:
-        </label>
-        <div class="controls">
-	        <input type="text" name="email">
-        </div>
-      </div>
-			<div id="payment-form-cc">
-				<div class="controls controls-row">
-					<div class="span2">
-						<label class="card-number-label">Credit card:</label>
-						<input class="card-number span2" type="text" size="20" value="4111111111111111"/>
-					</div>
-					<div class="span1">
-						<label class="card-cvc-label">CVC</label>
-						<input class="card-cvc span1" type="text" size="4" value="111"/>
-					</div>
-				</div>
-				<div class="controls controls-row">
-					<div class="span3 card-icon"></div>
-				</div>
-				<div class="controls controls-row">
-					<div class="span3">
-						<label class="card-holdername-label">Name on card:</label>
-						<input class="card-holdername span3" type="text" size="20" value="Joe Test"/>
-					</div>
-				</div>
-				<div class="controls controls-row">
-					<div class="span3">
-					<label class="card-expiry-label">Expiry date: (MM/YYYY)</label>
-					<input class="card-expiry-month span1" type="text" size="2" value="12"/>
-
-					<span style="float:left;"> / </span>
-
-					<input class="card-expiry-year span1" type="text" size="4" value="2015"/>
-					</div>
+		<div id="payment-form-cc">
+			<div class="control-group">
+				<label class="card-number-label control-label" for="card-number">Credit card number:</label>
+				<div class="controls">
+					<input class="card-number span2" type="text" size="20" value="4111111111111111">
 				</div>
 			</div>
-      <div class="control-group">
-      	<label class="control-label" for="subscription">
-      		Subscription:
-      	</label>
-      	<div class="controls">
-      		<select name="subscription">
-      			<option value="offer_6c9a1f0b9b29cd434b57">Small</option>
-      			<option value="offer_8e1fd0a5602d0b868e1f">Medium</option>
-      			<option value="offer_0eabe23ec810943a7673">Large</option>
-      		</select>
-      	</div>
-      </div>
-	<button class="btn submit-btn">Submit</button>
+			<div class="control-group">
+				<label class="card-expiry-label control-label" for="card-expiry-month">Expiry date: (MM/YYYY)</label>
+				<div class="controls">
+					<input class="card-expiry-month span1" type="text" size="2" value="12">
+					<span>&nbsp;</span><span class="hidden-phone"> / </span><span>&nbsp;</span>
+					<input class="card-expiry-year span1" type="text" size="4" value="2015">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="card-holdername-label control-label" for="card-holdername">Name on card:</label>
+				<div class="controls">
+					<input class="card-holdername span3" type="text" size="20" value="Joe Test">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="card-cvc-label control-label">CVC</label>
+				<div class="controls">
+					<input class="card-cvc span1" type="text" size="4" value="111">
+				</div>
+			</div>
+			<div class="controls controls-row">
+				<div class="span3 card-icon"></div>
+			</div>
+	    <div class="control-group">
+	    	<label class="control-label" for="subscription">
+	    		Subscription:
+	    	</label>
+	    	<div class="controls">
+	    		<select name="subscription" class="subscription">
+	    			<option value="offer_6c9a1f0b9b29cd434b57">Silver</option>
+	    			<option value="offer_8e1fd0a5602d0b868e1f" selected="selected">Gold</option>
+	    			<option value="offer_0eabe23ec810943a7673">Platinum</option>
+	    		</select>
+	    	</div>
+	    </div>
+	    <div class="control-group">
+	    	<div class="controls">
+	    		<label class="checkbox">
+						<input type="checkbox"> I have read the <a href="{{pathFor 'termsandconditions'}}">Terms and Conditions</a>
+					</label>
+				</div>
+			</div>
+	    <div class="control-group">
+	    	<div class="controls">
+					<button class="btn btn-success newaccount-btn">Submit</button>
+				</div>
+			</div>
+		</div>
 	</form>
 
+  <div class="newaccount-footer alert alert-info">
+  	<h4>Your plan: <span id="currentPlan">Gold</span> for $<span id="currentPrice">99</span> per month</h4>
+  	<p>You can cancel or upgrade your plan at any time.</p>
+  	<p>This plan includes <strong>industry strength SSL security</strong>, <strong>unlimited</strong> invoices and companies and <strong>email and chat</strong> support.</p>
+	</div>
+</div>
 </template>

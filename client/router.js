@@ -19,7 +19,7 @@ Router.map(function () {
 
   this.route('accounts/new', {
     controller: 'AccountsController',
-    layoutTemplate: 'public_layout',
+    layoutTemplate: 'layout',
     action: 'new'
   });
 
@@ -46,6 +46,12 @@ Router.map(function () {
     controller: 'PublicController',
     layoutTemplate: 'public_layout',
     action: 'public_shortlist'
+  });
+
+  this.route('termsandconditions', {
+    controller: 'PublicController',
+    layoutTemplate: 'public_layout',
+    action: 'public_termsandconditions'
   });
 
 });

@@ -1,5 +1,28 @@
 if (Meteor.isClient) {
+  Template.new_account.helpers({
+    currentPlan: function () {
+      switch(Template.new_account.plan) {
+        case 0: return 'Silver';
+        case 1: return 'Gold';
+        case 2: return 'Platinum';
+        default: return '';
+      }
+    },
+    currentPrice: function () {
+      return '99';
+    }
+  });
   Template.new_account.events({
+    'change .subscription': function (event) {
+      var plans = [
+        { name: 'Silver', price: 19 },
+        { name: 'Gold', price: 49 },
+        { name: 'Platinum', price: 99 }
+      ];
+      var plan = event.target.selectedIndex;
+      $('#currentPlan').html(plans[plan].name);
+      $('#currentPrice').html(plans[plan].price);
+    },
     'click .submit-btn': function (event) {
 
       $('.submit-btn').attr("disabled", "disabled");
@@ -62,6 +85,10 @@ if (Meteor.isClient) {
     template: 'accounts',
 
     new: function () {
+      if(!Meteor.user()) {
+        console.log("Bouncing");
+        return Router.go('freetrial');
+      }
       this.render('new_account');
       
       //paymill bridge

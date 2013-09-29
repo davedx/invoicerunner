@@ -1,0 +1,16 @@
+.main-box {
+	padding: 20px;
+}
+.main-box h3 {
+	margin: 20px 40px;
+}
+.freetrial-btn {
+	height: 40px;
+	width: 220px;
+}
+.trial-footer {
+	margin: 30px 40px 20px;
+}
+.trial-footer h4 {
+	font-weight: normal;
+}

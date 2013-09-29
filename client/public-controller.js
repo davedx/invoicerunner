@@ -1,6 +1,27 @@
 if (Meteor.isClient) {
 
-  Template.public_home.events({
+  Template.public_freetrial.events({
+    'click .freetrial-btn': function (event) {
+      console.log("submitting form");
+      form={};
+      $.each($(event.target).closest('form').serializeArray(), function() {
+          form[this.name] = this.value;
+      });
+      form.profile = {
+        accountType: 'trial'
+      };
+      console.log(form);
+
+      Accounts.createUser(form, function (err) {
+        if(err) {
+          console.error("Error creating user: ", err);
+        } else {
+          Router.go('invoices');
+        }
+      });
+
+      event.preventDefault();
+    }
   });
 
   PublicController = RouteController.extend({
@@ -21,6 +42,10 @@ if (Meteor.isClient) {
 
     public_shortlist: function () {
       this.render('public_shortlist');
+    },
+
+    public_termsandconditions: function () {
+      this.render('public_termsandconditions');
     }
   });
 }

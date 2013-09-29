@@ -76,6 +76,14 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.layout.helpers({
+    if: function(conditional, options) {
+      var user = Meteor.user();
+      if(user.profile.accountType && user.profile.accountType === 'trial') {
+        return options.fn(this);
+      }
+    }
+  });
   Template.invoices.helpers({
     date_badge: function (date) {
         var dt = (date - new Date())/86000000;
