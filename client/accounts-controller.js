@@ -1,13 +1,4 @@
 if (Meteor.isClient) {
-  Router.configure({
-    layout: 'layout',
-    notFoundTemplate: 'notFound',
-    loadingTemplate: 'loading'
-  });
-
-  Subscriptions = {
-  };
-
   Template.new_account.events({
     'click .submit-btn': function (event) {
 
@@ -72,6 +63,18 @@ if (Meteor.isClient) {
 
     new: function () {
       this.render('new_account');
+      
+      //paymill bridge
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://bridge.paymill.com/';
+      script.onload = function () {
+        console.log("Loaded paymill");
+      }
+
+      //Load the script tag
+      var head = document.getElementsByTagName('head')[0];
+      return head.appendChild(script);
     }
   });
 }

@@ -1,10 +1,4 @@
 if (Meteor.isClient) {
-  Router.configure({
-    layout: 'layout',
-    notFoundTemplate: 'notFound',
-    loadingTemplate: 'loading'
-  });
-
   Subscriptions = {
     invoices: Meteor.subscribe('invoices'),
     companies: Meteor.subscribe('companies')

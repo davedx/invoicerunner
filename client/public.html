@@ -1,0 +1,104 @@
+<template name="public_layout">
+  <div class="container">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <ul class="nav nav-left">
+          <li>
+            <a href="{{pathFor 'home'}}">Invoice Tracker</a>
+          </li>
+          <li>
+            <a href="{{pathFor 'pricing'}}">Plans and pricing</a>
+          </li>
+          <li>
+            <a href="{{pathFor 'accounts/new'}}">Sign up</a>
+          </li>
+        </ul>
+        <ul class="nav pull-right nav-login">
+          <li>
+            {{loginButtons align="right"}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="main">
+      {{yield}}
+    </section>
+
+    <footer>
+      {{yield "footer"}}
+    </footer>
+  </div>
+</template>
+
+
+<template name="public_home">
+	<h3>Home</h3>
+</template>
+
+<template name="public_pricing">
+	<h2>Pricing</h2>
+	<div class="row pricing-row">
+		<div class="span4">
+			<div class="box pricing-box">
+				<h3>Silver</h3>
+				<h4>$19/month</h4>
+				<a href="{{pathFor 'accounts/new'}}" class="btn btn-primary">Try now, free</a>
+				<ul>
+					<li><i class="icon-check"></i> Unlimited invoices</li>
+					<li><i class="icon-check"></i> Unlimited companies</li>
+					<li><i class="icon-check"></i> Nothing to install, runs in your browser</li>
+					<li><i class="icon-check"></i> SSL encryption (like online banks)</li>
+					<li><i class="icon-check"></i> 1 user</li>
+					<li><i class="icon-check"></i> Email and chat support</li>
+				</ul>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="box pricing-box">
+				<h3>Gold</h3>
+				<h4>$49/month</h4>
+				<a href="{{pathFor 'shortlist'}}" class="btn btn-primary">Try now, free</a>
+				<ul>
+					<li><i class="icon-check"></i> Automatic invoice entry (OCR)</li>
+					<li><i class="icon-check"></i> Unlimited invoices</li>
+					<li><i class="icon-check"></i> Unlimited companies</li>
+					<li><i class="icon-check"></i> Nothing to install, runs in your browser</li>
+					<li><i class="icon-check"></i> SSL encryption (like online banks)</li>
+					<li><i class="icon-check"></i> 10 users</li>
+					<li><i class="icon-check"></i> Email and chat support</li>
+				</ul>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="box pricing-box">
+				<h3>Platinum</h3>
+				<h4>$99/month</h4>
+				<a href="{{pathFor 'shortlist'}}" class="btn btn-primary">Try now, free</a>
+				<ul>
+					<li><i class="icon-check"></i> Automatic invoice entry (OCR)</li>
+					<li><i class="icon-check"></i> Financial charts and reporting</li>
+					<li><i class="icon-check"></i> Unlimited invoices</li>
+					<li><i class="icon-check"></i> Unlimited companies</li>
+					<li><i class="icon-check"></i> Nothing to install, runs in your browser</li>
+					<li><i class="icon-check"></i> SSL encryption (like online banks)</li>
+					<li><i class="icon-check"></i> Unlimited users</li>
+					<li><i class="icon-check"></i> Email, chat and phone support</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="public_freetrial">
+	<h3>Free trial</h3>
+</template>
+
+<template name="public_shortlist">
+	<h2>Sign up to our public beta</h2>
+	<p>The plan you have selected is not yet available, but don't worry -- we are working hard to make sure the most powerful invoice tracking features are available to our premium customers. Enter your email address below to sign up to our public beta mailing list. We will only ever send you <strong>emails about the beta</strong> and how you can get started using our software.</p>
+
+	<form>
+		<input type="text" name="shortlist_email"> <button>Submit</button>
+	</form>
+</template>

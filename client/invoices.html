@@ -1,5 +1,5 @@
 <head>
-  <title>Invoices</title>
+  <title>Invoice Tracker</title>
   <meta name="viewport" content="initial-scale=1">
 </head>
 
@@ -78,7 +78,7 @@
     <ul class="processing">
       {{#each processing}}
         <li>
-        	<div class="invoice">
+        	<div class="box invoice">
         		<a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>
             <form id="invoice-form_{{id}}" class="form-horizontal">
     	      	<h3>{{company}}</h3>
@@ -162,7 +162,7 @@
     <ul class="payable">
       {{#each payable}}
         <li>
-        	<div class="invoice">
+        	<div class="box invoice">
         		<a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>
   	      	<h3>{{company}}</h3>
   	      	Invoice {{invoice_number}}<br>

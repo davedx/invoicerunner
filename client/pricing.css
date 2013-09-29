@@ -1,0 +1,16 @@
+.pricing-row {
+	text-align: center;
+}
+.pricing-row h3 {
+	padding-top: 10px;
+	line-height: 30px;
+}
+.pricing-row a {
+	margin: 10px;
+}
+.pricing-row li {
+	padding: 8px;
+}
+.pricing-box {
+	min-height: 470px;
+}
