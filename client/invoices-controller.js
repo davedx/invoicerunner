@@ -79,7 +79,8 @@ if (Meteor.isClient) {
   Template.layout.helpers({
     if: function(conditional, options) {
       var user = Meteor.user();
-      if(user.profile.accountType && user.profile.accountType === 'trial') {
+      console.log(user);
+      if(user && user.profile && user.profile.accountType && user.profile.accountType === 'trial') {
         return options.fn(this);
       }
     }

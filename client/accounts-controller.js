@@ -1,17 +1,4 @@
 if (Meteor.isClient) {
-  Template.new_account.helpers({
-    currentPlan: function () {
-      switch(Template.new_account.plan) {
-        case 0: return 'Silver';
-        case 1: return 'Gold';
-        case 2: return 'Platinum';
-        default: return '';
-      }
-    },
-    currentPrice: function () {
-      return '99';
-    }
-  });
   Template.new_account.events({
     'change .subscription': function (event) {
       var plans = [
@@ -23,25 +10,25 @@ if (Meteor.isClient) {
       $('#currentPlan').html(plans[plan].name);
       $('#currentPrice').html(plans[plan].price);
     },
-    'click .submit-btn': function (event) {
+    'click .newaccount-btn': function (event) {
 
-      $('.submit-btn').attr("disabled", "disabled");
+      $('.newaccount-btn').attr("disabled", "disabled");
       var formlang = 'en';
       if (false == paymill.validateCardNumber($('.card-number').val())) {
         $(".payment-errors").text(translation[formlang]["error"]["invalid-card-number"]);
         $(".payment-errors").css("display","inline-block");
-        $(".submit-button").removeAttr("disabled");
+        $(".newaccount-btn").removeAttr("disabled");
       }
       if (false == paymill.validateExpiry($('.card-expiry-month').val(), $('.card-expiry-year').val())) {
         $(".payment-errors").text(translation[formlang]["error"]["invalid-card-expiry-date"]);
         $(".payment-errors").css("display","inline-block");
-        $(".submit-button").removeAttr("disabled");
+        $(".newaccount-btn").removeAttr("disabled");
       }
 
       if ($('.card-holdername').val() == '') {
         $(".payment-errors").text(translation[formlang]["error"]["invalid-card-holdername"]);
         $(".payment-errors").css("display","inline-block");
-        $(".submit-button").removeAttr("disabled");
+        $(".newaccount-btn").removeAttr("disabled");
       }
       var params = {
         amount_int: 0, // E.g. "15" for 0.15 Eur
@@ -52,6 +39,7 @@ if (Meteor.isClient) {
         cvc: $('.card-cvc').val(),
         cardholder: $('.card-holdername').val()
       };
+      console.log("Creating paymill token");
 
       window.PAYMILL_PUBLIC_KEY = '60315688593e60a65c42b6b99aef837c';
       paymill.createToken(params, function (error, result) {
@@ -67,13 +55,16 @@ if (Meteor.isClient) {
               form[this.name] = this.value;
           });
           form.ccToken = result.token;
+          form.subscriptionIndex = $('.subscription').get(0).selectedIndex;
           console.log(form);
 
-          Meteor.call('createAccount', form,
-            function (error, invoice) {
-              if (!error) {
-                console.log("It worked!");
-              }
+          Meteor.call('upgradeAccount', form, function (err, account) {
+            if(!err) {
+              console.log("Success!");
+              Router.go('invoices');
+            } else {
+              console.error(err);
+            }
           });
           event.preventDefault();
         }
@@ -85,10 +76,10 @@ if (Meteor.isClient) {
     template: 'accounts',
 
     new: function () {
-      if(!Meteor.user()) {
-        console.log("Bouncing");
+      if(!Meteor.user() && !Meteor.loggingIn()) {
         return Router.go('freetrial');
       }
+
       this.render('new_account');
       
       //paymill bridge

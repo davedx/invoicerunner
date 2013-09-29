@@ -1,6 +1,11 @@
 Invoices = new Meteor.Collection('invoices');
 Companies = new Meteor.Collection('companies');
 
+var NonEmptyString = Match.Where(function (x) {
+  check(x, String);
+  return x.length !== 0;
+});
+
 Invoices.allow({
   insert: function (userId, invoice) {
     return false; // no cowboy inserts -- use createInvoice method
@@ -23,28 +28,28 @@ Invoices.allow({
   }
 });
 
-var NonEmptyString = Match.Where(function (x) {
-  check(x, String);
-  return x.length !== 0;
-});
 
 if (Meteor.isServer) {
 
   Meteor.methods({
-    createAccount: function (options) {
+    upgradeAccount: function (options) {
+      
       var paymillKey = 'c807ea7cfc00c6faa443b629656a5834';
       
       var baseUrl = 'https://api.paymill.com/v2/';
 
-      console.log("Paymill: creating new client");
+      var user = Meteor.user();
+      var email = user.emails[0].address;
+
+      console.log("Paymill: creating new client: "+email);
       var clientResult = HTTP.post(baseUrl + 'clients', {
         auth: paymillKey + ':',
         params: {
-          email: options.email,
+          email: email,
           description: 'New client'
         }
       });
-      console.log(clientResult);
+      //console.log(clientResult);
       if(clientResult.statusCode !== 200) {
         console.error("Error connecting to Paymill");
         throw new Meteor.Error(500, "Paymill error");
@@ -59,7 +64,7 @@ if (Meteor.isServer) {
           client: clientId
         }
       });
-      console.log(paymentResult);
+      //console.log(paymentResult);
       if(paymentResult.statusCode !== 200) {
         console.error("Error connecting to Paymill");
         throw new Meteor.Error(500, "Paymill error");
@@ -75,15 +80,37 @@ if (Meteor.isServer) {
           payment: paymentId
         }
       });
-      console.log(subResult);
+      //console.log(subResult);
       if(subResult.statusCode !== 200) {
         console.error("Error connecting to Paymill");
         throw new Meteor.Error(500, "Paymill error");
       }
-    }
-  });
-} else {
-  Meteor.methods({
+      
+      // set the account to the correct type
+      var index = options.subscriptionIndex;
+      var plans = [
+        { name: 'silver', price: 19 },
+        { name: 'gold', price: 49 },
+        { name: 'platinum', price: 99 }
+      ];
+      var plan = plans[index];
+      console.log("Setting account type to: "+plan.name+" for user: "+user._id);
+      //console.log(user);
+
+      var foundUser = Meteor.users.findOne(this.userId);
+      if(foundUser) {
+        Meteor.users.update(this.userId, {
+          $set: {
+            'profile.accountType': plan.name
+          }
+        });
+        console.log("Updated user!");
+        return {status: 'ok'};
+      } else {
+        throw new Error("You are not logged in.");
+      }
+    },
+
     // options should include: title, description, x, y, public
     createInvoice: function (options) {
       check(options, {
