@@ -77,7 +77,14 @@
         	<div class="box invoice">
         		<a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>
             <form id="invoice-form_{{id}}" class="form-horizontal">
-    	      	<h3>{{company}}</h3>
+              <div class="control-group">
+                <label class="control-label" for="company">
+                  Company:
+                </label>
+                <div class="controls">
+                  <input type="text" name="company" class="company" value="{{company}}">
+                </div>
+              </div>
               <div class="control-group">
                 <label class="control-label" for="subtotal">
                   Invoice number:
@@ -115,7 +122,6 @@
                     <span class="add-on">$</span>
                     <input type="text" name="tax" class="tax" value="{{tax}}">
                   </div>
-                  <span class="tax-rate text-info">=~<strong class="tax_rate_amount">{{tax_rate}}%</strong></span>
                 </div>
               </div>
               <div class="control-group">
@@ -127,7 +133,6 @@
                     <span class="add-on">$</span>
                     <input type="text" name="total" class="total" value="{{total}}">
                   </div>
-                  <span class="text-error"><span class="{{total_validates true}}"></span>{{total_validates false}}</span>
                 </div>
               </div>
               <div class="control-group">
@@ -185,7 +190,6 @@
                     <span class="add-on">$</span>
                     <input type="text" class="tax" value="{{tax}}" disabled>
                   </div>
-                  <span class="tax-rate text-info">=~<strong class="tax_rate_amount">{{tax_rate}}%</strong></span>
                 </div>
               </div>
               <div class="control-group">
@@ -197,7 +201,6 @@
                     <span class="add-on">$</span>
                     <input type="text" class="total" value="{{total}}" disabled>
                   </div>
-                  <span class="text-error"><span class="{{total_validates true}}"></span>{{total_validates false}}</span>
                 </div>
               </div>
               <div class="control-group">
@@ -205,7 +208,7 @@
                   Approved:
                 </label>
                 <div class="controls">
-                  <input class="approved" type="checkbox" name="approved">
+                  <input class="approved" type="checkbox" name="approved" {{isApproved}}>
                 </div>
               </div>
               <div class="control-group">

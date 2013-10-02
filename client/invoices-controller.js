@@ -105,25 +105,14 @@ if (Meteor.isClient) {
     in_days: function (date) {
       return inDays(date);
     },
-    tax_rate: function () {
-      //console.log(this); // total = tax * subtotal; tax = total / subtotal
-      return parseInt(100 * ((this.total / this.subtotal) - 1));
-    },
-    total_validates: function (mode) {
-      var ds = parseInt(this.total) - (parseInt(this.subtotal) + parseInt(this.tax));
-      var ok = ds === 0;
-      if(!ok)
-        if(mode)
-          return 'icon-remove';
-        else
-          return 'Off by '+ds;
-      return '';
-    },
     tab_visible: function (tab) {
       var currTab = getPageVar('tab');
       if(currTab === tab) return '';
       if(tab === 'processing' && !currTab) return '';
       return 'hidden-phone';
+    },
+    isApproved: function () {
+      return this.approved ? 'checked' : '';
     }
   });
 
