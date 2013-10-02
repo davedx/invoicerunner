@@ -3,6 +3,9 @@ if (Meteor.isClient) {
   Template.public_home.events({
     'click .freetrial-go': function (e) {
       Router.go('freetrial');
+    },
+    'click .external-link': function (e) {
+      console.log("going..");
     }
   });
   
