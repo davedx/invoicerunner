@@ -45,4 +45,10 @@ if (Meteor.isServer) {
   Meteor.publish('companies', function () {
     return Companies.find({owner: this.userId});
   });
+} else {
+  // client side:
+  Meteor.startup(function () {
+    console.log("Bootstrapping app...");
+    Session.set("widgetSet", false);
+  });
 }

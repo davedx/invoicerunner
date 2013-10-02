@@ -116,12 +116,12 @@ if (Meteor.isClient) {
     }
   });
 
-  Session.set("widgetSet", false);
   var key = "Aze1xrJhFSb62pRcbCGTNz";
 
-  Template.new_invoice.rendered = function ( ) { 
-    //FIXME: seems buggy when navigating to this page
+  Template.new_invoice.rendered = function () {
     if (!Session.get("widgetSet")) {  
+      console.log("Loading loadpicker");
+      Session.set("widgetSet", true);
       loadPicker(key);
     }
   };
