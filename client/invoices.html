@@ -50,7 +50,33 @@
   <h1>Home Page</h1>
 </template>
 
+<template name="notLoggedIn">
+  <div class="span12 box main-box">
+    <h1>You are not logged in</h1>
+    <p class="alert alert-error">You need to log in to Invoice Runner to use this page. You can create a trial account or if you have an existing account, login using the controls at the top right of the screen.</p>
+  </div>
+</template>
+
 <template name="invoices">
+
+<div id="add_company_modal" class="modal hide">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Add company</h3>
+  </div>
+  <div class="modal-body">
+    <p class="lead" id="add-company-name"></p>
+    <p>This company is not in your records. Please enter the company's usual payment directions for future invoice processing. This will also let you track how much and when you have made payments to the company. Leave it blank if you'd prefer.</p>
+    <div class="modal-details">
+      <form>
+        <textarea id="add-company-payment-method" placeholder="Pay by: Direct transfer to bank account IBAN 1234567890"></textarea>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary btn-save-payment">Save company</a>
+  </div>
+</div>
 
 <div id="payment_modal" class="modal hide">
   <div class="modal-header">
@@ -214,7 +240,7 @@
               <div class="control-group">
                 <div class="controls">
                   <button class="btn-save btn">Save</button>
-        	      	<button data-company-id="{{company_id}}" class="payment-button btn btn-primary">Pay invoice</button>
+        	      	<button data-company-id="{{company_id}}" data-company-name="{{company}}" class="payment-button btn btn-primary">Pay invoice</button>
                 </div>
               </div>
         	</div>

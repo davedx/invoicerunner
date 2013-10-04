@@ -111,6 +111,21 @@ if (Meteor.isServer) {
       }
     },
 
+    createCompany: function (options) {
+/*      check(options, {
+        name: NonEmptyString
+      });*/
+
+      if(!this.userId)
+        throw new Meteor.Error(403, "You must be logged in");
+
+      return Companies.insert({
+        owner: this.userId,
+        name: options.name,
+        payment: options.payment
+      });
+    },
+
     // options should include: title, description, x, y, public
     createInvoice: function (options) {
       check(options, {

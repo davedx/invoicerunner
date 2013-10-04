@@ -14,7 +14,7 @@
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "be145a639ee4050521482f5c416844a0fc32715b"
+        "commit": "4818286a6235ac1c8ee28707db7633623223025f"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",

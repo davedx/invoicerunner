@@ -57,22 +57,41 @@ if (Meteor.isClient) {
       });
       event.preventDefault();
     },
-    /*
-    'change .approved': function (event) {
-      Invoices.update(this._id, {$set: {approved: event.target.checked}});
-    },*/
     'click .payment-button': function (event, template) {
       var company_id = parseInt(event.target.getAttribute('data-company-id'));
+      var company_name = event.target.getAttribute('data-company-name');
       var invoice_id = this._id;
       $('.btn-paid').data('invoice-id', invoice_id);
-      var company = Companies.findOne({id: company_id});
-      var invoice = Invoices.findOne({_id: invoice_id});
-      var payment = company.payment.replace(/\n/g, '<br>');
-      payment += '<br>Invoice number: ' + invoice.invoice_number;
-      payment += '<br>Due date: ' + longDate(invoice.date_due);
-      payment += '<br><strong>Total amount: ' + invoice.total + '</strong>';
-      $('#payment_modal .modal-details').html('<strong>' + company.name + '</strong><br><p>' + payment + '</p>');
-      $('#payment_modal').modal();
+      var company = Companies.findOne({name: company_name});
+      if(!company) {
+        console.log("no company found");
+        $('#add-company-name').html(company_name);
+        $('#add_company_modal').modal();
+      } else {
+        var invoice = Invoices.findOne({_id: invoice_id});
+        var payment = company.payment.replace(/\n/g, '<br>');
+        payment += '<br>Invoice number: ' + invoice.invoice_number;
+        payment += '<br>Due date: ' + longDate(invoice.date_due);
+        payment += '<br><strong>Total amount: ' + invoice.total + '</strong>';
+        $('#payment_modal .modal-details').html('<strong>' + company.name + '</strong><br><p>' + payment + '</p>');
+        $('#payment_modal').modal();
+      }
+    },
+    'click .btn-save-payment': function (event) {
+      var payment_method = $('#add-company-payment-method').val();
+      var company_name = $('#add-company-name').html();
+      console.log("Adding "+company_name+" with method "+payment_method);
+
+      Meteor.call('createCompany', {
+        name: company_name,
+        payment: payment_method
+      }, function (error, company) {
+        if (error) {
+          console.error(error);
+        }
+      });
+
+      $('#add_company_modal').modal('hide');
     },
     'click .btn-paid': function (event) {
       event.preventDefault();
@@ -126,8 +145,51 @@ if (Meteor.isClient) {
     }
   };
 
+  var isTrialAccount = function() {
+    var user = Meteor.user();
+    if(user && user.profile && user.profile.accountType && user.profile.accountType === 'trial') {
+      return true;
+    }
+    return false;    
+  };
+
+  var getInvoicesLimit = function() {
+    return isTrialAccount() ? 5 : 0;
+  };
+
+  var isMaxInvoices = function() {
+    var maxInvoices = getInvoicesLimit();
+    var numInvoices = Invoices.find().count();
+    if(maxInvoices > 0 && numInvoices >= maxInvoices)
+      return true;
+    return false;
+  };
+
+  Template.new_invoice.notMaxInvoices = function() {
+    return !isMaxInvoices();
+  };
+
+  Template.new_invoice.maxInvoices = function() {
+    return isMaxInvoices();
+  };
+
+  Template.new_invoice.isTrial = function() {
+    return isTrialAccount();
+  };
+
+  Template.new_invoice.helpers({
+    'trialRemaining': function() {
+      var maxInvoices = getInvoicesLimit();
+      var numInvoices = Invoices.find().count();
+      if(maxInvoices > 0) {
+        return maxInvoices - numInvoices;
+      }
+      return 0;
+    }
+  })
+
   Template.new_invoice.events({
-    'click button' : function () {
+    'click button': function () {
       filepicker.pick(function (ink) {
 
         Meteor.call('createInvoice', {
@@ -166,7 +228,10 @@ if (Meteor.isClient) {
     },
 
     index: function () {
-      this.render('invoices');
+      if(Meteor.userId() === null)
+        this.render('notLoggedIn');
+      else
+        this.render('invoices');
 
       this.render({
         publicFooter: { to: 'footer', waitOn: false, data: false }
@@ -174,10 +239,13 @@ if (Meteor.isClient) {
     },
 
     new: function () {
-      this.render('new_invoice');
+      if(Meteor.userId() === null)
+        this.render('notLoggedIn');
+      else
+        this.render('new_invoice');
 
       this.render({
-        publicFooter: { to: 'footer', waitOn: false, data: false }
+        publicFooter: { to: 'footer', waitOn: true, data: true }
       });
     }
   });
