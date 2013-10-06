@@ -37,6 +37,11 @@ if (Meteor.isClient) {
   }
 
   Template.invoices.events({
+    'click .currency-select a': function (event) {
+      var newCurrency = event.target.innerHTML;
+      $('.currency_name_' + this._id).html(newCurrency);
+      event.preventDefault();
+    },
     'click .btn-save': function (event) {
       $(event.target).prop('disabled', true);
       form={};
@@ -44,6 +49,8 @@ if (Meteor.isClient) {
           form[this.name] = this.value;
       });
       form['approved'] = form['approved'] == 'on' ? true : false;
+      form['currency'] = $('.currency_name_' + this._id).html();
+      console.log(form);
       var id = this._id;
       Invoices.update(id, {$set: form}, function (err) {
         var msg;
@@ -52,6 +59,7 @@ if (Meteor.isClient) {
         } else {
           msg = 'Invoice saved.';
         }
+        //TODO: fix buggy feedback!
         var feedback = $(event.target).next();
         feedback.html(msg);
         feedback.show().css('opacity', '1.0');
@@ -81,7 +89,7 @@ if (Meteor.isClient) {
         var payment = company.payment.replace(/\n/g, '<br>');
         payment += '<br>Invoice number: ' + invoice.invoice_number;
         payment += '<br>Due date: ' + longDate(invoice.date_due);
-        payment += '<br><strong>Total amount: ' + invoice.total + '</strong>';
+        payment += '<br><strong>Total amount: ' + invoice.currency + ' ' + invoice.total + '</strong>';
         $('#payment_modal .modal-details').html('<strong>' + company.name + '</strong><br><p>' + payment + '</p>');
         $('#payment_modal').modal();
       }

@@ -134,7 +134,7 @@
                 </label>
                 <div class="controls">
                   <div class="input-prepend">
-                    <span class="add-on">$</span>
+                    {{> currencyPicker}}
                     <input type="text" name="subtotal" class="subtotal" value="{{subtotal}}">
                   </div>
                 </div>
@@ -145,7 +145,7 @@
                 </label>
                 <div class="controls">
                   <div class="input-prepend">
-                    <span class="add-on">$</span>
+                    {{> currencyPicker}}
                     <input type="text" name="tax" class="tax" value="{{tax}}">
                   </div>
                 </div>
@@ -156,7 +156,7 @@
                 </label>
                 <div class="controls">
                   <div class="input-prepend">
-                    <span class="add-on">$</span>
+                    {{> currencyPicker}}
                     <input type="text" name="total" class="total" value="{{total}}">
                   </div>
                 </div>
@@ -202,7 +202,7 @@
                 </label>
                 <div class="controls">
                   <div class="input-prepend">
-                    <span class="add-on">$</span>
+                    <span class="add-on">{{currency}}</span>
                     <input type="text" class="subtotal" value="{{subtotal}}" disabled>
                   </div>
                 </div>
@@ -213,7 +213,7 @@
                 </label>
                 <div class="controls">
                   <div class="input-prepend">
-                    <span class="add-on">$</span>
+                    <span class="add-on">{{currency}}</span>
                     <input type="text" class="tax" value="{{tax}}" disabled>
                   </div>
                 </div>
@@ -224,7 +224,7 @@
                 </label>
                 <div class="controls">
                   <div class="input-prepend">
-                    <span class="add-on">$</span>
+                    <span class="add-on">{{currency}}</span>
                     <input type="text" class="total" value="{{total}}" disabled>
                   </div>
                 </div>
@@ -243,6 +243,7 @@
         	      	<button data-company-id="{{company_id}}" data-company-name="{{company}}" class="payment-button btn btn-primary">Pay invoice</button>
                 </div>
               </div>
+            </div>
         	</div>
         </li>
       {{/each}}
@@ -257,4 +258,17 @@
 
 <template name="notFound">
   <h1>Not Found!</h1>
+</template>
+<template name="currencyPicker">
+  <div class="btn-group">
+    <a class="btn dropdown-toggle" data-toggle="dropdown">
+      <span class="currency_name_{{_id}}">{{currency}}</span>
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu currency-select">
+      <li><a href>USD</a></li>
+      <li><a href>EUR</a></li>
+      <li><a href>GBP</a></li>
+    </ul>
+  </div>
 </template>

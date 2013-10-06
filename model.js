@@ -15,7 +15,7 @@ Invoices.allow({
       return false; // not the owner
 
     var allowed = ["company", "company_id", "invoice_number", "date_due", "subtotal",
-    	"tax", "total", "approved", "status", "url", "filename", "mimetype"];
+    	"tax", "total", "currency", "approved", "status", "url", "filename", "mimetype"];
 
     if (_.difference(fields, allowed).length)
       return false; // tried to write to forbidden field
@@ -146,6 +146,7 @@ if (Meteor.isServer) {
   	    subtotal: 0,
   	    tax: 0,
   	    total: 0,
+        currency: 'USD',
   	    pa_number: '',
   	    approved: false,
   	    status: 'processing',
