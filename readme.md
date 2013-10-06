@@ -4,11 +4,9 @@ PLAN
 TODO
 ----
 
+- Verify loginButtons register button is not bypassing our createUser method
+
 - VAT For European companies: Note that VAT is included. We will deduct VAT from the subscription prices...
-
-- Edit invoice company name field
-
-- Restrict trial account to 3 invoices
 
 - Brand filepicker.io styling
 
@@ -21,8 +19,12 @@ TODO
 - Ensure user permissions work
 
 - Write non-logged in static copy/webpages:
-	- MARKETING / HOME PAGE
-	- Cancellation/account upgrade page
+	- Cancellation page
+	- Google landing pages
+
+- Link up Mailchimp to gold/platinum signup page
+
+- Google Analytics
 
 Launch: Google AdWords it up and advertise on LinkedIn, Twitter, G+
 

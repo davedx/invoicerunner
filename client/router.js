@@ -5,6 +5,12 @@ Router.configure({
 
 Router.map(function () {
 
+  this.route('admin', {
+    controller: 'AdminController',
+    layoutTemplate: 'admin_layout',
+    action: 'users'
+  });
+
   this.route('invoices', {
     controller: 'InvoicesController',
     layoutTemplate: 'layout',

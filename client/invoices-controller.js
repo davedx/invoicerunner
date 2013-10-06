@@ -13,15 +13,24 @@ if (Meteor.isClient) {
       return moment(date).format("MMM Do YYYY");
   }
 
-  var inDays = function (date) {
+  var daysDiff = function (date) {
     if(!date) return '';
     var now = moment();
     var momentDate = moment(date);
     var days_diff = momentDate.diff(now, 'days');
+    return days_diff;
+  }
+
+  var inDays = function (date) {
+    var days_diff = daysDiff(date);
+    if(days_diff === '')
+      return '';
     if(days_diff == 0)
       return ' - Today';
     else if(days_diff == 1)
       return ' - Tomorrow';
+    else if(days_diff < 0)
+      return 'Overdue by ' + (-days_diff) + ' days';
     else if(days_diff < 7)
       return ' - In ' + days_diff + ' days';
     return '';
@@ -111,12 +120,12 @@ if (Meteor.isClient) {
   });
   Template.invoices.helpers({
     date_badge: function (date) {
-        var dt = (date - new Date())/86000000;
-        //console.log(dt);
-        var bt = '';
-        if(dt < 1.0) bt = ' badge-important';
-        else if(dt < 7.0) bt = ' badge-warning';
-        return 'badge' + bt;
+      var days_diff = daysDiff(date);
+      if(days_diff < 1)
+        bt = ' badge-important';
+      else if(days_diff < 7)
+        bt = ' badge-warning';
+      return 'badge' + bt;
     },
     long_date: function (date) {
       return longDate(date);
