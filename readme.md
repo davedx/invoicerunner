@@ -14,8 +14,6 @@ TODO
 
 - Archives (just make another status called 'archived' that's not displayed easily)
 
-- Change currency for invoice AND global settings
-
 - Ensure user permissions work
 
 - Write non-logged in static copy/webpages:
