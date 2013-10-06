@@ -1,0 +1,1360 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'update' ]
+2 info using npm@1.2.2
+3 info using node@v0.8.18
+4 verbose read json /Users/dave/package.json
+5 verbose read json /Users/dave/node_modules/.bin/package.json
+6 verbose read json /Users/dave/node_modules/cocos2d/package.json
+7 verbose read json /Users/dave/node_modules/connect/package.json
+8 verbose read json /Users/dave/node_modules/http-proxy/package.json
+9 verbose read json /Users/dave/node_modules/testacular/package.json
+10 verbose read json /Users/dave/node_modules/timetrack/package.json
+11 verbose cache add [ 'connect', '*' ]
+12 verbose cache add name="connect" spec="*" args=["connect","*"]
+13 verbose parsed url { pathname: '*', path: '*', href: '*' }
+14 verbose addNamed [ 'connect', '*' ]
+15 verbose addNamed [ null, '' ]
+16 verbose cache add [ 'cocos2d', '*' ]
+17 verbose cache add name="cocos2d" spec="*" args=["cocos2d","*"]
+18 verbose parsed url { pathname: '*', path: '*', href: '*' }
+19 verbose addNamed [ 'cocos2d', '*' ]
+20 verbose addNamed [ null, '' ]
+21 verbose cache add [ 'testacular', '*' ]
+22 verbose cache add name="testacular" spec="*" args=["testacular","*"]
+23 verbose parsed url { pathname: '*', path: '*', href: '*' }
+24 verbose addNamed [ 'testacular', '*' ]
+25 verbose addNamed [ null, '' ]
+26 verbose cache add [ 'http-proxy', '*' ]
+27 verbose cache add name="http-proxy" spec="*" args=["http-proxy","*"]
+28 verbose parsed url { pathname: '*', path: '*', href: '*' }
+29 verbose addNamed [ 'http-proxy', '*' ]
+30 verbose addNamed [ null, '' ]
+31 verbose cache add [ 'timetrack', '*' ]
+32 verbose cache add name="timetrack" spec="*" args=["timetrack","*"]
+33 verbose parsed url { pathname: '*', path: '*', href: '*' }
+34 verbose addNamed [ 'timetrack', '*' ]
+35 verbose addNamed [ null, '' ]
+36 silly lockFile a2361ee0-connect connect@*
+37 verbose lock connect@* /Users/dave/.npm/a2361ee0-connect.lock
+38 silly lockFile 2ccfef75-cocos2d cocos2d@*
+39 verbose lock cocos2d@* /Users/dave/.npm/2ccfef75-cocos2d.lock
+40 silly lockFile 1a873fc5-testacular testacular@*
+41 verbose lock testacular@* /Users/dave/.npm/1a873fc5-testacular.lock
+42 silly lockFile ff9a0875-http-proxy http-proxy@*
+43 verbose lock http-proxy@* /Users/dave/.npm/ff9a0875-http-proxy.lock
+44 silly lockFile 29fc4cce-timetrack timetrack@*
+45 verbose lock timetrack@* /Users/dave/.npm/29fc4cce-timetrack.lock
+46 silly addNameRange { name: 'connect', range: '', hasData: false }
+47 silly addNameRange { name: 'cocos2d', range: '', hasData: false }
+48 silly addNameRange { name: 'http-proxy', range: '', hasData: false }
+49 silly addNameRange { name: 'testacular', range: '', hasData: false }
+50 silly addNameRange { name: 'timetrack', range: '', hasData: false }
+51 verbose url raw cocos2d
+52 verbose url resolving [ 'https://registry.npmjs.org/', './cocos2d' ]
+53 verbose url resolved https://registry.npmjs.org/cocos2d
+54 info trying registry request attempt 1 at 13:29:26
+55 verbose etag "WUM3Y10U3HQ8N65D0CJFEAVC"
+56 http GET https://registry.npmjs.org/cocos2d
+57 verbose url raw connect
+58 verbose url resolving [ 'https://registry.npmjs.org/', './connect' ]
+59 verbose url resolved https://registry.npmjs.org/connect
+60 info trying registry request attempt 1 at 13:29:26
+61 verbose etag "8V5PUQF34ZFXIPE7QAF992DM1"
+62 http GET https://registry.npmjs.org/connect
+63 verbose url raw timetrack
+64 verbose url resolving [ 'https://registry.npmjs.org/', './timetrack' ]
+65 verbose url resolved https://registry.npmjs.org/timetrack
+66 info trying registry request attempt 1 at 13:29:26
+67 verbose etag "6BM7UK0KG64EWTYBLC4NUSLZU"
+68 http GET https://registry.npmjs.org/timetrack
+69 verbose url raw http-proxy
+70 verbose url resolving [ 'https://registry.npmjs.org/', './http-proxy' ]
+71 verbose url resolved https://registry.npmjs.org/http-proxy
+72 info trying registry request attempt 1 at 13:29:26
+73 verbose etag "CLU6HW0449V5QSVGPDPSYGBZ7"
+74 http GET https://registry.npmjs.org/http-proxy
+75 verbose url raw testacular
+76 verbose url resolving [ 'https://registry.npmjs.org/', './testacular' ]
+77 verbose url resolved https://registry.npmjs.org/testacular
+78 info trying registry request attempt 1 at 13:29:26
+79 verbose etag "D4EY7PZXSFIBZLOB419RNPEFV"
+80 http GET https://registry.npmjs.org/testacular
+81 http 200 https://registry.npmjs.org/timetrack
+82 silly registry.get cb [ 200,
+82 silly registry.get   { vary: 'Accept',
+82 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+82 silly registry.get     etag: '"CVMLZHVZ2QT8LLUBUAET04NME"',
+82 silly registry.get     date: 'Sun, 06 Oct 2013 11:29:19 GMT',
+82 silly registry.get     'content-type': 'application/json',
+82 silly registry.get     'content-length': '5207' } ]
+83 silly addNameRange number 2 { name: 'timetrack', range: '', hasData: true }
+84 silly addNameRange versions [ 'timetrack', [ '0.0.1', '0.1.1', '0.1.2', '0.1.3' ] ]
+85 verbose addNamed [ 'timetrack', '0.1.3' ]
+86 verbose addNamed [ '0.1.3', '0.1.3' ]
+87 silly lockFile 4b7cf755-timetrack-0-1-3 timetrack@0.1.3
+88 verbose lock timetrack@0.1.3 /Users/dave/.npm/4b7cf755-timetrack-0-1-3.lock
+89 silly lockFile acb2115e-rg-timetrack-timetrack-0-1-3-tgz https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz
+90 verbose lock https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz /Users/dave/.npm/acb2115e-rg-timetrack-timetrack-0-1-3-tgz.lock
+91 verbose addRemoteTarball [ 'https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz',
+91 verbose addRemoteTarball   'b015a92b2da14a4e32c66e4fb24da63cd9892158' ]
+92 info retry fetch attempt 1 at 13:29:30
+93 verbose fetch to= /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058970696-0.38094152859412134/tmp.tgz
+94 http GET https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz
+95 http 200 https://registry.npmjs.org/cocos2d
+96 silly registry.get cb [ 200,
+96 silly registry.get   { vary: 'Accept',
+96 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+96 silly registry.get     etag: '"MZCOL4NG3O33TR4A1UTIWK9J"',
+96 silly registry.get     date: 'Sun, 06 Oct 2013 11:29:19 GMT',
+96 silly registry.get     'content-type': 'application/json',
+96 silly registry.get     'content-length': '20201' } ]
+97 silly addNameRange number 2 { name: 'cocos2d', range: '', hasData: true }
+98 silly addNameRange versions [ 'cocos2d',
+98 silly addNameRange   [ '0.1.0',
+98 silly addNameRange     '0.2.0-alpha',
+98 silly addNameRange     '0.2.0-beta',
+98 silly addNameRange     '0.1.1',
+98 silly addNameRange     '0.2.0-beta3',
+98 silly addNameRange     '0.2.0-rc1' ] ]
+99 verbose addNamed [ 'cocos2d', '0.1.1' ]
+100 verbose addNamed [ '0.1.1', '0.1.1' ]
+101 silly lockFile c7f2b796-cocos2d-0-1-1 cocos2d@0.1.1
+102 verbose lock cocos2d@0.1.1 /Users/dave/.npm/c7f2b796-cocos2d-0-1-1.lock
+103 verbose read json /Users/dave/.npm/cocos2d/0.1.1/package/package.json
+104 silly lockFile c7f2b796-cocos2d-0-1-1 cocos2d@0.1.1
+105 silly lockFile 2ccfef75-cocos2d cocos2d@*
+106 verbose from cache /Users/dave/node_modules/cocos2d/package.json
+107 http 200 https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz
+108 silly shasum updated bytes 1176
+109 info shasum b015a92b2da14a4e32c66e4fb24da63cd9892158
+109 info shasum /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058970696-0.38094152859412134/tmp.tgz
+110 verbose tar unpack /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058970696-0.38094152859412134/tmp.tgz
+111 silly lockFile 91ed438e-0696-0-38094152859412134-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058970696-0.38094152859412134/package
+112 verbose lock /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058970696-0.38094152859412134/package /Users/dave/.npm/91ed438e-0696-0-38094152859412134-package.lock
+113 silly gunzTarPerm modes [ '755', '644' ]
+114 silly gunzTarPerm extractEntry package.json
+115 silly gunzTarPerm extractEntry .npmignore
+116 silly gunzTarPerm extractEntry README.md
+117 silly gunzTarPerm extractEntry index.js
+118 silly gunzTarPerm extractEntry lib/timer.js
+119 verbose read json /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058970696-0.38094152859412134/package/package.json
+120 silly lockFile 91ed438e-0696-0-38094152859412134-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058970696-0.38094152859412134/package
+121 verbose from cache /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058970696-0.38094152859412134/package/package.json
+122 verbose tar pack [ '/Users/dave/.npm/timetrack/0.1.3/package.tgz',
+122 verbose tar pack   '/var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058970696-0.38094152859412134/package' ]
+123 verbose tarball /Users/dave/.npm/timetrack/0.1.3/package.tgz
+124 verbose folder /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058970696-0.38094152859412134/package
+125 silly lockFile 9a409425--npm-timetrack-0-1-3-package-tgz /Users/dave/.npm/timetrack/0.1.3/package.tgz
+126 verbose lock /Users/dave/.npm/timetrack/0.1.3/package.tgz /Users/dave/.npm/9a409425--npm-timetrack-0-1-3-package-tgz.lock
+127 silly lockFile 9a409425--npm-timetrack-0-1-3-package-tgz /Users/dave/.npm/timetrack/0.1.3/package.tgz
+128 silly lockFile d6bb75f8-dave-npm-timetrack-0-1-3-package /Users/dave/.npm/timetrack/0.1.3/package
+129 verbose lock /Users/dave/.npm/timetrack/0.1.3/package /Users/dave/.npm/d6bb75f8-dave-npm-timetrack-0-1-3-package.lock
+130 silly lockFile d6bb75f8-dave-npm-timetrack-0-1-3-package /Users/dave/.npm/timetrack/0.1.3/package
+131 verbose tar unpack /Users/dave/.npm/timetrack/0.1.3/package.tgz
+132 silly lockFile d6bb75f8-dave-npm-timetrack-0-1-3-package /Users/dave/.npm/timetrack/0.1.3/package
+133 verbose lock /Users/dave/.npm/timetrack/0.1.3/package /Users/dave/.npm/d6bb75f8-dave-npm-timetrack-0-1-3-package.lock
+134 silly gunzTarPerm modes [ '755', '644' ]
+135 silly gunzTarPerm extractEntry package.json
+136 silly gunzTarPerm extractEntry .npmignore
+137 silly gunzTarPerm extractEntry README.md
+138 silly gunzTarPerm extractEntry index.js
+139 silly gunzTarPerm extractEntry lib/timer.js
+140 verbose read json /Users/dave/.npm/timetrack/0.1.3/package/package.json
+141 silly lockFile d6bb75f8-dave-npm-timetrack-0-1-3-package /Users/dave/.npm/timetrack/0.1.3/package
+142 silly shasum updated bytes 1176
+143 info shasum b015a92b2da14a4e32c66e4fb24da63cd9892158
+143 info shasum /Users/dave/.npm/timetrack/0.1.3/package.tgz
+144 verbose from cache /Users/dave/.npm/timetrack/0.1.3/package/package.json
+145 verbose chmod /Users/dave/.npm/timetrack/0.1.3/package.tgz 644
+146 verbose chown /Users/dave/.npm/timetrack/0.1.3/package.tgz [ 501, 20 ]
+147 silly lockFile acb2115e-rg-timetrack-timetrack-0-1-3-tgz https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz
+148 silly lockFile 4b7cf755-timetrack-0-1-3 timetrack@0.1.3
+149 silly lockFile 29fc4cce-timetrack timetrack@*
+150 http 200 https://registry.npmjs.org/connect
+151 silly registry.get cb [ 200,
+151 silly registry.get   { vary: 'Accept',
+151 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+151 silly registry.get     etag: '"BMYU0F59PKAU2TU809X3GINQK"',
+151 silly registry.get     date: 'Sun, 06 Oct 2013 11:29:19 GMT',
+151 silly registry.get     'content-type': 'application/json',
+151 silly registry.get     'content-length': '289634' } ]
+152 silly addNameRange number 2 { name: 'connect', range: '', hasData: true }
+153 silly addNameRange versions [ 'connect',
+153 silly addNameRange   [ '0.0.1',
+153 silly addNameRange     '0.0.2',
+153 silly addNameRange     '0.0.3',
+153 silly addNameRange     '0.0.4',
+153 silly addNameRange     '0.0.5',
+153 silly addNameRange     '0.0.6',
+153 silly addNameRange     '0.1.0',
+153 silly addNameRange     '0.2.0',
+153 silly addNameRange     '0.2.1',
+153 silly addNameRange     '0.2.2',
+153 silly addNameRange     '0.2.3',
+153 silly addNameRange     '0.2.4',
+153 silly addNameRange     '0.2.5',
+153 silly addNameRange     '0.2.6',
+153 silly addNameRange     '0.2.7',
+153 silly addNameRange     '0.3.0',
+153 silly addNameRange     '0.4.0',
+153 silly addNameRange     '0.5.0',
+153 silly addNameRange     '0.5.1',
+153 silly addNameRange     '0.5.2',
+153 silly addNameRange     '0.5.3',
+153 silly addNameRange     '0.5.4',
+153 silly addNameRange     '0.5.5',
+153 silly addNameRange     '0.5.6',
+153 silly addNameRange     '0.5.7',
+153 silly addNameRange     '0.5.8',
+153 silly addNameRange     '0.5.9',
+153 silly addNameRange     '0.5.10',
+153 silly addNameRange     '1.0.0',
+153 silly addNameRange     '1.0.1',
+153 silly addNameRange     '1.0.2',
+153 silly addNameRange     '1.0.3',
+153 silly addNameRange     '1.0.4',
+153 silly addNameRange     '1.0.5',
+153 silly addNameRange     '1.0.6',
+153 silly addNameRange     '1.1.0',
+153 silly addNameRange     '1.1.1',
+153 silly addNameRange     '1.1.2',
+153 silly addNameRange     '1.1.3',
+153 silly addNameRange     '1.1.4',
+153 silly addNameRange     '1.1.5',
+153 silly addNameRange     '1.2.0',
+153 silly addNameRange     '1.2.1',
+153 silly addNameRange     '1.2.2',
+153 silly addNameRange     '1.2.3',
+153 silly addNameRange     '1.3.0',
+153 silly addNameRange     '1.4.0',
+153 silly addNameRange     '1.4.1',
+153 silly addNameRange     '1.4.2',
+153 silly addNameRange     '1.4.3',
+153 silly addNameRange     '1.4.4',
+153 silly addNameRange     '1.4.5',
+153 silly addNameRange     '1.4.6',
+153 silly addNameRange     '1.5.0',
+153 silly addNameRange     '1.5.1',
+153 silly addNameRange     '1.5.2',
+153 silly addNameRange     '1.6.0',
+153 silly addNameRange     '1.6.1',
+153 silly addNameRange     '1.6.2',
+153 silly addNameRange     '1.6.3',
+153 silly addNameRange     '1.6.4',
+153 silly addNameRange     '1.7.0',
+153 silly addNameRange     '1.7.1',
+153 silly addNameRange     '1.7.2',
+153 silly addNameRange     '1.7.3',
+153 silly addNameRange     '1.8.0',
+153 silly addNameRange     '1.8.1',
+153 silly addNameRange     '1.8.2',
+153 silly addNameRange     '1.8.3',
+153 silly addNameRange     '1.8.4',
+153 silly addNameRange     '1.8.5',
+153 silly addNameRange     '2.0.0',
+153 silly addNameRange     '2.0.1',
+153 silly addNameRange     '2.0.2',
+153 silly addNameRange     '2.0.3',
+153 silly addNameRange     '1.8.6',
+153 silly addNameRange     '2.1.0',
+153 silly addNameRange     '2.1.1',
+153 silly addNameRange     '2.1.2',
+153 silly addNameRange     '1.8.7',
+153 silly addNameRange     '2.1.3',
+153 silly addNameRange     '2.2.0',
+153 silly addNameRange     '2.2.1',
+153 silly addNameRange     '2.2.2',
+153 silly addNameRange     '2.3.0',
+153 silly addNameRange     '2.3.1',
+153 silly addNameRange     '2.3.2',
+153 silly addNameRange     '2.3.3',
+153 silly addNameRange     '1.9.0',
+153 silly addNameRange     '1.9.1',
+153 silly addNameRange     '2.3.4',
+153 silly addNameRange     '2.3.5',
+153 silly addNameRange     '2.3.6',
+153 silly addNameRange     '2.3.7',
+153 silly addNameRange     '1.9.2',
+153 silly addNameRange     '2.3.8',
+153 silly addNameRange     '2.3.9',
+153 silly addNameRange     '2.4.0',
+153 silly addNameRange     '2.4.1',
+153 silly addNameRange     '2.4.2',
+153 silly addNameRange     '2.4.3',
+153 silly addNameRange     '2.4.4',
+153 silly addNameRange     '2.4.5',
+153 silly addNameRange     '2.4.6',
+153 silly addNameRange     '2.5.0',
+153 silly addNameRange     '2.6.0',
+153 silly addNameRange     '2.6.1',
+153 silly addNameRange     '2.6.2',
+153 silly addNameRange     '2.7.0',
+153 silly addNameRange     '2.7.1',
+153 silly addNameRange     '2.7.2',
+153 silly addNameRange     '2.7.3',
+153 silly addNameRange     '2.7.4',
+153 silly addNameRange     '2.7.5',
+153 silly addNameRange     '2.7.6',
+153 silly addNameRange     '2.7.7',
+153 silly addNameRange     '2.7.8',
+153 silly addNameRange     '2.7.9',
+153 silly addNameRange     '2.7.10',
+153 silly addNameRange     '2.7.11',
+153 silly addNameRange     '2.8.0',
+153 silly addNameRange     '2.8.1',
+153 silly addNameRange     '2.8.2',
+153 silly addNameRange     '2.8.3',
+153 silly addNameRange     '2.8.4',
+153 silly addNameRange     '2.8.5',
+153 silly addNameRange     '2.8.6',
+153 silly addNameRange     '2.8.7',
+153 silly addNameRange     '2.8.8',
+153 silly addNameRange     '2.9.0' ] ]
+154 verbose addNamed [ 'connect', '2.9.0' ]
+155 verbose addNamed [ '2.9.0', '2.9.0' ]
+156 silly lockFile 50a8158d-connect-2-9-0 connect@2.9.0
+157 verbose lock connect@2.9.0 /Users/dave/.npm/50a8158d-connect-2-9-0.lock
+158 silly lockFile 1e2292af-js-org-connect-connect-2-9-0-tgz https://registry.npmjs.org/connect/-/connect-2.9.0.tgz
+159 verbose lock https://registry.npmjs.org/connect/-/connect-2.9.0.tgz /Users/dave/.npm/1e2292af-js-org-connect-connect-2-9-0-tgz.lock
+160 verbose addRemoteTarball [ 'https://registry.npmjs.org/connect/-/connect-2.9.0.tgz',
+160 verbose addRemoteTarball   'ecf478b6f2723e72cf9a19d1c7d19d0b37b53746' ]
+161 info retry fetch attempt 1 at 13:29:32
+162 verbose fetch to= /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972232-0.46051152842119336/tmp.tgz
+163 http GET https://registry.npmjs.org/connect/-/connect-2.9.0.tgz
+164 http 200 https://registry.npmjs.org/http-proxy
+165 silly registry.get cb [ 200,
+165 silly registry.get   { vary: 'Accept',
+165 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+165 silly registry.get     etag: '"F28H68IGMJ2E8FKYULPW74W4P"',
+165 silly registry.get     date: 'Sun, 06 Oct 2013 11:29:19 GMT',
+165 silly registry.get     'content-type': 'application/json',
+165 silly registry.get     'content-length': '285908' } ]
+166 silly addNameRange number 2 { name: 'http-proxy', range: '', hasData: true }
+167 silly addNameRange versions [ 'http-proxy',
+167 silly addNameRange   [ '0.5.9',
+167 silly addNameRange     '0.5.10',
+167 silly addNameRange     '0.5.11',
+167 silly addNameRange     '0.6.0',
+167 silly addNameRange     '0.6.1',
+167 silly addNameRange     '0.6.2',
+167 silly addNameRange     '0.6.4',
+167 silly addNameRange     '0.6.5',
+167 silly addNameRange     '0.6.6',
+167 silly addNameRange     '0.7.0',
+167 silly addNameRange     '0.7.2',
+167 silly addNameRange     '0.7.3',
+167 silly addNameRange     '0.7.4',
+167 silly addNameRange     '0.7.5',
+167 silly addNameRange     '0.7.6',
+167 silly addNameRange     '0.8.0',
+167 silly addNameRange     '0.8.1',
+167 silly addNameRange     '0.8.2',
+167 silly addNameRange     '0.8.3',
+167 silly addNameRange     '0.8.4',
+167 silly addNameRange     '0.8.5',
+167 silly addNameRange     '0.8.6',
+167 silly addNameRange     '0.8.7',
+167 silly addNameRange     '0.9.0',
+167 silly addNameRange     '0.9.1',
+167 silly addNameRange     '0.10.0',
+167 silly addNameRange     '0.10.1',
+167 silly addNameRange     '0.10.2',
+167 silly addNameRange     '0.10.3' ] ]
+168 verbose addNamed [ 'http-proxy', '0.10.3' ]
+169 verbose addNamed [ '0.10.3', '0.10.3' ]
+170 silly lockFile 8a2ed421-http-proxy-0-10-3 http-proxy@0.10.3
+171 verbose lock http-proxy@0.10.3 /Users/dave/.npm/8a2ed421-http-proxy-0-10-3.lock
+172 silly lockFile 590b62f3-http-proxy-http-proxy-0-10-3-tgz https://registry.npmjs.org/http-proxy/-/http-proxy-0.10.3.tgz
+173 verbose lock https://registry.npmjs.org/http-proxy/-/http-proxy-0.10.3.tgz /Users/dave/.npm/590b62f3-http-proxy-http-proxy-0-10-3-tgz.lock
+174 verbose addRemoteTarball [ 'https://registry.npmjs.org/http-proxy/-/http-proxy-0.10.3.tgz',
+174 verbose addRemoteTarball   '72ca9d503a75e064650084c58ca11b82e4b0196d' ]
+175 info retry fetch attempt 1 at 13:29:32
+176 verbose fetch to= /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972445-0.01305442675948143/tmp.tgz
+177 http GET https://registry.npmjs.org/http-proxy/-/http-proxy-0.10.3.tgz
+178 http 200 https://registry.npmjs.org/http-proxy/-/http-proxy-0.10.3.tgz
+179 silly shasum updated bytes 40960
+180 silly shasum updated bytes 9355
+181 info shasum 72ca9d503a75e064650084c58ca11b82e4b0196d
+181 info shasum /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972445-0.01305442675948143/tmp.tgz
+182 verbose tar unpack /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972445-0.01305442675948143/tmp.tgz
+183 silly lockFile 428cb9f0-2445-0-01305442675948143-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972445-0.01305442675948143/package
+184 verbose lock /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972445-0.01305442675948143/package /Users/dave/.npm/428cb9f0-2445-0-01305442675948143-package.lock
+185 silly gunzTarPerm modes [ '755', '644' ]
+186 silly gunzTarPerm extractEntry package.json
+187 silly gunzTarPerm extractEntry .npmignore
+188 silly gunzTarPerm extractEntry README.md
+189 silly gunzTarPerm extractEntry LICENSE
+190 silly gunzTarPerm extractEntry CHANGELOG.md
+191 silly gunzTarPerm extractEntry benchmark/websockets-throughput.js
+192 silly gunzTarPerm extractEntry .travis.yml
+193 silly gunzTarPerm extractEntry config.sample.json
+194 silly gunzTarPerm extractEntry examples/package.json
+195 silly gunzTarPerm extractEntry examples/balancer/simple-balancer-with-websockets.js
+196 silly gunzTarPerm extractEntry examples/balancer/simple-balancer.js
+197 silly gunzTarPerm extractEntry examples/helpers/store.js
+198 silly gunzTarPerm extractEntry examples/http/basic-proxy.js
+199 silly gunzTarPerm extractEntry examples/http/concurrent-proxy.js
+200 silly gunzTarPerm extractEntry examples/http/custom-proxy-error.js
+201 silly gunzTarPerm extractEntry examples/http/forward-proxy.js
+202 silly gunzTarPerm extractEntry examples/http/latent-proxy.js
+203 silly gunzTarPerm extractEntry examples/http/proxy-https-to-http.js
+204 silly gunzTarPerm extractEntry examples/http/proxy-https-to-https.js
+205 silly gunzTarPerm extractEntry examples/http/proxy-table.js
+206 silly gunzTarPerm extractEntry examples/http/standalone-proxy.js
+207 silly gunzTarPerm extractEntry examples/middleware/bodyDecoder-middleware.js
+208 silly gunzTarPerm extractEntry examples/middleware/gzip-middleware-proxytable.js
+209 silly gunzTarPerm extractEntry examples/middleware/gzip-middleware.js
+210 silly gunzTarPerm extractEntry examples/middleware/jsonp-middleware.js
+211 silly gunzTarPerm extractEntry examples/middleware/modifyResponse-middleware.js
+212 silly gunzTarPerm extractEntry examples/middleware/url-middleware.js
+213 silly gunzTarPerm extractEntry examples/middleware/url-middleware2.js
+214 silly gunzTarPerm extractEntry examples/websocket/latent-websocket-proxy.js
+215 silly gunzTarPerm extractEntry examples/websocket/standalone-websocket-proxy.js
+216 silly gunzTarPerm extractEntry examples/websocket/websocket-proxy.js
+217 silly gunzTarPerm extractEntry lib/node-http-proxy.js
+218 silly gunzTarPerm extractEntry lib/node-http-proxy/http-proxy.js
+219 silly gunzTarPerm extractEntry lib/node-http-proxy/proxy-table.js
+220 silly gunzTarPerm extractEntry lib/node-http-proxy/routing-proxy.js
+221 silly gunzTarPerm extractEntry test/examples-test.js
+222 silly gunzTarPerm extractEntry test/core/README.md
+223 silly gunzTarPerm extractEntry test/core/common.js
+224 silly gunzTarPerm extractEntry test/core/pummel/test-http-upload-timeout.js
+225 silly gunzTarPerm extractEntry test/core/run
+226 silly gunzTarPerm extractEntry test/core/run-single
+227 silly gunzTarPerm extractEntry test/core/simple/test-http-chunked.js
+228 silly gunzTarPerm extractEntry test/core/simple/test-http-extra-response.js
+229 silly gunzTarPerm extractEntry test/core/simple/test-http-head-request.js
+230 silly gunzTarPerm extractEntry test/core/simple/test-http-head-response-has-no-body-end.js
+231 silly gunzTarPerm extractEntry test/core/simple/test-http-eof-on-connect.js
+232 silly gunzTarPerm extractEntry test/core/simple/test-http-host-headers.js
+233 silly gunzTarPerm extractEntry test/core/simple/test-http-many-keep-alive-connections.js
+234 silly gunzTarPerm extractEntry test/core/simple/test-http-multi-line-headers.js
+235 silly gunzTarPerm extractEntry test/core/simple/test-http-proxy.js
+236 silly gunzTarPerm extractEntry test/core/simple/test-http-response-close.js
+237 silly gunzTarPerm extractEntry test/core/simple/test-http-contentLength0.js
+238 silly gunzTarPerm extractEntry test/core/simple/test-http-server-multiheaders.js
+239 silly gunzTarPerm extractEntry test/core/simple/test-http-client-upload.js
+240 silly gunzTarPerm extractEntry test/core/simple/test-http-set-cookies.js
+241 silly gunzTarPerm extractEntry test/core/simple/test-http-client-upload-buf.js
+242 silly gunzTarPerm extractEntry test/core/simple/test-http-status-code.js
+243 silly gunzTarPerm extractEntry test/core/simple/test-http-client-abort2.js
+244 silly gunzTarPerm extractEntry test/core/simple/test-http-upgrade-server2.js
+245 silly gunzTarPerm extractEntry test/core/simple/test-http-client-abort.js
+246 silly gunzTarPerm extractEntry test/core/simple/test-http.js
+247 silly gunzTarPerm extractEntry test/core/simple/test-http-head-response-has-no-body.js
+248 silly gunzTarPerm extractEntry test/fixtures/agent2-cert.pem
+249 silly gunzTarPerm extractEntry test/fixtures/agent2-csr.pem
+250 silly gunzTarPerm extractEntry test/fixtures/agent2-key.pem
+251 silly gunzTarPerm extractEntry test/fixtures/agent2.cnf
+252 silly gunzTarPerm extractEntry test/helpers/http.js
+253 silly gunzTarPerm extractEntry test/helpers/index.js
+254 silly gunzTarPerm extractEntry test/helpers/ws.js
+255 silly gunzTarPerm extractEntry test/http/http-test.js
+256 silly gunzTarPerm extractEntry test/http/routing-table-test.js
+257 silly gunzTarPerm extractEntry test/macros/examples.js
+258 silly gunzTarPerm extractEntry test/macros/http.js
+259 silly gunzTarPerm extractEntry test/macros/index.js
+260 silly gunzTarPerm extractEntry test/macros/ws.js
+261 silly gunzTarPerm extractEntry test/ws/routing-table-test.js
+262 silly gunzTarPerm extractEntry test/ws/socket.io-test.js
+263 silly gunzTarPerm extractEntry test/ws/ws-test.js
+264 silly gunzTarPerm extractEntry bin/node-http-proxy
+265 verbose read json /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972445-0.01305442675948143/package/package.json
+266 silly lockFile 428cb9f0-2445-0-01305442675948143-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972445-0.01305442675948143/package
+267 verbose from cache /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972445-0.01305442675948143/package/package.json
+268 verbose tar pack [ '/Users/dave/.npm/http-proxy/0.10.3/package.tgz',
+268 verbose tar pack   '/var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972445-0.01305442675948143/package' ]
+269 verbose tarball /Users/dave/.npm/http-proxy/0.10.3/package.tgz
+270 verbose folder /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972445-0.01305442675948143/package
+271 silly lockFile ee92d7fe-pm-http-proxy-0-10-3-package-tgz /Users/dave/.npm/http-proxy/0.10.3/package.tgz
+272 verbose lock /Users/dave/.npm/http-proxy/0.10.3/package.tgz /Users/dave/.npm/ee92d7fe-pm-http-proxy-0-10-3-package-tgz.lock
+273 silly lockFile ee92d7fe-pm-http-proxy-0-10-3-package-tgz /Users/dave/.npm/http-proxy/0.10.3/package.tgz
+274 silly lockFile f6c208b8-ve-npm-http-proxy-0-10-3-package /Users/dave/.npm/http-proxy/0.10.3/package
+275 verbose lock /Users/dave/.npm/http-proxy/0.10.3/package /Users/dave/.npm/f6c208b8-ve-npm-http-proxy-0-10-3-package.lock
+276 silly lockFile f6c208b8-ve-npm-http-proxy-0-10-3-package /Users/dave/.npm/http-proxy/0.10.3/package
+277 verbose tar unpack /Users/dave/.npm/http-proxy/0.10.3/package.tgz
+278 silly lockFile f6c208b8-ve-npm-http-proxy-0-10-3-package /Users/dave/.npm/http-proxy/0.10.3/package
+279 verbose lock /Users/dave/.npm/http-proxy/0.10.3/package /Users/dave/.npm/f6c208b8-ve-npm-http-proxy-0-10-3-package.lock
+280 silly gunzTarPerm modes [ '755', '644' ]
+281 silly gunzTarPerm extractEntry package.json
+282 silly gunzTarPerm extractEntry .npmignore
+283 silly gunzTarPerm extractEntry README.md
+284 silly gunzTarPerm extractEntry LICENSE
+285 silly gunzTarPerm extractEntry CHANGELOG.md
+286 silly gunzTarPerm extractEntry config.sample.json
+287 silly gunzTarPerm extractEntry .travis.yml
+288 silly gunzTarPerm extractEntry lib/node-http-proxy.js
+289 silly gunzTarPerm extractEntry lib/node-http-proxy/http-proxy.js
+290 silly gunzTarPerm extractEntry lib/node-http-proxy/proxy-table.js
+291 silly gunzTarPerm extractEntry lib/node-http-proxy/routing-proxy.js
+292 silly gunzTarPerm extractEntry test/examples-test.js
+293 silly gunzTarPerm extractEntry test/core/README.md
+294 silly gunzTarPerm extractEntry test/core/common.js
+295 silly gunzTarPerm extractEntry test/core/pummel/test-http-upload-timeout.js
+296 silly gunzTarPerm extractEntry test/core/run
+297 silly gunzTarPerm extractEntry test/core/run-single
+298 silly gunzTarPerm extractEntry test/core/simple/test-http-chunked.js
+299 silly gunzTarPerm extractEntry test/core/simple/test-http-extra-response.js
+300 silly gunzTarPerm extractEntry test/core/simple/test-http-head-request.js
+301 silly gunzTarPerm extractEntry test/core/simple/test-http-head-response-has-no-body-end.js
+302 silly gunzTarPerm extractEntry test/core/simple/test-http-eof-on-connect.js
+303 silly gunzTarPerm extractEntry test/core/simple/test-http-host-headers.js
+304 silly gunzTarPerm extractEntry test/core/simple/test-http-many-keep-alive-connections.js
+305 silly gunzTarPerm extractEntry test/core/simple/test-http-multi-line-headers.js
+306 silly gunzTarPerm extractEntry test/core/simple/test-http-proxy.js
+307 silly gunzTarPerm extractEntry test/core/simple/test-http-response-close.js
+308 silly gunzTarPerm extractEntry test/core/simple/test-http-contentLength0.js
+309 silly gunzTarPerm extractEntry test/core/simple/test-http-server-multiheaders.js
+310 silly gunzTarPerm extractEntry test/core/simple/test-http-client-upload.js
+311 silly gunzTarPerm extractEntry test/core/simple/test-http-set-cookies.js
+312 silly gunzTarPerm extractEntry test/core/simple/test-http-client-upload-buf.js
+313 silly gunzTarPerm extractEntry test/core/simple/test-http-status-code.js
+314 silly gunzTarPerm extractEntry test/core/simple/test-http-client-abort2.js
+315 silly gunzTarPerm extractEntry test/core/simple/test-http-upgrade-server2.js
+316 silly gunzTarPerm extractEntry test/core/simple/test-http-client-abort.js
+317 silly gunzTarPerm extractEntry test/core/simple/test-http.js
+318 silly gunzTarPerm extractEntry test/core/simple/test-http-head-response-has-no-body.js
+319 silly gunzTarPerm extractEntry test/fixtures/agent2-cert.pem
+320 silly gunzTarPerm extractEntry test/fixtures/agent2-csr.pem
+321 silly gunzTarPerm extractEntry test/fixtures/agent2-key.pem
+322 silly gunzTarPerm extractEntry test/fixtures/agent2.cnf
+323 silly gunzTarPerm extractEntry test/helpers/http.js
+324 silly gunzTarPerm extractEntry test/helpers/index.js
+325 silly gunzTarPerm extractEntry test/helpers/ws.js
+326 silly gunzTarPerm extractEntry test/http/http-test.js
+327 silly gunzTarPerm extractEntry test/http/routing-table-test.js
+328 silly gunzTarPerm extractEntry test/macros/examples.js
+329 silly gunzTarPerm extractEntry test/macros/http.js
+330 silly gunzTarPerm extractEntry test/macros/index.js
+331 silly gunzTarPerm extractEntry test/macros/ws.js
+332 silly gunzTarPerm extractEntry test/ws/routing-table-test.js
+333 silly gunzTarPerm extractEntry test/ws/socket.io-test.js
+334 silly gunzTarPerm extractEntry test/ws/ws-test.js
+335 silly gunzTarPerm extractEntry benchmark/websockets-throughput.js
+336 silly gunzTarPerm extractEntry bin/node-http-proxy
+337 silly gunzTarPerm extractEntry examples/package.json
+338 silly gunzTarPerm extractEntry examples/balancer/simple-balancer-with-websockets.js
+339 silly gunzTarPerm extractEntry examples/balancer/simple-balancer.js
+340 silly gunzTarPerm extractEntry examples/helpers/store.js
+341 silly gunzTarPerm extractEntry examples/http/basic-proxy.js
+342 silly gunzTarPerm extractEntry examples/http/concurrent-proxy.js
+343 silly gunzTarPerm extractEntry examples/http/custom-proxy-error.js
+344 silly gunzTarPerm extractEntry examples/http/forward-proxy.js
+345 silly gunzTarPerm extractEntry examples/http/latent-proxy.js
+346 silly gunzTarPerm extractEntry examples/http/proxy-https-to-http.js
+347 silly gunzTarPerm extractEntry examples/http/proxy-https-to-https.js
+348 silly gunzTarPerm extractEntry examples/http/proxy-table.js
+349 silly gunzTarPerm extractEntry examples/http/standalone-proxy.js
+350 silly gunzTarPerm extractEntry examples/middleware/bodyDecoder-middleware.js
+351 silly gunzTarPerm extractEntry examples/middleware/gzip-middleware-proxytable.js
+352 silly gunzTarPerm extractEntry examples/middleware/gzip-middleware.js
+353 silly gunzTarPerm extractEntry examples/middleware/jsonp-middleware.js
+354 silly gunzTarPerm extractEntry examples/middleware/modifyResponse-middleware.js
+355 silly gunzTarPerm extractEntry examples/middleware/url-middleware.js
+356 silly gunzTarPerm extractEntry examples/middleware/url-middleware2.js
+357 silly gunzTarPerm extractEntry examples/websocket/latent-websocket-proxy.js
+358 silly gunzTarPerm extractEntry examples/websocket/standalone-websocket-proxy.js
+359 silly gunzTarPerm extractEntry examples/websocket/websocket-proxy.js
+360 verbose read json /Users/dave/.npm/http-proxy/0.10.3/package/package.json
+361 silly lockFile f6c208b8-ve-npm-http-proxy-0-10-3-package /Users/dave/.npm/http-proxy/0.10.3/package
+362 silly shasum updated bytes 40960
+363 silly shasum updated bytes 9881
+364 info shasum eee2658f7fa195202fbfeb96158495b9f2c8d088
+364 info shasum /Users/dave/.npm/http-proxy/0.10.3/package.tgz
+365 verbose from cache /Users/dave/.npm/http-proxy/0.10.3/package/package.json
+366 verbose chmod /Users/dave/.npm/http-proxy/0.10.3/package.tgz 644
+367 verbose chown /Users/dave/.npm/http-proxy/0.10.3/package.tgz [ 501, 20 ]
+368 silly lockFile 590b62f3-http-proxy-http-proxy-0-10-3-tgz https://registry.npmjs.org/http-proxy/-/http-proxy-0.10.3.tgz
+369 silly lockFile 8a2ed421-http-proxy-0-10-3 http-proxy@0.10.3
+370 silly lockFile ff9a0875-http-proxy http-proxy@*
+371 http 200 https://registry.npmjs.org/testacular
+372 silly registry.get cb [ 200,
+372 silly registry.get   { vary: 'Accept',
+372 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+372 silly registry.get     etag: '"8054ZQRHTNJDJAE1EXSL3KYHT"',
+372 silly registry.get     date: 'Sun, 06 Oct 2013 11:29:19 GMT',
+372 silly registry.get     'content-type': 'application/json',
+372 silly registry.get     'content-length': '274664' } ]
+373 silly addNameRange number 2 { name: 'testacular', range: '', hasData: true }
+374 silly addNameRange versions [ 'testacular',
+374 silly addNameRange   [ '0.0.7',
+374 silly addNameRange     '0.0.8',
+374 silly addNameRange     '0.0.9',
+374 silly addNameRange     '0.0.10',
+374 silly addNameRange     '0.0.11',
+374 silly addNameRange     '0.0.12',
+374 silly addNameRange     '0.0.13',
+374 silly addNameRange     '0.0.14',
+374 silly addNameRange     '0.0.15',
+374 silly addNameRange     '0.0.16',
+374 silly addNameRange     '0.0.17',
+374 silly addNameRange     '0.1.0',
+374 silly addNameRange     '0.1.1',
+374 silly addNameRange     '0.1.2',
+374 silly addNameRange     '0.1.3',
+374 silly addNameRange     '0.2.0',
+374 silly addNameRange     '0.3.0',
+374 silly addNameRange     '0.3.1',
+374 silly addNameRange     '0.3.2',
+374 silly addNameRange     '0.3.3',
+374 silly addNameRange     '0.3.4',
+374 silly addNameRange     '0.3.5',
+374 silly addNameRange     '0.3.6',
+374 silly addNameRange     '0.3.7',
+374 silly addNameRange     '0.2.1',
+374 silly addNameRange     '0.3.8',
+374 silly addNameRange     '0.3.9',
+374 silly addNameRange     '0.3.10',
+374 silly addNameRange     '0.3.11',
+374 silly addNameRange     '0.3.12',
+374 silly addNameRange     '0.4.0',
+374 silly addNameRange     '0.5.0',
+374 silly addNameRange     '0.5.1',
+374 silly addNameRange     '0.5.2',
+374 silly addNameRange     '0.5.3',
+374 silly addNameRange     '0.5.4',
+374 silly addNameRange     '0.5.5',
+374 silly addNameRange     '0.5.6',
+374 silly addNameRange     '0.5.7',
+374 silly addNameRange     '0.5.8',
+374 silly addNameRange     '0.5.9',
+374 silly addNameRange     '0.5.10',
+374 silly addNameRange     '0.5.11',
+374 silly addNameRange     '0.6.0',
+374 silly addNameRange     '0.6.1',
+374 silly addNameRange     '0.6.2' ] ]
+375 verbose addNamed [ 'testacular', '0.6.2' ]
+376 verbose addNamed [ '0.6.2', '0.6.2' ]
+377 silly lockFile 2fe7dd06-testacular-0-6-2 testacular@0.6.2
+378 verbose lock testacular@0.6.2 /Users/dave/.npm/2fe7dd06-testacular-0-6-2.lock
+379 silly lockFile 67e63fb1--testacular-testacular-0-6-2-tgz https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz
+380 verbose lock https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz /Users/dave/.npm/67e63fb1--testacular-testacular-0-6-2-tgz.lock
+381 verbose addRemoteTarball [ 'https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz',
+381 verbose addRemoteTarball   '0b3e9f1c3ab41d505b158d6557a1beacd72db129' ]
+382 info retry fetch attempt 1 at 13:29:40
+383 verbose fetch to= /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058980006-0.13328416203148663/tmp.tgz
+384 http GET https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz
+385 http 200 https://registry.npmjs.org/connect/-/connect-2.9.0.tgz
+386 http 200 https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz
+387 silly shasum updated bytes 1360
+388 info shasum 0b3e9f1c3ab41d505b158d6557a1beacd72db129
+388 info shasum /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058980006-0.13328416203148663/tmp.tgz
+389 verbose tar unpack /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058980006-0.13328416203148663/tmp.tgz
+390 silly lockFile e32195cb-0006-0-13328416203148663-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058980006-0.13328416203148663/package
+391 verbose lock /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058980006-0.13328416203148663/package /Users/dave/.npm/e32195cb-0006-0-13328416203148663-package.lock
+392 silly gunzTarPerm modes [ '755', '644' ]
+393 silly gunzTarPerm extractEntry package.json
+394 silly gunzTarPerm extractEntry README.md
+395 silly gunzTarPerm extractEntry show-deprecated.js
+396 silly gunzTarPerm extractEntry bin/testacular
+397 verbose read json /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058980006-0.13328416203148663/package/package.json
+398 silly lockFile e32195cb-0006-0-13328416203148663-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058980006-0.13328416203148663/package
+399 verbose from cache /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058980006-0.13328416203148663/package/package.json
+400 verbose tar pack [ '/Users/dave/.npm/testacular/0.6.2/package.tgz',
+400 verbose tar pack   '/var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058980006-0.13328416203148663/package' ]
+401 verbose tarball /Users/dave/.npm/testacular/0.6.2/package.tgz
+402 verbose folder /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058980006-0.13328416203148663/package
+403 silly lockFile f87b0328-npm-testacular-0-6-2-package-tgz /Users/dave/.npm/testacular/0.6.2/package.tgz
+404 verbose lock /Users/dave/.npm/testacular/0.6.2/package.tgz /Users/dave/.npm/f87b0328-npm-testacular-0-6-2-package-tgz.lock
+405 silly lockFile f87b0328-npm-testacular-0-6-2-package-tgz /Users/dave/.npm/testacular/0.6.2/package.tgz
+406 silly lockFile 4e11bd3a-ave-npm-testacular-0-6-2-package /Users/dave/.npm/testacular/0.6.2/package
+407 verbose lock /Users/dave/.npm/testacular/0.6.2/package /Users/dave/.npm/4e11bd3a-ave-npm-testacular-0-6-2-package.lock
+408 silly lockFile 4e11bd3a-ave-npm-testacular-0-6-2-package /Users/dave/.npm/testacular/0.6.2/package
+409 verbose tar unpack /Users/dave/.npm/testacular/0.6.2/package.tgz
+410 silly lockFile 4e11bd3a-ave-npm-testacular-0-6-2-package /Users/dave/.npm/testacular/0.6.2/package
+411 verbose lock /Users/dave/.npm/testacular/0.6.2/package /Users/dave/.npm/4e11bd3a-ave-npm-testacular-0-6-2-package.lock
+412 silly gunzTarPerm modes [ '755', '644' ]
+413 silly gunzTarPerm extractEntry package.json
+414 silly gunzTarPerm extractEntry README.md
+415 silly gunzTarPerm extractEntry show-deprecated.js
+416 silly gunzTarPerm extractEntry bin/testacular
+417 verbose read json /Users/dave/.npm/testacular/0.6.2/package/package.json
+418 silly lockFile 4e11bd3a-ave-npm-testacular-0-6-2-package /Users/dave/.npm/testacular/0.6.2/package
+419 silly shasum updated bytes 1356
+420 info shasum 088e8313ced446553683c484d30039146f1b2d2b
+420 info shasum /Users/dave/.npm/testacular/0.6.2/package.tgz
+421 verbose from cache /Users/dave/.npm/testacular/0.6.2/package/package.json
+422 verbose chmod /Users/dave/.npm/testacular/0.6.2/package.tgz 644
+423 verbose chown /Users/dave/.npm/testacular/0.6.2/package.tgz [ 501, 20 ]
+424 silly lockFile 67e63fb1--testacular-testacular-0-6-2-tgz https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz
+425 silly lockFile 2fe7dd06-testacular-0-6-2 testacular@0.6.2
+426 silly lockFile 1a873fc5-testacular testacular@*
+427 silly shasum updated bytes 40960
+428 silly shasum updated bytes 36330
+429 info shasum ecf478b6f2723e72cf9a19d1c7d19d0b37b53746
+429 info shasum /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972232-0.46051152842119336/tmp.tgz
+430 verbose tar unpack /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972232-0.46051152842119336/tmp.tgz
+431 silly lockFile b29faff5-2232-0-46051152842119336-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972232-0.46051152842119336/package
+432 verbose lock /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972232-0.46051152842119336/package /Users/dave/.npm/b29faff5-2232-0-46051152842119336-package.lock
+433 silly gunzTarPerm modes [ '755', '644' ]
+434 silly gunzTarPerm extractEntry package.json
+435 silly gunzTarPerm extractEntry .npmignore
+436 silly gunzTarPerm extractEntry LICENSE
+437 silly gunzTarPerm extractEntry index.js
+438 silly gunzTarPerm extractEntry .travis.yml
+439 silly gunzTarPerm extractEntry lib/cache.js
+440 silly gunzTarPerm extractEntry lib/connect.js
+441 silly gunzTarPerm extractEntry lib/index.js
+442 silly gunzTarPerm extractEntry lib/patch.js
+443 silly gunzTarPerm extractEntry lib/proto.js
+444 silly gunzTarPerm extractEntry lib/utils.js
+445 silly gunzTarPerm extractEntry lib/middleware/basicAuth.js
+446 silly gunzTarPerm extractEntry lib/middleware/errorHandler.js
+447 silly gunzTarPerm extractEntry lib/middleware/favicon.js
+448 silly gunzTarPerm extractEntry lib/middleware/json.js
+449 silly gunzTarPerm extractEntry lib/middleware/limit.js
+450 silly gunzTarPerm extractEntry lib/middleware/directory.js
+451 silly gunzTarPerm extractEntry lib/middleware/methodOverride.js
+452 silly gunzTarPerm extractEntry lib/middleware/multipart.js
+453 silly gunzTarPerm extractEntry lib/middleware/query.js
+454 silly gunzTarPerm extractEntry lib/middleware/responseTime.js
+455 silly gunzTarPerm extractEntry lib/middleware/urlencoded.js
+456 silly gunzTarPerm extractEntry lib/middleware/csrf.js
+457 silly gunzTarPerm extractEntry lib/middleware/session.js
+458 silly gunzTarPerm extractEntry lib/middleware/cookieSession.js
+459 silly gunzTarPerm extractEntry lib/middleware/static.js
+460 silly gunzTarPerm extractEntry lib/middleware/cookieParser.js
+461 silly gunzTarPerm extractEntry lib/middleware/staticCache.js
+462 silly gunzTarPerm extractEntry lib/middleware/compress.js
+463 silly gunzTarPerm extractEntry lib/middleware/timeout.js
+464 silly gunzTarPerm extractEntry lib/middleware/bodyParser.js
+465 silly gunzTarPerm extractEntry lib/middleware/vhost.js
+466 silly gunzTarPerm extractEntry lib/middleware/logger.js
+467 silly gunzTarPerm extractEntry lib/middleware/session/cookie.js
+468 silly gunzTarPerm extractEntry lib/middleware/session/memory.js
+469 silly gunzTarPerm extractEntry lib/middleware/session/session.js
+470 silly gunzTarPerm extractEntry lib/middleware/session/store.js
+471 silly gunzTarPerm extractEntry lib/public/directory.html
+472 silly gunzTarPerm extractEntry lib/public/error.html
+473 silly gunzTarPerm extractEntry lib/public/favicon.ico
+474 silly gunzTarPerm extractEntry lib/public/icons/page_white_edit.png
+475 silly gunzTarPerm extractEntry lib/public/icons/page.png
+476 silly gunzTarPerm extractEntry lib/public/icons/page_attach.png
+477 silly gunzTarPerm extractEntry lib/public/icons/page_code.png
+478 silly gunzTarPerm extractEntry lib/public/icons/page_copy.png
+479 silly gunzTarPerm extractEntry lib/public/icons/page_delete.png
+480 silly gunzTarPerm extractEntry lib/public/icons/page_edit.png
+481 silly gunzTarPerm extractEntry lib/public/icons/page_error.png
+482 silly gunzTarPerm extractEntry lib/public/icons/page_excel.png
+483 silly gunzTarPerm extractEntry lib/public/icons/page_find.png
+484 silly gunzTarPerm extractEntry lib/public/icons/page_gear.png
+485 silly gunzTarPerm extractEntry lib/public/icons/page_go.png
+486 silly gunzTarPerm extractEntry lib/public/icons/page_green.png
+487 silly gunzTarPerm extractEntry lib/public/icons/page_key.png
+488 silly gunzTarPerm extractEntry lib/public/icons/page_lightning.png
+489 silly gunzTarPerm extractEntry lib/public/icons/page_link.png
+490 silly gunzTarPerm extractEntry lib/public/icons/page_paintbrush.png
+491 silly gunzTarPerm extractEntry lib/public/icons/page_paste.png
+492 silly gunzTarPerm extractEntry lib/public/icons/page_red.png
+493 silly gunzTarPerm extractEntry lib/public/icons/page_refresh.png
+494 silly gunzTarPerm extractEntry lib/public/icons/page_save.png
+495 silly gunzTarPerm extractEntry lib/public/icons/page_white.png
+496 silly gunzTarPerm extractEntry lib/public/icons/page_white_acrobat.png
+497 silly gunzTarPerm extractEntry lib/public/icons/page_white_actionscript.png
+498 silly gunzTarPerm extractEntry lib/public/icons/page_white_add.png
+499 silly gunzTarPerm extractEntry lib/public/icons/page_white_c.png
+500 silly gunzTarPerm extractEntry lib/public/icons/page_white_camera.png
+501 silly gunzTarPerm extractEntry lib/public/icons/page_white_cd.png
+502 silly gunzTarPerm extractEntry lib/public/icons/page_white_code.png
+503 silly gunzTarPerm extractEntry lib/public/icons/page_white_code_red.png
+504 silly gunzTarPerm extractEntry lib/public/icons/page_white_coldfusion.png
+505 silly gunzTarPerm extractEntry lib/public/icons/page_white_compressed.png
+506 silly gunzTarPerm extractEntry lib/public/icons/page_white_copy.png
+507 silly gunzTarPerm extractEntry lib/public/icons/page_white_cplusplus.png
+508 silly gunzTarPerm extractEntry lib/public/icons/page_white_csharp.png
+509 silly gunzTarPerm extractEntry lib/public/icons/page_white_cup.png
+510 silly gunzTarPerm extractEntry lib/public/icons/page_white_database.png
+511 silly gunzTarPerm extractEntry lib/public/icons/page_white_delete.png
+512 silly gunzTarPerm extractEntry lib/public/icons/page_white_dvd.png
+513 silly gunzTarPerm extractEntry lib/public/icons/page_add.png
+514 silly gunzTarPerm extractEntry lib/public/icons/page_white_error.png
+515 silly gunzTarPerm extractEntry lib/public/icons/page_white_excel.png
+516 silly gunzTarPerm extractEntry lib/public/icons/page_white_find.png
+517 silly gunzTarPerm extractEntry lib/public/icons/page_white_flash.png
+518 silly gunzTarPerm extractEntry lib/public/icons/page_white_freehand.png
+519 silly gunzTarPerm extractEntry lib/public/icons/page_white_gear.png
+520 silly gunzTarPerm extractEntry lib/public/icons/page_white_get.png
+521 silly gunzTarPerm extractEntry lib/public/icons/page_white_go.png
+522 silly gunzTarPerm extractEntry lib/public/icons/page_white_h.png
+523 silly gunzTarPerm extractEntry lib/public/icons/page_white_horizontal.png
+524 silly gunzTarPerm extractEntry lib/public/icons/page_white_key.png
+525 silly gunzTarPerm extractEntry lib/public/icons/page_white_lightning.png
+526 silly gunzTarPerm extractEntry lib/public/icons/page_white_link.png
+527 silly gunzTarPerm extractEntry lib/public/icons/page_white_magnify.png
+528 silly gunzTarPerm extractEntry lib/public/icons/page_white_medal.png
+529 silly gunzTarPerm extractEntry lib/public/icons/page_white_office.png
+530 silly gunzTarPerm extractEntry lib/public/icons/page_white_paint.png
+531 silly gunzTarPerm extractEntry lib/public/icons/page_white_paintbrush.png
+532 silly gunzTarPerm extractEntry lib/public/icons/page_white_paste.png
+533 silly gunzTarPerm extractEntry lib/public/icons/page_white_php.png
+534 silly gunzTarPerm extractEntry lib/public/icons/page_white_picture.png
+535 silly gunzTarPerm extractEntry lib/public/icons/page_white_powerpoint.png
+536 silly gunzTarPerm extractEntry lib/public/icons/page_white_put.png
+537 silly gunzTarPerm extractEntry lib/public/icons/page_white_ruby.png
+538 silly gunzTarPerm extractEntry lib/public/icons/page_white_stack.png
+539 silly gunzTarPerm extractEntry lib/public/icons/page_white_star.png
+540 silly gunzTarPerm extractEntry lib/public/icons/page_white_swoosh.png
+541 silly gunzTarPerm extractEntry lib/public/icons/page_white_text.png
+542 silly gunzTarPerm extractEntry lib/public/icons/page_white_text_width.png
+543 silly gunzTarPerm extractEntry lib/public/icons/page_white_tux.png
+544 silly gunzTarPerm extractEntry lib/public/icons/page_white_vector.png
+545 silly gunzTarPerm extractEntry lib/public/icons/page_white_visualstudio.png
+546 silly gunzTarPerm extractEntry lib/public/icons/page_white_width.png
+547 silly gunzTarPerm extractEntry lib/public/icons/page_white_word.png
+548 silly gunzTarPerm extractEntry lib/public/icons/page_white_world.png
+549 silly gunzTarPerm extractEntry lib/public/icons/page_white_wrench.png
+550 silly gunzTarPerm extractEntry lib/public/icons/page_white_zip.png
+551 silly gunzTarPerm extractEntry lib/public/icons/page_word.png
+552 silly gunzTarPerm extractEntry lib/public/icons/page_world.png
+553 silly gunzTarPerm extractEntry lib/public/style.css
+554 silly gunzTarPerm extractEntry Readme.md
+555 verbose read json /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972232-0.46051152842119336/package/package.json
+556 silly lockFile b29faff5-2232-0-46051152842119336-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972232-0.46051152842119336/package
+557 verbose from cache /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972232-0.46051152842119336/package/package.json
+558 verbose tar pack [ '/Users/dave/.npm/connect/2.9.0/package.tgz',
+558 verbose tar pack   '/var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972232-0.46051152842119336/package' ]
+559 verbose tarball /Users/dave/.npm/connect/2.9.0/package.tgz
+560 verbose folder /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058972232-0.46051152842119336/package
+561 silly lockFile 4fd75220-ve-npm-connect-2-9-0-package-tgz /Users/dave/.npm/connect/2.9.0/package.tgz
+562 verbose lock /Users/dave/.npm/connect/2.9.0/package.tgz /Users/dave/.npm/4fd75220-ve-npm-connect-2-9-0-package-tgz.lock
+563 silly lockFile 4fd75220-ve-npm-connect-2-9-0-package-tgz /Users/dave/.npm/connect/2.9.0/package.tgz
+564 silly lockFile 42bf4f2b-s-dave-npm-connect-2-9-0-package /Users/dave/.npm/connect/2.9.0/package
+565 verbose lock /Users/dave/.npm/connect/2.9.0/package /Users/dave/.npm/42bf4f2b-s-dave-npm-connect-2-9-0-package.lock
+566 silly lockFile 42bf4f2b-s-dave-npm-connect-2-9-0-package /Users/dave/.npm/connect/2.9.0/package
+567 verbose tar unpack /Users/dave/.npm/connect/2.9.0/package.tgz
+568 silly lockFile 42bf4f2b-s-dave-npm-connect-2-9-0-package /Users/dave/.npm/connect/2.9.0/package
+569 verbose lock /Users/dave/.npm/connect/2.9.0/package /Users/dave/.npm/42bf4f2b-s-dave-npm-connect-2-9-0-package.lock
+570 silly gunzTarPerm modes [ '755', '644' ]
+571 silly gunzTarPerm extractEntry package.json
+572 silly gunzTarPerm extractEntry .npmignore
+573 silly gunzTarPerm extractEntry LICENSE
+574 silly gunzTarPerm extractEntry index.js
+575 silly gunzTarPerm extractEntry .travis.yml
+576 silly gunzTarPerm extractEntry lib/cache.js
+577 silly gunzTarPerm extractEntry lib/connect.js
+578 silly gunzTarPerm extractEntry lib/index.js
+579 silly gunzTarPerm extractEntry lib/patch.js
+580 silly gunzTarPerm extractEntry lib/proto.js
+581 silly gunzTarPerm extractEntry lib/utils.js
+582 silly gunzTarPerm extractEntry lib/middleware/basicAuth.js
+583 silly gunzTarPerm extractEntry lib/middleware/errorHandler.js
+584 silly gunzTarPerm extractEntry lib/middleware/favicon.js
+585 silly gunzTarPerm extractEntry lib/middleware/json.js
+586 silly gunzTarPerm extractEntry lib/middleware/limit.js
+587 silly gunzTarPerm extractEntry lib/middleware/directory.js
+588 silly gunzTarPerm extractEntry lib/middleware/methodOverride.js
+589 silly gunzTarPerm extractEntry lib/middleware/multipart.js
+590 silly gunzTarPerm extractEntry lib/middleware/query.js
+591 silly gunzTarPerm extractEntry lib/middleware/responseTime.js
+592 silly gunzTarPerm extractEntry lib/middleware/urlencoded.js
+593 silly gunzTarPerm extractEntry lib/middleware/csrf.js
+594 silly gunzTarPerm extractEntry lib/middleware/session.js
+595 silly gunzTarPerm extractEntry lib/middleware/cookieSession.js
+596 silly gunzTarPerm extractEntry lib/middleware/static.js
+597 silly gunzTarPerm extractEntry lib/middleware/cookieParser.js
+598 silly gunzTarPerm extractEntry lib/middleware/staticCache.js
+599 silly gunzTarPerm extractEntry lib/middleware/compress.js
+600 silly gunzTarPerm extractEntry lib/middleware/timeout.js
+601 silly gunzTarPerm extractEntry lib/middleware/bodyParser.js
+602 silly gunzTarPerm extractEntry lib/middleware/vhost.js
+603 silly gunzTarPerm extractEntry lib/middleware/logger.js
+604 silly gunzTarPerm extractEntry lib/middleware/session/cookie.js
+605 silly gunzTarPerm extractEntry lib/middleware/session/memory.js
+606 silly gunzTarPerm extractEntry lib/middleware/session/session.js
+607 silly gunzTarPerm extractEntry lib/middleware/session/store.js
+608 silly gunzTarPerm extractEntry lib/public/directory.html
+609 silly gunzTarPerm extractEntry lib/public/error.html
+610 silly gunzTarPerm extractEntry lib/public/favicon.ico
+611 silly gunzTarPerm extractEntry lib/public/icons/page_white_edit.png
+612 silly gunzTarPerm extractEntry lib/public/icons/page.png
+613 silly gunzTarPerm extractEntry lib/public/icons/page_attach.png
+614 silly gunzTarPerm extractEntry lib/public/icons/page_code.png
+615 silly gunzTarPerm extractEntry lib/public/icons/page_copy.png
+616 silly gunzTarPerm extractEntry lib/public/icons/page_delete.png
+617 silly gunzTarPerm extractEntry lib/public/icons/page_edit.png
+618 silly gunzTarPerm extractEntry lib/public/icons/page_error.png
+619 silly gunzTarPerm extractEntry lib/public/icons/page_excel.png
+620 silly gunzTarPerm extractEntry lib/public/icons/page_find.png
+621 silly gunzTarPerm extractEntry lib/public/icons/page_gear.png
+622 silly gunzTarPerm extractEntry lib/public/icons/page_go.png
+623 silly gunzTarPerm extractEntry lib/public/icons/page_green.png
+624 silly gunzTarPerm extractEntry lib/public/icons/page_key.png
+625 silly gunzTarPerm extractEntry lib/public/icons/page_lightning.png
+626 silly gunzTarPerm extractEntry lib/public/icons/page_link.png
+627 silly gunzTarPerm extractEntry lib/public/icons/page_paintbrush.png
+628 silly gunzTarPerm extractEntry lib/public/icons/page_paste.png
+629 silly gunzTarPerm extractEntry lib/public/icons/page_red.png
+630 silly gunzTarPerm extractEntry lib/public/icons/page_refresh.png
+631 silly gunzTarPerm extractEntry lib/public/icons/page_save.png
+632 silly gunzTarPerm extractEntry lib/public/icons/page_white.png
+633 silly gunzTarPerm extractEntry lib/public/icons/page_white_acrobat.png
+634 silly gunzTarPerm extractEntry lib/public/icons/page_white_actionscript.png
+635 silly gunzTarPerm extractEntry lib/public/icons/page_white_add.png
+636 silly gunzTarPerm extractEntry lib/public/icons/page_white_c.png
+637 silly gunzTarPerm extractEntry lib/public/icons/page_white_camera.png
+638 silly gunzTarPerm extractEntry lib/public/icons/page_white_cd.png
+639 silly gunzTarPerm extractEntry lib/public/icons/page_white_code.png
+640 silly gunzTarPerm extractEntry lib/public/icons/page_white_code_red.png
+641 silly gunzTarPerm extractEntry lib/public/icons/page_white_coldfusion.png
+642 silly gunzTarPerm extractEntry lib/public/icons/page_white_compressed.png
+643 silly gunzTarPerm extractEntry lib/public/icons/page_white_copy.png
+644 silly gunzTarPerm extractEntry lib/public/icons/page_white_cplusplus.png
+645 silly gunzTarPerm extractEntry lib/public/icons/page_white_csharp.png
+646 silly gunzTarPerm extractEntry lib/public/icons/page_white_cup.png
+647 silly gunzTarPerm extractEntry lib/public/icons/page_white_database.png
+648 silly gunzTarPerm extractEntry lib/public/icons/page_white_delete.png
+649 silly gunzTarPerm extractEntry lib/public/icons/page_white_dvd.png
+650 silly gunzTarPerm extractEntry lib/public/icons/page_add.png
+651 silly gunzTarPerm extractEntry lib/public/icons/page_white_error.png
+652 silly gunzTarPerm extractEntry lib/public/icons/page_white_excel.png
+653 silly gunzTarPerm extractEntry lib/public/icons/page_white_find.png
+654 silly gunzTarPerm extractEntry lib/public/icons/page_white_flash.png
+655 silly gunzTarPerm extractEntry lib/public/icons/page_white_freehand.png
+656 silly gunzTarPerm extractEntry lib/public/icons/page_white_gear.png
+657 silly gunzTarPerm extractEntry lib/public/icons/page_white_get.png
+658 silly gunzTarPerm extractEntry lib/public/icons/page_white_go.png
+659 silly gunzTarPerm extractEntry lib/public/icons/page_white_h.png
+660 silly gunzTarPerm extractEntry lib/public/icons/page_white_horizontal.png
+661 silly gunzTarPerm extractEntry lib/public/icons/page_white_key.png
+662 silly gunzTarPerm extractEntry lib/public/icons/page_white_lightning.png
+663 silly gunzTarPerm extractEntry lib/public/icons/page_white_link.png
+664 silly gunzTarPerm extractEntry lib/public/icons/page_white_magnify.png
+665 silly gunzTarPerm extractEntry lib/public/icons/page_white_medal.png
+666 silly gunzTarPerm extractEntry lib/public/icons/page_white_office.png
+667 silly gunzTarPerm extractEntry lib/public/icons/page_white_paint.png
+668 silly gunzTarPerm extractEntry lib/public/icons/page_white_paintbrush.png
+669 silly gunzTarPerm extractEntry lib/public/icons/page_white_paste.png
+670 silly gunzTarPerm extractEntry lib/public/icons/page_white_php.png
+671 silly gunzTarPerm extractEntry lib/public/icons/page_white_picture.png
+672 silly gunzTarPerm extractEntry lib/public/icons/page_white_powerpoint.png
+673 silly gunzTarPerm extractEntry lib/public/icons/page_white_put.png
+674 silly gunzTarPerm extractEntry lib/public/icons/page_white_ruby.png
+675 silly gunzTarPerm extractEntry lib/public/icons/page_white_stack.png
+676 silly gunzTarPerm extractEntry lib/public/icons/page_white_star.png
+677 silly gunzTarPerm extractEntry lib/public/icons/page_white_swoosh.png
+678 silly gunzTarPerm extractEntry lib/public/icons/page_white_text.png
+679 silly gunzTarPerm extractEntry lib/public/icons/page_white_text_width.png
+680 silly gunzTarPerm extractEntry lib/public/icons/page_white_tux.png
+681 silly gunzTarPerm extractEntry lib/public/icons/page_white_vector.png
+682 silly gunzTarPerm extractEntry lib/public/icons/page_white_visualstudio.png
+683 silly gunzTarPerm extractEntry lib/public/icons/page_white_width.png
+684 silly gunzTarPerm extractEntry lib/public/icons/page_white_word.png
+685 silly gunzTarPerm extractEntry lib/public/icons/page_white_world.png
+686 silly gunzTarPerm extractEntry lib/public/icons/page_white_wrench.png
+687 silly gunzTarPerm extractEntry lib/public/icons/page_white_zip.png
+688 silly gunzTarPerm extractEntry lib/public/icons/page_word.png
+689 silly gunzTarPerm extractEntry lib/public/icons/page_world.png
+690 silly gunzTarPerm extractEntry lib/public/style.css
+691 silly gunzTarPerm extractEntry Readme.md
+692 verbose read json /Users/dave/.npm/connect/2.9.0/package/package.json
+693 silly lockFile 42bf4f2b-s-dave-npm-connect-2-9-0-package /Users/dave/.npm/connect/2.9.0/package
+694 silly shasum updated bytes 40960
+695 silly shasum updated bytes 36330
+696 info shasum ecf478b6f2723e72cf9a19d1c7d19d0b37b53746
+696 info shasum /Users/dave/.npm/connect/2.9.0/package.tgz
+697 verbose from cache /Users/dave/.npm/connect/2.9.0/package/package.json
+698 verbose chmod /Users/dave/.npm/connect/2.9.0/package.tgz 644
+699 verbose chown /Users/dave/.npm/connect/2.9.0/package.tgz [ 501, 20 ]
+700 silly lockFile 1e2292af-js-org-connect-connect-2-9-0-tgz https://registry.npmjs.org/connect/-/connect-2.9.0.tgz
+701 silly lockFile 50a8158d-connect-2-9-0 connect@2.9.0
+702 silly lockFile a2361ee0-connect connect@*
+703 info outdated updating [ [ '/Users/dave', 'timetrack', '0.0.1', '0.1.3' ],
+703 info outdated   [ '/Users/dave', 'http-proxy', '0.10.0', '0.10.3' ],
+703 info outdated   [ '/Users/dave', 'testacular', '0.4.0', '0.6.2' ],
+703 info outdated   [ '/Users/dave', 'connect', '2.8.8', '2.9.0' ] ]
+704 verbose install where,what [ '/Users/dave', [ 'timetrack@0.1.3' ] ]
+705 verbose install where,what [ '/Users/dave', [ 'http-proxy@0.10.3' ] ]
+706 verbose install where,what [ '/Users/dave', [ 'testacular@0.6.2' ] ]
+707 verbose install where,what [ '/Users/dave', [ 'connect@2.9.0' ] ]
+708 verbose read json /Users/dave/package.json
+709 verbose read json /Users/dave/package.json
+710 verbose read json /Users/dave/package.json
+711 verbose read json /Users/dave/package.json
+712 verbose from cache /Users/dave/node_modules/cocos2d/package.json
+713 verbose from cache /Users/dave/node_modules/connect/package.json
+714 verbose from cache /Users/dave/node_modules/http-proxy/package.json
+715 verbose from cache /Users/dave/node_modules/testacular/package.json
+716 verbose from cache /Users/dave/node_modules/timetrack/package.json
+717 verbose from cache /Users/dave/node_modules/cocos2d/package.json
+718 verbose from cache /Users/dave/node_modules/connect/package.json
+719 verbose from cache /Users/dave/node_modules/http-proxy/package.json
+720 verbose from cache /Users/dave/node_modules/testacular/package.json
+721 verbose from cache /Users/dave/node_modules/timetrack/package.json
+722 verbose from cache /Users/dave/node_modules/cocos2d/package.json
+723 verbose from cache /Users/dave/node_modules/connect/package.json
+724 verbose from cache /Users/dave/node_modules/http-proxy/package.json
+725 verbose from cache /Users/dave/node_modules/testacular/package.json
+726 verbose from cache /Users/dave/node_modules/timetrack/package.json
+727 verbose from cache /Users/dave/node_modules/cocos2d/package.json
+728 verbose from cache /Users/dave/node_modules/connect/package.json
+729 verbose from cache /Users/dave/node_modules/http-proxy/package.json
+730 verbose from cache /Users/dave/node_modules/testacular/package.json
+731 verbose from cache /Users/dave/node_modules/timetrack/package.json
+732 verbose read json /Users/dave/package.json
+733 verbose read json /Users/dave/package.json
+734 verbose read json /Users/dave/package.json
+735 verbose read json /Users/dave/package.json
+736 verbose cache add [ 'timetrack@0.1.3', null ]
+737 verbose cache add name=undefined spec="timetrack@0.1.3" args=["timetrack@0.1.3",null]
+738 verbose parsed url { pathname: 'timetrack@0.1.3',
+738 verbose parsed url   path: 'timetrack@0.1.3',
+738 verbose parsed url   href: 'timetrack@0.1.3' }
+739 verbose cache add name="timetrack" spec="0.1.3" args=["timetrack","0.1.3"]
+740 verbose parsed url { pathname: '0.1.3', path: '0.1.3', href: '0.1.3' }
+741 verbose addNamed [ 'timetrack', '0.1.3' ]
+742 verbose addNamed [ '0.1.3', '0.1.3' ]
+743 silly lockFile 4b7cf755-timetrack-0-1-3 timetrack@0.1.3
+744 verbose lock timetrack@0.1.3 /Users/dave/.npm/4b7cf755-timetrack-0-1-3.lock
+745 verbose cache add [ 'http-proxy@0.10.3', null ]
+746 verbose cache add name=undefined spec="http-proxy@0.10.3" args=["http-proxy@0.10.3",null]
+747 verbose parsed url { pathname: 'http-proxy@0.10.3',
+747 verbose parsed url   path: 'http-proxy@0.10.3',
+747 verbose parsed url   href: 'http-proxy@0.10.3' }
+748 verbose cache add name="http-proxy" spec="0.10.3" args=["http-proxy","0.10.3"]
+749 verbose parsed url { pathname: '0.10.3', path: '0.10.3', href: '0.10.3' }
+750 verbose addNamed [ 'http-proxy', '0.10.3' ]
+751 verbose addNamed [ '0.10.3', '0.10.3' ]
+752 silly lockFile 8a2ed421-http-proxy-0-10-3 http-proxy@0.10.3
+753 verbose lock http-proxy@0.10.3 /Users/dave/.npm/8a2ed421-http-proxy-0-10-3.lock
+754 verbose cache add [ 'testacular@0.6.2', null ]
+755 verbose cache add name=undefined spec="testacular@0.6.2" args=["testacular@0.6.2",null]
+756 verbose parsed url { pathname: 'testacular@0.6.2',
+756 verbose parsed url   path: 'testacular@0.6.2',
+756 verbose parsed url   href: 'testacular@0.6.2' }
+757 verbose cache add name="testacular" spec="0.6.2" args=["testacular","0.6.2"]
+758 verbose parsed url { pathname: '0.6.2', path: '0.6.2', href: '0.6.2' }
+759 verbose addNamed [ 'testacular', '0.6.2' ]
+760 verbose addNamed [ '0.6.2', '0.6.2' ]
+761 silly lockFile 2fe7dd06-testacular-0-6-2 testacular@0.6.2
+762 verbose lock testacular@0.6.2 /Users/dave/.npm/2fe7dd06-testacular-0-6-2.lock
+763 verbose cache add [ 'connect@2.9.0', null ]
+764 verbose cache add name=undefined spec="connect@2.9.0" args=["connect@2.9.0",null]
+765 verbose parsed url { pathname: 'connect@2.9.0',
+765 verbose parsed url   path: 'connect@2.9.0',
+765 verbose parsed url   href: 'connect@2.9.0' }
+766 verbose cache add name="connect" spec="2.9.0" args=["connect","2.9.0"]
+767 verbose parsed url { pathname: '2.9.0', path: '2.9.0', href: '2.9.0' }
+768 verbose addNamed [ 'connect', '2.9.0' ]
+769 verbose addNamed [ '2.9.0', '2.9.0' ]
+770 silly lockFile 50a8158d-connect-2-9-0 connect@2.9.0
+771 verbose lock connect@2.9.0 /Users/dave/.npm/50a8158d-connect-2-9-0.lock
+772 verbose url raw timetrack/0.1.3
+773 verbose url resolving [ 'https://registry.npmjs.org/', './timetrack/0.1.3' ]
+774 verbose url resolved https://registry.npmjs.org/timetrack/0.1.3
+775 info trying registry request attempt 1 at 13:29:49
+776 http GET https://registry.npmjs.org/timetrack/0.1.3
+777 verbose url raw http-proxy/0.10.3
+778 verbose url resolving [ 'https://registry.npmjs.org/', './http-proxy/0.10.3' ]
+779 verbose url resolved https://registry.npmjs.org/http-proxy/0.10.3
+780 info trying registry request attempt 1 at 13:29:49
+781 http GET https://registry.npmjs.org/http-proxy/0.10.3
+782 verbose url raw testacular/0.6.2
+783 verbose url resolving [ 'https://registry.npmjs.org/', './testacular/0.6.2' ]
+784 verbose url resolved https://registry.npmjs.org/testacular/0.6.2
+785 info trying registry request attempt 1 at 13:29:49
+786 http GET https://registry.npmjs.org/testacular/0.6.2
+787 verbose url raw connect/2.9.0
+788 verbose url resolving [ 'https://registry.npmjs.org/', './connect/2.9.0' ]
+789 verbose url resolved https://registry.npmjs.org/connect/2.9.0
+790 info trying registry request attempt 1 at 13:29:49
+791 http GET https://registry.npmjs.org/connect/2.9.0
+792 http 200 https://registry.npmjs.org/testacular/0.6.2
+793 silly registry.get cb [ 200,
+793 silly registry.get   { vary: 'Accept',
+793 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+793 silly registry.get     etag: '"8054ZQRHTNJDJAE1EXSL3KYHT"',
+793 silly registry.get     date: 'Sun, 06 Oct 2013 11:29:39 GMT',
+793 silly registry.get     'content-type': 'application/json',
+793 silly registry.get     'content-length': '3135' } ]
+794 http 200 https://registry.npmjs.org/connect/2.9.0
+795 silly registry.get cb [ 200,
+795 silly registry.get   { vary: 'Accept',
+795 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+795 silly registry.get     etag: '"BMYU0F59PKAU2TU809X3GINQK"',
+795 silly registry.get     date: 'Sun, 06 Oct 2013 11:29:39 GMT',
+795 silly registry.get     'content-type': 'application/json',
+795 silly registry.get     'content-length': '6340' } ]
+796 silly lockFile 1e2292af-js-org-connect-connect-2-9-0-tgz https://registry.npmjs.org/connect/-/connect-2.9.0.tgz
+797 verbose lock https://registry.npmjs.org/connect/-/connect-2.9.0.tgz /Users/dave/.npm/1e2292af-js-org-connect-connect-2-9-0-tgz.lock
+798 silly lockFile 67e63fb1--testacular-testacular-0-6-2-tgz https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz
+799 verbose lock https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz /Users/dave/.npm/67e63fb1--testacular-testacular-0-6-2-tgz.lock
+800 verbose addRemoteTarball [ 'https://registry.npmjs.org/connect/-/connect-2.9.0.tgz',
+800 verbose addRemoteTarball   'ecf478b6f2723e72cf9a19d1c7d19d0b37b53746' ]
+801 verbose addRemoteTarball [ 'https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz',
+801 verbose addRemoteTarball   '0b3e9f1c3ab41d505b158d6557a1beacd72db129' ]
+802 info retry fetch attempt 1 at 13:29:50
+803 verbose fetch to= /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.04300882387906313/tmp.tgz
+804 info retry fetch attempt 1 at 13:29:50
+805 verbose fetch to= /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.38178358250297606/tmp.tgz
+806 http GET https://registry.npmjs.org/connect/-/connect-2.9.0.tgz
+807 http GET https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz
+808 http 200 https://registry.npmjs.org/timetrack/0.1.3
+809 silly registry.get cb [ 200,
+809 silly registry.get   { vary: 'Accept',
+809 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+809 silly registry.get     etag: '"CVMLZHVZ2QT8LLUBUAET04NME"',
+809 silly registry.get     date: 'Sun, 06 Oct 2013 11:29:41 GMT',
+809 silly registry.get     'content-type': 'application/json',
+809 silly registry.get     'content-length': '1093' } ]
+810 silly lockFile acb2115e-rg-timetrack-timetrack-0-1-3-tgz https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz
+811 verbose lock https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz /Users/dave/.npm/acb2115e-rg-timetrack-timetrack-0-1-3-tgz.lock
+812 verbose addRemoteTarball [ 'https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz',
+812 verbose addRemoteTarball   'b015a92b2da14a4e32c66e4fb24da63cd9892158' ]
+813 info retry fetch attempt 1 at 13:29:53
+814 verbose fetch to= /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993245-0.02861080039292574/tmp.tgz
+815 http GET https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz
+816 http 200 https://registry.npmjs.org/http-proxy/0.10.3
+817 silly registry.get cb [ 200,
+817 silly registry.get   { vary: 'Accept',
+817 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+817 silly registry.get     etag: '"F28H68IGMJ2E8FKYULPW74W4P"',
+817 silly registry.get     date: 'Sun, 06 Oct 2013 11:29:41 GMT',
+817 silly registry.get     'content-type': 'application/json',
+817 silly registry.get     'content-length': '21220' } ]
+818 silly lockFile 590b62f3-http-proxy-http-proxy-0-10-3-tgz https://registry.npmjs.org/http-proxy/-/http-proxy-0.10.3.tgz
+819 verbose lock https://registry.npmjs.org/http-proxy/-/http-proxy-0.10.3.tgz /Users/dave/.npm/590b62f3-http-proxy-http-proxy-0-10-3-tgz.lock
+820 verbose addRemoteTarball [ 'https://registry.npmjs.org/http-proxy/-/http-proxy-0.10.3.tgz',
+820 verbose addRemoteTarball   '72ca9d503a75e064650084c58ca11b82e4b0196d' ]
+821 info retry fetch attempt 1 at 13:29:53
+822 verbose fetch to= /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993766-0.5526831124443561/tmp.tgz
+823 http GET https://registry.npmjs.org/http-proxy/-/http-proxy-0.10.3.tgz
+824 http 200 https://registry.npmjs.org/connect/-/connect-2.9.0.tgz
+825 http 200 https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz
+826 http 200 https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz
+827 silly shasum updated bytes 1176
+828 info shasum b015a92b2da14a4e32c66e4fb24da63cd9892158
+828 info shasum /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993245-0.02861080039292574/tmp.tgz
+829 verbose tar unpack /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993245-0.02861080039292574/tmp.tgz
+830 silly lockFile f23ee2ad-3245-0-02861080039292574-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993245-0.02861080039292574/package
+831 verbose lock /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993245-0.02861080039292574/package /Users/dave/.npm/f23ee2ad-3245-0-02861080039292574-package.lock
+832 silly gunzTarPerm modes [ '755', '644' ]
+833 silly gunzTarPerm extractEntry package.json
+834 silly gunzTarPerm extractEntry .npmignore
+835 silly gunzTarPerm extractEntry README.md
+836 silly gunzTarPerm extractEntry index.js
+837 silly gunzTarPerm extractEntry lib/timer.js
+838 verbose read json /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993245-0.02861080039292574/package/package.json
+839 silly lockFile f23ee2ad-3245-0-02861080039292574-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993245-0.02861080039292574/package
+840 verbose from cache /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993245-0.02861080039292574/package/package.json
+841 verbose tar pack [ '/Users/dave/.npm/timetrack/0.1.3/package.tgz',
+841 verbose tar pack   '/var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993245-0.02861080039292574/package' ]
+842 verbose tarball /Users/dave/.npm/timetrack/0.1.3/package.tgz
+843 verbose folder /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058993245-0.02861080039292574/package
+844 silly lockFile 9a409425--npm-timetrack-0-1-3-package-tgz /Users/dave/.npm/timetrack/0.1.3/package.tgz
+845 verbose lock /Users/dave/.npm/timetrack/0.1.3/package.tgz /Users/dave/.npm/9a409425--npm-timetrack-0-1-3-package-tgz.lock
+846 silly lockFile 9a409425--npm-timetrack-0-1-3-package-tgz /Users/dave/.npm/timetrack/0.1.3/package.tgz
+847 silly lockFile d6bb75f8-dave-npm-timetrack-0-1-3-package /Users/dave/.npm/timetrack/0.1.3/package
+848 verbose lock /Users/dave/.npm/timetrack/0.1.3/package /Users/dave/.npm/d6bb75f8-dave-npm-timetrack-0-1-3-package.lock
+849 silly lockFile d6bb75f8-dave-npm-timetrack-0-1-3-package /Users/dave/.npm/timetrack/0.1.3/package
+850 verbose tar unpack /Users/dave/.npm/timetrack/0.1.3/package.tgz
+851 silly lockFile d6bb75f8-dave-npm-timetrack-0-1-3-package /Users/dave/.npm/timetrack/0.1.3/package
+852 verbose lock /Users/dave/.npm/timetrack/0.1.3/package /Users/dave/.npm/d6bb75f8-dave-npm-timetrack-0-1-3-package.lock
+853 silly gunzTarPerm modes [ '755', '644' ]
+854 silly gunzTarPerm extractEntry package.json
+855 silly gunzTarPerm extractEntry .npmignore
+856 silly gunzTarPerm extractEntry README.md
+857 silly gunzTarPerm extractEntry index.js
+858 silly gunzTarPerm extractEntry lib/timer.js
+859 verbose from cache /Users/dave/.npm/timetrack/0.1.3/package/package.json
+860 silly lockFile d6bb75f8-dave-npm-timetrack-0-1-3-package /Users/dave/.npm/timetrack/0.1.3/package
+861 silly shasum updated bytes 1176
+862 info shasum b015a92b2da14a4e32c66e4fb24da63cd9892158
+862 info shasum /Users/dave/.npm/timetrack/0.1.3/package.tgz
+863 verbose from cache /Users/dave/.npm/timetrack/0.1.3/package/package.json
+864 verbose chmod /Users/dave/.npm/timetrack/0.1.3/package.tgz 644
+865 verbose chown /Users/dave/.npm/timetrack/0.1.3/package.tgz [ 501, 20 ]
+866 silly lockFile acb2115e-rg-timetrack-timetrack-0-1-3-tgz https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz
+867 silly lockFile 4b7cf755-timetrack-0-1-3 timetrack@0.1.3
+868 silly resolved [ { name: 'timetrack',
+868 silly resolved     version: '0.1.3',
+868 silly resolved     description: 'JavaScript TimeTracker',
+868 silly resolved     author: { name: 'Natan Santolo', email: 'natan.santolo@gmail.com' },
+868 silly resolved     repository: { type: 'git', url: 'https://github.com/natos/TimeTrack.js' },
+868 silly resolved     main: 'index',
+868 silly resolved     engines: { node: '>= 0.4.7' },
+868 silly resolved     readme: 'TimeTrack\n=========\n\nSimple time tracker to test the speed on JavaScript.\n\nInstall\n-------\n\n\tnpm install -g timetrack\n\nUse\n===\n\nRequire the module\n------------------\n\n\tvar TimeTrack = require(\'timetrack\');\n\nStart tracking\n--------------\n\tvar timer = new TimeTrack(\'Name\');\n\nRecord a timestamp\n------------------\n\ttimer.track(\'Label\');\n\nTurn off logs\n-------------\n\ttimer.off();\n\nEnable logs\n-----------\n\ttimer.on();',
+868 silly resolved     readmeFilename: 'README.md',
+868 silly resolved     _id: 'timetrack@0.1.3',
+868 silly resolved     dist: { shasum: 'b015a92b2da14a4e32c66e4fb24da63cd9892158' },
+868 silly resolved     _from: 'timetrack@0.1.3',
+868 silly resolved     _resolved: 'https://registry.npmjs.org/timetrack/-/timetrack-0.1.3.tgz' } ]
+869 info install timetrack@0.1.3 into /Users/dave
+870 info installOne timetrack@0.1.3
+871 verbose from cache /Users/dave/.npm/timetrack/0.1.3/package/package.json
+872 info /Users/dave/node_modules/timetrack unbuild
+873 verbose from cache /Users/dave/node_modules/timetrack/package.json
+874 info preuninstall timetrack@0.0.1
+875 info uninstall timetrack@0.0.1
+876 verbose true,/Users/dave/node_modules,/Users/dave/node_modules unbuild timetrack@0.0.1
+877 info postuninstall timetrack@0.0.1
+878 verbose tar unpack /Users/dave/.npm/timetrack/0.1.3/package.tgz
+879 silly lockFile b60cfa4e-sers-dave-node-modules-timetrack /Users/dave/node_modules/timetrack
+880 verbose lock /Users/dave/node_modules/timetrack /Users/dave/.npm/b60cfa4e-sers-dave-node-modules-timetrack.lock
+881 silly gunzTarPerm modes [ '755', '644' ]
+882 silly gunzTarPerm extractEntry package.json
+883 silly gunzTarPerm extractEntry .npmignore
+884 silly gunzTarPerm extractEntry README.md
+885 silly gunzTarPerm extractEntry index.js
+886 silly gunzTarPerm extractEntry lib/timer.js
+887 verbose read json /Users/dave/node_modules/timetrack/package.json
+888 silly lockFile b60cfa4e-sers-dave-node-modules-timetrack /Users/dave/node_modules/timetrack
+889 info preinstall timetrack@0.1.3
+890 verbose from cache /Users/dave/node_modules/timetrack/package.json
+891 verbose readDependencies using package.json deps
+892 verbose from cache /Users/dave/node_modules/timetrack/package.json
+893 verbose readDependencies using package.json deps
+894 silly resolved []
+895 verbose about to build /Users/dave/node_modules/timetrack
+896 info build /Users/dave/node_modules/timetrack
+897 verbose from cache /Users/dave/node_modules/timetrack/package.json
+898 verbose linkStuff [ false, false, false, '/Users/dave/node_modules' ]
+899 info linkStuff timetrack@0.1.3
+900 verbose linkBins timetrack@0.1.3
+901 verbose linkMans timetrack@0.1.3
+902 verbose rebuildBundles timetrack@0.1.3
+903 info install timetrack@0.1.3
+904 info postinstall timetrack@0.1.3
+905 silly shasum updated bytes 1360
+906 info shasum 0b3e9f1c3ab41d505b158d6557a1beacd72db129
+906 info shasum /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.38178358250297606/tmp.tgz
+907 verbose tar unpack /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.38178358250297606/tmp.tgz
+908 silly lockFile 7456c472-0822-0-38178358250297606-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.38178358250297606/package
+909 verbose lock /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.38178358250297606/package /Users/dave/.npm/7456c472-0822-0-38178358250297606-package.lock
+910 silly gunzTarPerm modes [ '755', '644' ]
+911 silly gunzTarPerm extractEntry package.json
+912 silly gunzTarPerm extractEntry README.md
+913 silly gunzTarPerm extractEntry show-deprecated.js
+914 silly gunzTarPerm extractEntry bin/testacular
+915 verbose read json /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.38178358250297606/package/package.json
+916 silly lockFile 7456c472-0822-0-38178358250297606-package /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.38178358250297606/package
+917 verbose from cache /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.38178358250297606/package/package.json
+918 verbose tar pack [ '/Users/dave/.npm/testacular/0.6.2/package.tgz',
+918 verbose tar pack   '/var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.38178358250297606/package' ]
+919 verbose tarball /Users/dave/.npm/testacular/0.6.2/package.tgz
+920 verbose folder /var/folders/zd/1jzyh0f51nqf3hys4409bj300000gn/T/npm-14563/1381058990822-0.38178358250297606/package
+921 silly lockFile f87b0328-npm-testacular-0-6-2-package-tgz /Users/dave/.npm/testacular/0.6.2/package.tgz
+922 verbose lock /Users/dave/.npm/testacular/0.6.2/package.tgz /Users/dave/.npm/f87b0328-npm-testacular-0-6-2-package-tgz.lock
+923 silly lockFile f87b0328-npm-testacular-0-6-2-package-tgz /Users/dave/.npm/testacular/0.6.2/package.tgz
+924 silly lockFile 4e11bd3a-ave-npm-testacular-0-6-2-package /Users/dave/.npm/testacular/0.6.2/package
+925 verbose lock /Users/dave/.npm/testacular/0.6.2/package /Users/dave/.npm/4e11bd3a-ave-npm-testacular-0-6-2-package.lock
+926 silly lockFile 4e11bd3a-ave-npm-testacular-0-6-2-package /Users/dave/.npm/testacular/0.6.2/package
+927 verbose tar unpack /Users/dave/.npm/testacular/0.6.2/package.tgz
+928 silly lockFile 4e11bd3a-ave-npm-testacular-0-6-2-package /Users/dave/.npm/testacular/0.6.2/package
+929 verbose lock /Users/dave/.npm/testacular/0.6.2/package /Users/dave/.npm/4e11bd3a-ave-npm-testacular-0-6-2-package.lock
+930 silly gunzTarPerm modes [ '755', '644' ]
+931 silly gunzTarPerm extractEntry package.json
+932 silly gunzTarPerm extractEntry README.md
+933 silly gunzTarPerm extractEntry show-deprecated.js
+934 silly gunzTarPerm extractEntry bin/testacular
+935 verbose from cache /Users/dave/.npm/testacular/0.6.2/package/package.json
+936 silly lockFile 4e11bd3a-ave-npm-testacular-0-6-2-package /Users/dave/.npm/testacular/0.6.2/package
+937 silly shasum updated bytes 1356
+938 info shasum 088e8313ced446553683c484d30039146f1b2d2b
+938 info shasum /Users/dave/.npm/testacular/0.6.2/package.tgz
+939 verbose from cache /Users/dave/.npm/testacular/0.6.2/package/package.json
+940 verbose chmod /Users/dave/.npm/testacular/0.6.2/package.tgz 644
+941 verbose chown /Users/dave/.npm/testacular/0.6.2/package.tgz [ 501, 20 ]
+942 silly lockFile 67e63fb1--testacular-testacular-0-6-2-tgz https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz
+943 silly lockFile 2fe7dd06-testacular-0-6-2 testacular@0.6.2
+944 silly resolved [ { name: 'testacular',
+944 silly resolved     description: 'This project has been renamed to Karma.',
+944 silly resolved     homepage: 'http://karma-runner.github.com/',
+944 silly resolved     bugs: { url: 'https://github.com/karma-runner/karma/issues' },
+944 silly resolved     keywords:
+944 silly resolved      [ 'karma',
+944 silly resolved        'spectacular',
+944 silly resolved        'runner',
+944 silly resolved        'testacular',
+944 silly resolved        'js',
+944 silly resolved        'javascript',
+944 silly resolved        'testing',
+944 silly resolved        'test',
+944 silly resolved        'remote',
+944 silly resolved        'execution' ],
+944 silly resolved     author: { name: 'Vojta Jína', email: 'vojta.jina@gmail.com' },
+944 silly resolved     contributors:
+944 silly resolved      [ [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object],
+944 silly resolved        [Object] ],
+944 silly resolved     dependencies: {},
+944 silly resolved     devDependencies: {},
+944 silly resolved     repository: { type: 'git', url: 'git://github.com/karma-runner/karma.git' },
+944 silly resolved     main: './show-deprecated.js',
+944 silly resolved     bin: { testacular: './bin/testacular' },
+944 silly resolved     engines: { node: '~0.8 || ~0.10' },
+944 silly resolved     scripts: { install: 'node show-deprecated.js' },
+944 silly resolved     version: '0.6.2',
+944 silly resolved     readme: '# This project has been renamed to Karma.\n\n- http://karma-runner.github.com/\n- https://github.com/karma-runner/karma\n- https://npmjs.org/package/karma\n',
+944 silly resolved     readmeFilename: 'README.md',
+944 silly resolved     _id: 'testacular@0.6.2',
+944 silly resolved     dist: { shasum: '088e8313ced446553683c484d30039146f1b2d2b' },
+944 silly resolved     _from: 'testacular@0.6.2',
+944 silly resolved     _resolved: 'https://registry.npmjs.org/testacular/-/testacular-0.6.2.tgz' } ]
+945 info install testacular@0.6.2 into /Users/dave
+946 info installOne testacular@0.6.2
+947 verbose from cache /Users/dave/.npm/testacular/0.6.2/package/package.json
+948 info /Users/dave/node_modules/testacular unbuild
+949 verbose from cache /Users/dave/node_modules/testacular/package.json
+950 info preuninstall testacular@0.4.0
+951 info uninstall testacular@0.4.0
+952 verbose true,/Users/dave/node_modules,/Users/dave/node_modules unbuild testacular@0.4.0
+953 verbose /Users/dave/node_modules/.bin,[object Object] binRoot
+954 info /Users/dave/node_modules/testacular unbuild
+955 verbose read json /Users/dave/node_modules/testacular/package.json
+956 info preuninstall testacular@0.4.0
+957 info uninstall testacular@0.4.0
+958 verbose true,/Users/dave/node_modules,/Users/dave/node_modules unbuild testacular@0.4.0
+959 verbose /Users/dave/node_modules/.bin,[object Object] binRoot
+960 error error rolling back Error: EACCES, unlink '/Users/dave/node_modules/.bin/testacular'
+960 error error rolling back  testacular@0.6.2 { [Error: EACCES, unlink '/Users/dave/node_modules/.bin/testacular']
+960 error error rolling back   errno: 3,
+960 error error rolling back   code: 'EACCES',
+960 error error rolling back   path: '/Users/dave/node_modules/.bin/testacular' }
+961 error Error: EACCES, unlink '/Users/dave/node_modules/.bin/testacular'
+961 error  { [Error: EACCES, unlink '/Users/dave/node_modules/.bin/testacular']
+961 error   errno: 3,
+961 error   code: 'EACCES',
+961 error   path: '/Users/dave/node_modules/.bin/testacular' }
+962 error Please try running this command again as root/Administrator.
+963 error System Darwin 12.5.0
+964 error command "node" "/usr/local/bin/npm" "update"
+965 error cwd /Users/dave/invoices
+966 error node -v v0.8.18
+967 error npm -v 1.2.2
+968 error path /Users/dave/node_modules/.bin/testacular
+969 error code EACCES
+970 error errno 3
+971 error stack Error: EACCES, unlink '/Users/dave/node_modules/.bin/testacular'
+972 verbose exit [ 3, true ]

@@ -129,6 +129,7 @@ if (Meteor.isClient) {
   Template.invoices.helpers({
     date_badge: function (date) {
       var days_diff = daysDiff(date);
+      var bt = '';
       if(days_diff < 1)
         bt = ' badge-important';
       else if(days_diff < 7)
