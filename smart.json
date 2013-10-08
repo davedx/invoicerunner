@@ -1,11 +1,14 @@
 {
   "packages": {
     "iron-router": {
-    	"git": "https://github.com/EventedMind/iron-router.git",
-    	"branch": "dev"
-		},
+      "git": "https://github.com/EventedMind/iron-router.git",
+      "branch": "dev"
+    },
     "moment": {},
     "filepicker": {},
-    "loadpicker": {}
+    "loadpicker": {},
+    "spin": {},
+    "z-mongo-admin": {},
+    "accounts-admin-ui": {}
   }
 }

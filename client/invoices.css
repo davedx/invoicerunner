@@ -26,7 +26,7 @@ ul {
 	width: 147px;
 }
 .tax {
-	width: 80px;
+	width: 120px;
 }
 .btn-save {
 	float: left;
@@ -51,9 +51,15 @@ ul {
 .upload-btn {
 	height: 40px;
 	width: 220px;
-	margin: 40px;
+	margin: 10px 0 40px 0;
 }
 
 .light {
 	color: #eee;
+}
+
+#add-company-payment-method {
+	width: 90%;
+	margin: 10px;
+	height: 100px;
 }

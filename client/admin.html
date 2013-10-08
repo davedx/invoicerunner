@@ -1,0 +1,36 @@
+<template name="admin_layout">
+  <div class="container">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <ul class="nav nav-left">
+          <li>
+            <a href="{{pathFor 'home'}}">Invoice Runner</a>
+          </li>
+          <li>
+            <a href="{{pathFor 'admin'}}">Users</a>
+          </li>
+        </ul>
+        <ul class="nav pull-right nav-login">
+          <li>
+            {{loginButtons align="right"}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="main">
+      {{yield}}
+    </section>
+  </div>
+  <footer>
+    {{yield "footer"}}
+  </footer>
+</template>
+<template name="admin_users">
+	<div class="span12 box main-box">
+		<h1>Admin panel</h1>
+    	{{#if isAuthed}}
+    	<p>authed</p>
+      {{/if}}
+	</div>
+</template>
