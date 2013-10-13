@@ -59,10 +59,10 @@ if (Meteor.isClient) {
         } else {
           msg = 'Invoice saved.';
         }
-        //TODO: fix buggy feedback!
         var feedback = $(event.target).next();
         feedback.html(msg);
-        feedback.show().css('opacity', '1.0');
+        feedback.show();
+        feedback.css('opacity', '1.0');
         setTimeout(function () {
           feedback.animate({
             opacity: 0.25,
@@ -126,6 +126,7 @@ if (Meteor.isClient) {
       }
     }
   });
+
   Template.invoices.helpers({
     date_badge: function (date) {
       var days_diff = daysDiff(date);

@@ -28,9 +28,13 @@
 </template>
 <template name="admin_users">
 	<div class="span12 box main-box">
+    {{#if isAuthed}}
 		<h1>Admin panel</h1>
-    	{{#if isAuthed}}
-    	<p>authed</p>
-      {{/if}}
+    <ul>
+    {{#each users}}
+      <li><a href="mailto:{{get_email}}">{{get_email}}</a> <strong>{{get_invoices}} invoices</strong></li>
+    {{/each}}
+    </ul>
+    {{/if}}
 	</div>
 </template>

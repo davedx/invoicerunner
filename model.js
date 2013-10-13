@@ -28,7 +28,6 @@ Invoices.allow({
   }
 });
 
-
 if (Meteor.isServer) {
 
   Meteor.methods({

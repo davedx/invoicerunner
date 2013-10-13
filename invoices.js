@@ -45,6 +45,22 @@ if (Meteor.isServer) {
   Meteor.publish('companies', function () {
     return Companies.find({owner: this.userId});
   });
+
+  var user = Meteor.users.findOne({_id: Meteor.userId});
+  if(user.emails[0].address === 'davedx@gmail.com') {
+    Meteor.publish('allInvoices', function () {
+      return Invoices.find();
+    });
+  }
+  
+  Meteor.publish('users', function() {
+    var user = Meteor.users.findOne({_id: this.userId});
+    if(user.emails[0].address === 'davedx@gmail.com') {
+      return Meteor.users.find({}, {fields: {emails: 1, profile: 1}});
+    } else {
+      return [];
+    }
+  });
 } else {
   // client side:
   Meteor.startup(function () {
