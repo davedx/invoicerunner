@@ -19,6 +19,13 @@ if (Meteor.isClient) {
     },
     get_invoices: function () {
       return Invoices.find({owner: this._id}).count();
+    },
+    get_details: function () {
+      if(!this.profile) return 'No profile';
+      return this.profile.companyName + ', '
+        + this.profile.companyAddress + ' '
+        + this.profile.companyCountry + ' - Tax number: '
+        + this.profile.companyTaxNumber;
     }
   });
 

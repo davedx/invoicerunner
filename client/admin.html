@@ -32,7 +32,8 @@
 		<h1>Admin panel</h1>
     <ul>
     {{#each users}}
-      <li><a href="mailto:{{get_email}}">{{get_email}}</a> <strong>{{get_invoices}} invoices</strong></li>
+      <li><a href="mailto:{{get_email}}">{{get_email}}</a> <strong>{{get_invoices}} invoices</strong><br>
+        {{get_details}}</li>
     {{/each}}
     </ul>
     {{/if}}
