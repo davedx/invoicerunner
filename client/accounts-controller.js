@@ -11,24 +11,34 @@ if (Meteor.isClient) {
       $('#currentPrice').html(plans[plan].price);
     },
     'click .newaccount-btn': function (event) {
+      var translation = PaymillTranslations.getAll();
+
+      if(!$('#terms').is(':checked')) {
+        alert('Please confirm you have read the terms and conditions.');
+        event.preventDefault();
+        return;
+      }
 
       $('.newaccount-btn').attr("disabled", "disabled");
       var formlang = 'en';
+      var ok = true;
       if (false == paymill.validateCardNumber($('.card-number').val())) {
         $(".payment-errors").text(translation[formlang]["error"]["invalid-card-number"]);
         $(".payment-errors").css("display","inline-block");
         $(".newaccount-btn").removeAttr("disabled");
+        ok = false;
       }
       if (false == paymill.validateExpiry($('.card-expiry-month').val(), $('.card-expiry-year').val())) {
         $(".payment-errors").text(translation[formlang]["error"]["invalid-card-expiry-date"]);
         $(".payment-errors").css("display","inline-block");
         $(".newaccount-btn").removeAttr("disabled");
+        ok = false;
       }
-
       if ($('.card-holdername').val() == '') {
         $(".payment-errors").text(translation[formlang]["error"]["invalid-card-holdername"]);
         $(".payment-errors").css("display","inline-block");
         $(".newaccount-btn").removeAttr("disabled");
+        ok = false;
       }
       var params = {
         amount_int: 0, // E.g. "15" for 0.15 Eur
@@ -39,15 +49,21 @@ if (Meteor.isClient) {
         cvc: $('.card-cvc').val(),
         cardholder: $('.card-holdername').val()
       };
-      console.log("Creating paymill token");
+      if(!ok) {
+        event.preventDefault();
+        return;
+      }
+      //console.log("Creating paymill token");
 
       window.PAYMILL_PUBLIC_KEY = '60315688593e60a65c42b6b99aef837c';
       paymill.createToken(params, function (error, result) {
         if (error) {
           console.log("Error: ", error);
           // Shows the error above the form
-          $(".payment-errors").text(error.apierror);
+          $(".payment-errors").text(translation[formlang][error][error.apierror]);
+          $(".payment-errors").show();
           $(".submit-button").removeAttr("disabled");
+          event.preventDefault();
         } else {
           console.log("OK");
           form={};

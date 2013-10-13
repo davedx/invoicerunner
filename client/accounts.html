@@ -10,6 +10,32 @@
 		<p class="payment-errors alert-error span3" style="display:none;"></p>
 
 		<div id="payment-form-cc">
+
+			<div class="control-group">
+				<label class="company-name-label control-label" for="company-name">Company name:</label>
+				<div class="controls">
+					<input name="company_name" class="company-name span3" type="text" size="30" placeholder="ACME Ltd">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="company-address-label control-label" for="company-address">Address:</label>
+				<div class="controls">
+					<textarea name="company_address" class="company-address span3" type="text" rows="3" cols="30" placeholder="10 Long Rd"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="company-country-label control-label" for="company-country">Country:</label>
+				<div class="controls">
+					{{> countries}}
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="company-tax-label control-label" for="company-tax">VAT number if registered:</label>
+				<div class="controls">
+					<input name="company_tax" class="company-tax span3" type="text" size="30" placeholder="UK1234567890">
+				</div>
+			</div>
+
 			<div class="control-group">
 				<label class="card-number-label control-label" for="card-number">Credit card number:</label>
 				<div class="controls">
@@ -45,8 +71,8 @@
 	    	</label>
 	    	<div class="controls">
 	    		<select name="subscription" class="subscription">
-	    			<option value="offer_6c9a1f0b9b29cd434b57">Silver</option>
-	    			<option value="offer_8e1fd0a5602d0b868e1f" selected="selected">Gold</option>
+	    			<option value="offer_6c9a1f0b9b29cd434b57" selected>Silver</option>
+	    			<option value="offer_8e1fd0a5602d0b868e1f">Gold</option>
 	    			<option value="offer_0eabe23ec810943a7673">Platinum</option>
 	    		</select>
 	    	</div>
@@ -54,10 +80,15 @@
 	    <div class="control-group">
 	    	<div class="controls">
 	    		<label class="checkbox">
-						<input type="checkbox"> I have read the <a href="{{pathFor 'termsandconditions'}}">Terms and Conditions</a>
+						<input id="terms" type="checkbox"> I have read the <a href="{{pathFor 'termsandconditions'}}">Terms and Conditions</a>
 					</label>
 				</div>
 			</div>
+	    <div class="control-group">
+	    	<div class="controls alert payment-errors">
+	    	</div>
+	    </div>
+	    		
 	    <div class="control-group">
 	    	<div class="controls">
 					<button class="btn btn-success newaccount-btn">Submit</button>
@@ -69,7 +100,7 @@
 	<div class="clearfix"></div>
 
   <div class="newaccount-footer alert alert-info">
-  	<h4>Your plan: <span id="currentPlan">Gold</span> for $<span id="currentPrice">99</span> per month</h4>
+  	<h4>Your plan: <span id="currentPlan">Silver</span> for $<span id="currentPrice">19</span> per month</h4>
   	<p>You can cancel or upgrade your plan at any time.</p>
   	<p>This plan includes <strong>industry strength SSL security</strong>, <strong>unlimited</strong> invoices and companies and <strong>email and chat</strong> support.</p>
 	</div>

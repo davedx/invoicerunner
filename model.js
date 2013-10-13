@@ -118,7 +118,11 @@ if (Meteor.isServer) {
       if(foundUser) {
         Meteor.users.update(this.userId, {
           $set: {
-            'profile.accountType': plan.name
+            'profile.accountType': plan.name,
+            'profile.companyName': options.company_name,
+            'profile.companyAddress': options.company_address,
+            'profile.companyCountry': options.company_country,
+            'profile.companyTaxNumber': options.company_tax
           }
         });
         console.log("Updated user!");

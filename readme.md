@@ -7,10 +7,16 @@ TODO
 - Verify loginButtons register button is not bypassing our createUser method
 
 - VAT For European companies: Note that VAT is included. We will deduct VAT from the subscription prices...
+  - Need to know which companies are EU registered and their VAT numbers!
+
+- Add information to upgrade form:
+	- User name
+	- Company name
+	- Address
+	- Country
+	- VAT number if registered
 
 - Brand filepicker.io styling
-
-- Set S3 bucket for filepicker to mine
 
 - Archives (just make another status called 'archived' that's not displayed easily)
 
@@ -19,8 +25,6 @@ TODO
 - Write non-logged in static copy/webpages:
 	- Cancellation page
 	- Google landing pages
-
-- Link up Mailchimp to gold/platinum signup page
 
 - Google Analytics
 

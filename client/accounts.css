@@ -15,3 +15,6 @@
 .ssl-hint {
 	margin-right: 40px;
 }
+.payment-errors {
+	display: none;
+}
