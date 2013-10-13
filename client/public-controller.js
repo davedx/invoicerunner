@@ -33,6 +33,25 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.public_shortlist.events({
+    'click .btn-beta-signup': function (event) {
+      form={};
+      $.each($(event.target).closest('form').serializeArray(), function() {
+          form[this.name] = this.value;
+      });
+
+      Meteor.call('addToMailList', { email: form.shortlist_email }, function (err) {
+        if(!err) {
+          console.log("Success!");
+          Router.go('invoices');
+        } else {
+          console.error(err);
+        }
+      });
+      event.preventDefault();     
+    }
+  });
+
   PublicController = RouteController.extend({
     template: 'public_home',
     layout: 'public_layout',
