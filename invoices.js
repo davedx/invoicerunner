@@ -37,7 +37,7 @@ if (Meteor.isServer) {
   };
 
   Meteor.startup(seed);
-
+  console.log("Starting");
   Meteor.publish('invoices', function () {
     return Invoices.find({owner: this.userId});
   });
