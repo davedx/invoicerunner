@@ -97,6 +97,15 @@
   <div class="processing-tab tab {{tab_visible 'processing'}} span6">
     <h4 class="light">Processing</h4>
 
+    {{#if processingNone}}
+    <div class="box invoice">
+      <p class="lead">
+        You have no invoices in your processing stack.
+      </p>
+      <p class="lead">To add an invoice, use the 'New invoice' button.</p>
+      <p>Invoices you import from photos, scans, email attachments or images from web sources will appear first in your processing stack. After the details of the invoice have been filled in and validated according to your company's rules for invoices, click the 'Approved' checkbox and save the invoice. It will be moved to your payable stack, where you can confirm when invoices have been paid or scheduled to be paid.</p>
+    </div>
+    {{else}}
     <ul class="processing">
       {{#each processing}}
         <li>
@@ -182,10 +191,21 @@
         </li>
       {{/each}}
     </ul>
+    {{/if}}
   </div>
   <div class="payable-tab tab {{tab_visible 'payable'}} span6">
     <h4 class="light">Payable</h4>
 
+    {{#if payableNone}}
+    <div class="box invoice">
+      <p class="lead">
+        You have no invoices in your payable stack.
+      </p>
+      <p>To move an invoice to the payable stack, first ensure the details have been filled in and validated according to your company's rules for invoices. Then click the 'Approved' checkbox and save the invoice.</p>
+      <p>To pay or schedule payment of an invoice click on the 'Pay invoice' button. If the company is not yet in your records you will be asked to enter payment information. You can use this as a quick reference when paying, but remember some companies will change their payment methods from time to time.</p>
+      <p>After an invoice has been paid, it will be removed from the main interface but is still available in your invoice archives, accessible from your account menu.</p>
+    </div>
+    {{else}}
     <ul class="payable">
       {{#each payable}}
         <li>
@@ -248,6 +268,7 @@
         </li>
       {{/each}}
     </ul>
+    {{/if}}
   </div>
 </div>
 </template>

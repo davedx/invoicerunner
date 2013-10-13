@@ -8,8 +8,8 @@ preserve-inputs
 iron-router
 bootstrap
 moment
-loadpicker
 accounts-password
 accounts-ui
 http
 force-ssl
+filepicker

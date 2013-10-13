@@ -5,10 +5,6 @@
       "branch": "dev"
     },
     "moment": {},
-    "filepicker": {},
-    "loadpicker": {},
-    "spin": {},
-    "z-mongo-admin": {},
-    "accounts-admin-ui": {}
+    "filepicker": {}
   }
 }

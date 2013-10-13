@@ -127,6 +127,14 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.invoices.processingNone = function () {
+    return Invoices.find({approved: false}).count() === 0;
+  };
+
+  Template.invoices.payableNone = function () {
+    return Invoices.find({approved: true, status: 'processing'}).count() === 0;
+  };
+
   Template.invoices.helpers({
     date_badge: function (date) {
       var days_diff = daysDiff(date);

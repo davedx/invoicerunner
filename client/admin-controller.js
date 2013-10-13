@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
 
   Subscriptions = {
-    invoices: Meteor.subscribe('allInvoices'),
+    invoicesAll: Meteor.subscribe('invoicesAll'),
     companies: Meteor.subscribe('companies'),
     users: Meteor.subscribe('users')
   };
@@ -28,7 +28,7 @@ if (Meteor.isClient) {
     waitOn: function () {
       return [
         Subscriptions['users'],
-        Subscriptions['invoices'],
+        Subscriptions['invoicesAll'],
         Subscriptions['companies']
       ];
     },

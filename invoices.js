@@ -46,12 +46,14 @@ if (Meteor.isServer) {
     return Companies.find({owner: this.userId});
   });
 
+/*
   var user = Meteor.users.findOne({_id: Meteor.userId});
   if(user.emails[0].address === 'davedx@gmail.com') {
-    Meteor.publish('allInvoices', function () {
+    Meteor.publish('invoicesAll', function () {
       return Invoices.find();
     });
   }
+  */
   
   Meteor.publish('users', function() {
     var user = Meteor.users.findOne({_id: this.userId});
