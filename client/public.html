@@ -4,7 +4,7 @@
       <div class="navbar-inner">
         <ul class="nav nav-left">
           <li>
-            <a href="{{pathFor 'home'}}">Invoice Runner</a>
+            <a href="{{pathFor 'home'}}">Home</a>
           </li>
           <li>
             <a href="{{pathFor 'pricing'}}">Plans and pricing</a>
@@ -33,10 +33,11 @@
 
 <template name="public_home">
 	<div class="span12 box main-box">
-		<div class="hero-unit">
+		<div class="hero-unit hidden-phone">
 			<h1>Invoice Runner</h1>
 			<p>Invoice management software to streamline your business.</p>
 		</div>
+		<h3 class="visible-phone">Invoice management software to streamline your business</h3>
 
 		<p>Tracking invoices is time consuming. Ensuring invoices are correct, approved and get paid on time is a critical part of your business's process. There's a lot of software out there that can help, but it's often built to service large enterprises with complicated accounting systems.</p>
 
@@ -57,7 +58,7 @@
 	<div class="row pricing-row">
 		<div class="span4">
 			<div class="box pricing-box">
-				<h3>Silver</h3>
+				<h3>Professional</h3>
 				<h4>$19/month</h4>
 				<a href="{{pathFor 'accounts/new'}}" class="btn btn-primary">Try now, free</a>
 				<ul>
@@ -72,7 +73,7 @@
 		</div>
 		<div class="span4">
 			<div class="box pricing-box">
-				<h3>Gold</h3>
+				<h3>Company</h3>
 				<h4>$49/month</h4>
 				<a href="{{pathFor 'shortlist'}}" class="btn btn-primary">Try now, free</a>
 				<ul>
@@ -89,7 +90,7 @@
 		</div>
 		<div class="span4">
 			<div class="box pricing-box">
-				<h3>Platinum</h3>
+				<h3>Enterprise</h3>
 				<h4>$99/month</h4>
 				<a href="{{pathFor 'shortlist'}}" class="btn btn-primary">Try now, free</a>
 				<ul>

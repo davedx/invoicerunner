@@ -1,7 +1,17 @@
 body {
 	background-color: #ddd;
-	background-image: url('/low_contrast_linen.png');
 }
+@media (max-width: 767px) {
+	body {
+		background-color: white;
+	}
+}
+@media (min-width: 768px) {
+	body {
+		background-image: url('/low_contrast_linen.png');
+	}
+}
+
 @media (min-width: 980px) {
   body {
     padding-top: 80px;
@@ -56,9 +66,16 @@ body {
 }
 .box {
 	background-color: white;
-	border-radius: 5px;
-	border: 1px solid #777;
-	box-shadow: 2px 2px 4px 1px #222;
+}
+@media (min-width: 768px) {
+	.box {
+		border-radius: 5px;
+		border: 1px solid #777;
+		box-shadow: 2px 2px 4px 1px #222;
+	}
+}
+.main-box p, .main-box div, .main-box h3 {
+	margin: 20px;
 }
 footer {
 	clear: both;
