@@ -3,6 +3,13 @@
 		
 	}
 }
+.navbar-inner-public a {
+	color: #111 !important;
+	font-weight: bold;
+}
+.navbar-inner-public a:hover {
+	background-color: #ddd !important;
+}
 .main-box {
 /*	padding: 20px;*/
 }
