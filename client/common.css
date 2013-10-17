@@ -1,39 +1,44 @@
 body {
 	background-color: #ddd;
-	background-image: url('/low_contrast_linen.png');
 }
+@media (max-width: 767px) {
+	body {
+		background-color: white;
+	}
+}
+@media (min-width: 768px) {
+	body {
+		background-image: url('/low_contrast_linen.png');
+	}
+}
+
 @media (min-width: 980px) {
   body {
     padding-top: 80px;
   }
 }
-.navbar-inner {
+.navbar-inner-invoices {
 	background-color: #f8f8f8; /* fallback color, place your own */
 	background-image: none;
 }
-.nav-left {
+.navbar-inner-invoices .nav-left {
 	margin-left: 12px !important;
 }
 @media (min-width: 980px) {
-	.navbar-inner {
+	.navbar-inner-invoices {
 		padding-top: 10px;
 		min-height: 50px !important;
 	}
 }
-.navbar-inner a {
+.navbar-inner-invoices a {
 	color: #111 !important;
 }
-@media (max-width: 979px) {
-	.nav-left li a {
-/*		padding: 15px 15px 15px !important;*/
-	}
-}
-.nav-left li a:active {
+.navbar-inner-invoices .nav-left li a:active {
 	border-radius: 4px;
 	background-image: -webkit-linear-gradient(top, #eef, #dde);
 }
 
-.nav-left li {
+.navbar-inner-invoices .nav-left li {
 	border-radius: 4px;
 	margin: 0 4px;
 	border: 1px solid #ccc;
@@ -56,9 +61,16 @@ body {
 }
 .box {
 	background-color: white;
-	border-radius: 5px;
-	border: 1px solid #777;
-	box-shadow: 2px 2px 4px 1px #222;
+}
+@media (min-width: 768px) {
+	.box {
+		border-radius: 5px;
+		border: 1px solid #777;
+		box-shadow: 2px 2px 4px 1px #222;
+	}
+}
+.main-box p, .main-box div, .main-box h3 {
+	margin: 20px;
 }
 footer {
 	clear: both;

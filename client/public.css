@@ -1,15 +1,27 @@
-.main-box {
-	padding: 20px;
+@media (max-width: 767px) {
+	.box {
+		
+	}
 }
-.main-box h3 {
-	margin: 20px 40px;
+.navbar-inner-public a {
+	color: #111 !important;
+	font-weight: bold;
+}
+.navbar-inner-public a:hover {
+	background-color: #ddd !important;
+}
+.main-box {
+/*	padding: 20px;*/
+}
+.public-box {
+
 }
 .freetrial-btn {
 	height: 40px;
 	width: 220px;
 }
 .trial-footer {
-	margin: 30px 40px 20px;
+	margin: 30px 0 20px;
 }
 .trial-footer h4 {
 	font-weight: normal;
