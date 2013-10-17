@@ -6,15 +6,9 @@ TODO
 
 - Verify loginButtons register button is not bypassing our createUser method
 
-- VAT For European companies: Note that VAT is included. We will deduct VAT from the subscription prices...
-  - Need to know which companies are EU registered and their VAT numbers!
+- Add validation on register form (email) and upgrade account form (tax info)!
 
-- Add information to upgrade form:
-	- User name
-	- Company name
-	- Address
-	- Country
-	- VAT number if registered
+- Add some kind of message after user enters credit card info :)
 
 - Brand filepicker.io styling
 
