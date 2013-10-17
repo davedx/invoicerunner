@@ -69,7 +69,7 @@ body {
 		box-shadow: 2px 2px 4px 1px #222;
 	}
 }
-.main-box p, .main-box div, .main-box h3, .main-box h2, .main-box button {
+.main-box p, .main-box div, .main-box h3, .main-box h2, .main-box h1, .main-box button {
 	margin: 20px;
 }
 footer {
