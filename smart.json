@@ -5,6 +5,7 @@
       "branch": "dev"
     },
     "moment": {},
-    "filepicker": {}
+    "filepicker": {},
+    "loadpicker": {}
   }
 }
