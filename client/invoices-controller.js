@@ -135,6 +135,10 @@ if (Meteor.isClient) {
     return Invoices.find({approved: true, status: 'processing'}).count() === 0;
   };
 
+  Template.invoices_paid.paidNone = function () {
+    return Invoices.find({status: 'paid'}).count() === 0;
+  };
+
   Template.invoices.helpers({
     date_badge: function (date) {
       var days_diff = daysDiff(date);
@@ -250,7 +254,8 @@ if (Meteor.isClient) {
     data: function () {
       return {
         processing: Invoices.find({approved: false}, {sort: [["date_due", "asc"]]}),
-        payable: Invoices.find({approved: true, status: 'processing'}, {sort: [["date_due", "asc"]]})
+        payable: Invoices.find({approved: true, status: 'processing'}, {sort: [["date_due", "asc"]]}),
+        paid: Invoices.find({status: 'paid'}, {sort: [["date_due", "asc"]]})
       };
     },
 
@@ -259,6 +264,17 @@ if (Meteor.isClient) {
         this.render('notLoggedIn');
       else
         this.render('invoices');
+
+      this.render({
+        publicFooter: { to: 'footer', waitOn: false, data: false }
+      });
+    },
+
+    paid: function () {
+      if(Meteor.userId() === null)
+        this.render('notLoggedIn');
+      else
+        this.render('invoices_paid');
 
       this.render({
         publicFooter: { to: 'footer', waitOn: false, data: false }
