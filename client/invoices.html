@@ -23,6 +23,9 @@
           <li>
             <a href="{{pathFor 'new-invoice'}}">New invoice</a>
           </li>
+          <li class="hidden-phone">
+            <a href="{{pathFor 'invoices/paid'}}">Paid</a>
+          </li>
           {{#if isTrialAccount}}
           <li id="openfull-btn">
             <a href="{{pathFor 'accounts/new'}}">Open full account</a>
@@ -223,62 +226,7 @@
     <ul class="payable">
       {{#each payable}}
         <li>
-        	<div class="box invoice">
-        		<a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>
-  	      	<h3>{{company}}</h3>
-  	      	Invoice {{invoice_number}}<br>
-  	      	<span class="{{date_badge date_due}}">{{long_date date_due}} {{in_days date_due}}</span><br>
-            <div class="form-horizontal">
-
-              <div class="control-group">
-                <label class="control-label" for="subtotal">
-                  Subtotal:
-                </label>
-                <div class="controls">
-                  <div class="input-prepend">
-                    <span class="add-on">{{currency}}</span>
-                    <input type="text" class="subtotal" value="{{subtotal}}" disabled>
-                  </div>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="tax">
-                  Tax:
-                </label>
-                <div class="controls">
-                  <div class="input-prepend">
-                    <span class="add-on">{{currency}}</span>
-                    <input type="text" class="tax" value="{{tax}}" disabled>
-                  </div>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="total">
-                  Total:
-                </label>
-                <div class="controls">
-                  <div class="input-prepend">
-                    <span class="add-on">{{currency}}</span>
-                    <input type="text" class="total" value="{{total}}" disabled>
-                  </div>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="approved">
-                  Approved:
-                </label>
-                <div class="controls">
-                  <input class="approved" type="checkbox" name="approved" {{isApproved}}>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="controls">
-                  <button class="btn-save btn">Save</button>
-        	      	<button data-company-id="{{company_id}}" data-company-name="{{company}}" class="payment-button btn btn-primary">Pay invoice</button>
-                </div>
-              </div>
-            </div>
-        	</div>
+          {{> invoice_approved}}
         </li>
       {{/each}}
     </ul>
@@ -287,6 +235,89 @@
 </div>
 </template>
 
+<template name="invoices_paid">
+<div class="row">
+  <div class="paid-tab tab span6">
+    <h4 class="light">Paid</h4>
+
+    {{#if paidNone}}
+    <div class="box invoice">
+      <p class="lead">
+        You have no paid invoices.
+      </p>
+      <p>To pay an invoice, click the 'Pay invoice' button on an invoice in the 'Payable' stack.</p>
+    </div>
+    {{else}}
+    <ul class="paid">
+      {{#each paid}}
+        <li>
+          {{> invoice_approved}}
+        </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+</div>
+</template>
+
+<template name="invoice_approved">
+  <div class="box invoice">
+    <a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>
+    <h3>{{company}}</h3>
+    Invoice {{invoice_number}}<br>
+    <span class="{{date_badge date_due}}">{{long_date date_due}} {{in_days date_due}}</span><br>
+    <div class="form-horizontal">
+
+      <div class="control-group">
+        <label class="control-label" for="subtotal">
+          Subtotal:
+        </label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on">{{currency}}</span>
+            <input type="text" class="subtotal" value="{{subtotal}}" disabled>
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="tax">
+          Tax:
+        </label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on">{{currency}}</span>
+            <input type="text" class="tax" value="{{tax}}" disabled>
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="total">
+          Total:
+        </label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on">{{currency}}</span>
+            <input type="text" class="total" value="{{total}}" disabled>
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="approved">
+          Approved:
+        </label>
+        <div class="controls">
+          <input class="approved" type="checkbox" name="approved" {{isApproved}}>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <button class="btn-save btn">Save</button>
+          <button data-company-id="{{company_id}}" data-company-name="{{company}}" class="payment-button btn btn-primary">Pay invoice</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 <template name="loading">
   <h1>Loading...</h1>
 </template>

@@ -5,22 +5,18 @@ TODO
 ----
 
 - Verify loginButtons register button is not bypassing our createUser method
+	- Rewrite login popout completely, wire it up, and make it a three bars icon for phones
+	- Allow users to edit their name, address etc in their profile
 
 - Add validation on register form (email) and upgrade account form (tax info)!
 
 - Add some kind of message after user enters credit card info :)
-
-- Brand filepicker.io styling
-
-- Archives (just make another status called 'archived' that's not displayed easily)
 
 - Ensure user permissions work
 
 - Write non-logged in static copy/webpages:
 	- Cancellation page
 	- Google landing pages
-
-- Google Analytics
 
 Launch: Google AdWords it up and advertise on LinkedIn, Twitter, G+
 

@@ -17,6 +17,12 @@ Router.map(function () {
     action: 'index'
   });
 
+  this.route('invoices/paid', {
+    controller: 'InvoicesController',
+    layoutTemplate: 'layout',
+    action: 'paid'
+  });
+
   this.route('new-invoice', {
     controller: 'InvoicesController',
     layoutTemplate: 'layout',

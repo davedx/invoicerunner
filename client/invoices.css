@@ -54,8 +54,10 @@ ul {
 	margin: 10px 0 40px 0;
 }
 
-.light {
-	color: #eee;
+@media (min-width: 768px) {
+	.light {
+		color: #eee;
+	}
 }
 
 #add-company-payment-method {
