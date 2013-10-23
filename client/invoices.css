@@ -30,6 +30,7 @@ ul {
 }
 .btn-save {
 	float: left;
+	margin-right: 10px;
 }
 .save-feedback {
 	display: none;
