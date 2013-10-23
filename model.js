@@ -49,10 +49,63 @@ if (Meteor.isServer) {
       }
     },
 
-     upgradeAccount: function (options) {
+    upgradeAccountStripe: function (options) {
+      var stripeKeyTest = 'sk_test_rymPpU927JzHGsyn1FImWSOA';
+      var stripeKeyLive = 'sk_live_Y12o20xI5mAiKdr1BAhyHz4x';
+      var live = false;
+      var key = live ? stripeKeyLive : stripeKeyTest;
+      var baseUrl = 'https://api.stripe.com/v1/';
+
+      var user = Meteor.user();
+      var email = user.emails[0].address;
+      var index = options.subscriptionIndex;
+      var plans = [
+        { name: 'professional', price: 19 },
+        { name: 'company', price: 49 },
+        { name: 'enterprise', price: 99 }
+      ];
+      var plan = plans[index];
+
+      console.log("Stripe: creating new customer: "+email);
+      var clientResult = HTTP.post(baseUrl + 'customers', {
+        auth: key + ':',
+        params: {
+          card: options.ccToken,
+          email: email,
+          description: 'Customer for '+email,
+          plan: plan.name
+        }
+      });
+      console.log(clientResult);
+      if(clientResult.statusCode !== 200) {
+        console.error("Error connecting to Stripe");
+        throw new Meteor.Error(500, "Stripe error");
+      }
       
+      // set the account to the correct type
+      console.log("Setting account type to: "+plan.name+" for user: "+user._id);
+      //console.log(user);
+
+      var foundUser = Meteor.users.findOne(this.userId);
+      if(foundUser) {
+        Meteor.users.update(this.userId, {
+          $set: {
+            'profile.accountType': plan.name,
+            'profile.companyName': options.company_name,
+            'profile.companyAddress': options.company_address,
+            'profile.companyCountry': options.company_country,
+            'profile.companyTaxNumber': options.company_tax
+          }
+        });
+        console.log("Updated user!");
+        return {status: 'ok'};
+      } else {
+        throw new Error("You are not logged in.");
+      }
+    },
+
+    upgradeAccount: function (options) {
       var paymillKey = 'c807ea7cfc00c6faa443b629656a5834';
-      
       var baseUrl = 'https://api.paymill.com/v2/';
 
       var user = Meteor.user();

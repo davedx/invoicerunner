@@ -1,10 +1,10 @@
 if (Meteor.isClient) {
-  Template.new_account.events({
+  Template.new_account_stripe.events({
     'change .subscription': function (event) {
       var plans = [
-        { name: 'Silver', price: 19 },
-        { name: 'Gold', price: 49 },
-        { name: 'Platinum', price: 99 }
+        { name: 'professional', price: 19 },
+        { name: 'company', price: 49 },
+        { name: 'enterprise', price: 99 }
       ];
       var plan = event.target.selectedIndex;
       $('#currentPlan').html(plans[plan].name);
@@ -22,6 +22,7 @@ if (Meteor.isClient) {
       $('.newaccount-btn').attr("disabled", "disabled");
       var formlang = 'en';
       var ok = true;
+      /*
       if (false == paymill.validateCardNumber($('.card-number').val())) {
         $(".payment-errors").text(translation[formlang]["error"]["invalid-card-number"]);
         $(".payment-errors").css("display","inline-block");
@@ -40,6 +41,7 @@ if (Meteor.isClient) {
         $(".newaccount-btn").removeAttr("disabled");
         ok = false;
       }
+      */
       var params = {
         amount_int: 0, // E.g. "15" for 0.15 Eur
         currency: 'EUR', // ISO 4217 e.g. "EUR"
@@ -54,37 +56,42 @@ if (Meteor.isClient) {
         return;
       }
       //console.log("Creating paymill token");
+      var stripe = true;
+      if(stripe) {
+        stripeAPI.upgradeAccount();
+        event.preventDefault();
+      } else {
+        window.PAYMILL_PUBLIC_KEY = '60315688593e60a65c42b6b99aef837c';
+        paymill.createToken(params, function (error, result) {
+          if (error) {
+            console.log("Error: ", error);
+            // Shows the error above the form
+            $(".payment-errors").text(translation[formlang][error][error.apierror]);
+            $(".payment-errors").show();
+            $(".submit-button").removeAttr("disabled");
+            event.preventDefault();
+          } else {
+            console.log("OK");
+            form={};
+            $.each($(event.target).closest('form').serializeArray(), function() {
+                form[this.name] = this.value;
+            });
+            form.ccToken = result.token;
+            form.subscriptionIndex = $('.subscription').get(0).selectedIndex;
+            console.log(form);
 
-      window.PAYMILL_PUBLIC_KEY = '60315688593e60a65c42b6b99aef837c';
-      paymill.createToken(params, function (error, result) {
-        if (error) {
-          console.log("Error: ", error);
-          // Shows the error above the form
-          $(".payment-errors").text(translation[formlang][error][error.apierror]);
-          $(".payment-errors").show();
-          $(".submit-button").removeAttr("disabled");
-          event.preventDefault();
-        } else {
-          console.log("OK");
-          form={};
-          $.each($(event.target).closest('form').serializeArray(), function() {
-              form[this.name] = this.value;
-          });
-          form.ccToken = result.token;
-          form.subscriptionIndex = $('.subscription').get(0).selectedIndex;
-          console.log(form);
-
-          Meteor.call('upgradeAccount', form, function (err, account) {
-            if(!err) {
-              console.log("Success!");
-              Router.go('invoices');
-            } else {
-              console.error(err);
-            }
-          });
-          event.preventDefault();
-        }
-      });
+            Meteor.call('upgradeAccount', form, function (err, account) {
+              if(!err) {
+                console.log("Success!");
+                Router.go('invoices');
+              } else {
+                console.error(err);
+              }
+            });
+            event.preventDefault();
+          }
+        });
+      }
     }
   });
 
@@ -96,17 +103,19 @@ if (Meteor.isClient) {
         return Router.go('freetrial');
       }
 
-      this.render('new_account');
+      var template = stripeAPI.enabled() ? 'new_account_stripe' : 'new_account';
+      var bridge = stripeAPI.enabled() ? 'https://js.stripe.com/v2/' : 'https://bridge.paymill.com/';
+      this.render(template);
       
-      //paymill bridge
+      // bridge
       var script = document.createElement('script');
       script.type = 'text/javascript';
-      script.src = 'https://bridge.paymill.com/';
+      script.src = bridge;
       script.onload = function () {
-        console.log("Loaded paymill");
+        console.log("Loaded bridge");
       }
 
-      //Load the script tag
+      // Load the script tag
       var head = document.getElementsByTagName('head')[0];
       return head.appendChild(script);
     }
