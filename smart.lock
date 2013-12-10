@@ -6,30 +6,18 @@
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev"
       },
-      "moment": {},
-      "filepicker": {},
-      "loadpicker": {}
+      "moment": {}
     },
     "packages": {
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "13d0007ee9dfa1a111a0e55eedcf002c593f5489"
+        "commit": "ff274326a8dd75292e69977ae6e32c786d50746e"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
         "tag": "v2.2.1",
         "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
-      },
-      "filepicker": {
-        "git": "https://github.com/Filepicker/meteor.git",
-        "tag": "v0.3.0",
-        "commit": "dcb6f3779e5fc105520ba06b0392e3a79c73a7e6"
-      },
-      "loadpicker": {
-        "git": "https://github.com/guido4000/loadpicker.git",
-        "tag": "v1.0.0",
-        "commit": "9f8aa83427b21e2d6279db3f018900bf09560352"
       }
     }
   }

@@ -166,14 +166,12 @@ if (Meteor.isClient) {
     }
   });
 
-  var key = "Aze1xrJhFSb62pRcbCGTNz";
-
   Template.new_invoice.rendered = function () {
-    if (!Session.get("widgetSet")) {  
+/*    if (!Session.get("widgetSet")) {  
       console.log("Loading loadpicker");
       Session.set("widgetSet", true);
-      loadPicker(key);
-    }
+      filepicker.setKey(key);
+    }*/
   };
 
   var isTrialAccount = function() {
@@ -265,9 +263,9 @@ if (Meteor.isClient) {
       else
         this.render('invoices');
 
-      this.render({
-        publicFooter: { to: 'footer', waitOn: false, data: false }
-      });
+      this.render('publicFooter',
+        { to: 'footer', waitOn: false, data: false }
+      );
     },
 
     paid: function () {
@@ -276,9 +274,9 @@ if (Meteor.isClient) {
       else
         this.render('invoices_paid');
 
-      this.render({
-        publicFooter: { to: 'footer', waitOn: false, data: false }
-      });
+      this.render('publicFooter',
+        { to: 'footer', waitOn: false, data: false }
+      );
     },
 
     new: function () {
@@ -287,9 +285,9 @@ if (Meteor.isClient) {
       else
         this.render('new_invoice');
 
-      this.render({
-        publicFooter: { to: 'footer', waitOn: true, data: true }
-      });
+      this.render('publicFooter',
+        { to: 'footer', waitOn: true, data: true }
+      );
     }
   });
 }

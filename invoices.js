@@ -8,6 +8,7 @@ if (Meteor.isServer) {
     if(resetData) {
       Invoices.remove({});
       Companies.remove({});
+      Meteor.users.remove({});
 
       Companies.insert({
         id: 1,
@@ -54,15 +55,17 @@ if (Meteor.isServer) {
     });
   }
   */
-  
+  console.log("Publishing users");
   Meteor.publish('users', function() {
-    var user = Meteor.users.findOne({_id: this.userId});
-    if(user.emails[0].address === 'davedx@gmail.com') {
-      return Meteor.users.find({}, {fields: {emails: 1, profile: 1}});
-    } else {
-      return [];
+    if(this.userId) {
+      var user = Meteor.users.findOne({_id: this.userId});
+      if(user.emails[0].address === 'davedx@gmail.com') {
+        return Meteor.users.find({}, {fields: {emails: 1, profile: 1}});
+      }
     }
+    return [];
   });
+  console.log("done");
 } else {
   // client side:
   Meteor.startup(function () {

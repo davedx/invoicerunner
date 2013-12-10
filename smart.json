@@ -4,8 +4,6 @@
       "git": "https://github.com/EventedMind/iron-router.git",
       "branch": "dev"
     },
-    "moment": {},
-    "filepicker": {},
-    "loadpicker": {}
+    "moment": {}
   }
 }
