@@ -59,49 +59,49 @@ if (Meteor.isClient) {
     public_home: function () {
       this.render('public_home');
 
-      this.render({
-        publicFooter: { to: 'footer', waitOn: false, data: false }
-      });
+      this.render(
+        'publicFooter', { to: 'footer', waitOn: false, data: false }
+      );
     },
 
     public_pricing: function () {
       this.render('public_pricing');
 
-      this.render({
-        publicFooter: { to: 'footer', waitOn: false, data: false }
-      });
+      this.render(
+        'publicFooter', { to: 'footer', waitOn: false, data: false }
+      );
     },
 
     public_freetrial: function () {
       this.render('public_freetrial');
 
-      this.render({
-        publicFooter: { to: 'footer', waitOn: false, data: false }
-      });
+      this.render(
+        'publicFooter', { to: 'footer', waitOn: false, data: false }
+      );
     },
 
     public_shortlist: function () {
       this.render('public_shortlist');
 
-      this.render({
-        publicFooter: { to: 'footer', waitOn: false, data: false }
-      });
+      this.render(
+        'publicFooter', { to: 'footer', waitOn: false, data: false }
+      );
     },
 
     public_termsandconditions: function () {
       this.render('public_termsandconditions');
 
-      this.render({
-        publicFooter: { to: 'footer', waitOn: false, data: false }
-      });
+      this.render(
+        'publicFooter', { to: 'footer', waitOn: false, data: false }
+      );
     },
 
     public_privacypolicy: function () {
       this.render('public_privacypolicy');
 
-      this.render({
-        publicFooter: { to: 'footer', waitOn: false, data: false }
-      });
+      this.render(
+        'publicFooter', { to: 'footer', waitOn: false, data: false }
+      );
     }
   });
 }
