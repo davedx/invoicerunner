@@ -12,3 +12,4 @@ accounts-password
 accounts-ui
 http
 force-ssl
+event-hooks

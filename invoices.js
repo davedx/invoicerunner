@@ -55,7 +55,7 @@ if (Meteor.isServer) {
     });
   }
   */
-  console.log("Publishing users");
+  //console.log("Publishing users");
   Meteor.publish('users', function() {
     if(this.userId) {
       var user = Meteor.users.findOne({_id: this.userId});
@@ -65,11 +65,18 @@ if (Meteor.isServer) {
     }
     return [];
   });
-  console.log("done");
 } else {
   // client side:
   Meteor.startup(function () {
-    console.log("Bootstrapping app...");
-    Session.set("widgetSet", false);
+    console.log("Bootstrapping.");
+    Hooks.init();
   });
+  Accounts.config({
+    forbidClientAccountCreation: true
+  });
+  //TODO: would be great if this was only fired when a user actually LOGS IN,
+  //at the moment it also fires on page reload
+  Hooks.onLoggedIn = function () {
+    Router.go('invoices');
+  };
 }

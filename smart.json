@@ -4,6 +4,7 @@
       "git": "https://github.com/EventedMind/iron-router.git",
       "branch": "dev"
     },
-    "moment": {}
+    "moment": {},
+    "event-hooks": {}
   }
 }

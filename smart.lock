@@ -6,18 +6,24 @@
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev"
       },
-      "moment": {}
+      "moment": {},
+      "event-hooks": {}
     },
     "packages": {
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "ff274326a8dd75292e69977ae6e32c786d50746e"
+        "commit": "47e1ed3f995c393fb37a9b4e86b9aeca10c6e631"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
         "tag": "v2.2.1",
         "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
+      },
+      "event-hooks": {
+        "git": "https://github.com/BenjaminRH/meteor-event-hooks.git",
+        "tag": "v1.4.3",
+        "commit": "ba4f3d7887748458618d29615492906f0c88d31c"
       }
     }
   }

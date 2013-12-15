@@ -1,12 +1,16 @@
 if (Meteor.isClient) {
 
+  Template.public_layout.rendered = function() {
+    $('#signup-link').click(function(e) {
+      console.log("Signup link clicked");
+      e.preventDefault();
+    });
+  };
+
   Template.public_home.events({
     'click .freetrial-go': function (e) {
       Router.go('freetrial');
     },
-    'click .external-link': function (e) {
-      console.log("going..");
-    }
   });
   
   Template.public_freetrial.events({

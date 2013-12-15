@@ -166,14 +166,6 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.new_invoice.rendered = function () {
-/*    if (!Session.get("widgetSet")) {  
-      console.log("Loading loadpicker");
-      Session.set("widgetSet", true);
-      filepicker.setKey(key);
-    }*/
-  };
-
   var isTrialAccount = function() {
     var user = Meteor.user();
     if(user && user.profile && user.profile.accountType && user.profile.accountType === 'trial') {
