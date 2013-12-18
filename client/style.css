@@ -1,0 +1,25 @@
+.view-invoice {
+	margin-left: 5px;
+}
+.form-horizontal .control-label {
+	padding-left:5px;
+	width:100px;
+}
+input, textarea,.uneditable-input {
+	width:180px;
+}
+.form-horizontal .controls {
+	margin-left:110px;
+}
+#view-invoice-modal {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	width: 48%;
+	height: 90%;
+	margin: 0;
+}
+#view-invoice-modal-body {
+	padding: 15px;
+	display: block;
+}

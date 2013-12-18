@@ -7,7 +7,7 @@ if (Meteor.isClient) {
   function getPageVar (sVar) {
     return decodeURI(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURI(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
   }
-
+  
   var longDate = function (date) {
     if(!date) return '';
       return moment(date).format("MMM Do YYYY");
@@ -115,8 +115,38 @@ if (Meteor.isClient) {
       var invoice_id = $('.btn-paid').data('invoice-id');
       Invoices.update(invoice_id, {$set: {status: 'paid'}});
       $('#payment_modal').modal('hide');
-    }
-  });
+    },
+	'click a.view-invoice': function (event) {	
+		var invoiceModal = $("#view-invoice-modal");
+		if(invoiceModal.is(':visible')){
+			invoiceModal.hide();
+			invoiceModal.css("top","5%");
+		}else {			
+			if(this.url.length>0){
+				document.getElementById('invoice').src = this.url;
+				invoiceModal.show();
+				var position=invoiceModal.position();
+				var top=parseInt(position.top) + $(document).scrollTop();
+				invoiceModal.css("top",top);
+				// get height of the modal content
+				var contentHeight = invoiceModal.height() - $("#view-invoice-modal-header").outerHeight() - 15*2;
+				// enlarge modal content and iframe
+				$("#view-invoice-modal-body").height(contentHeight);
+				$("#invoice").height(contentHeight);
+				
+				//get width of the modal content
+				var contentWidth = $("#view-invoice-modal").width() - 15*2;
+				// enlarge modal content and iframe
+				$("#view-invoice-modal-body").width(contentWidth);
+				$("#invoice").width(contentWidth);
+			}			
+		}		
+		event.preventDefault();
+    },
+	'click #view-invoice-modal-close' : function (event) {
+		document.getElementById('view-invoice-modal').style.display = "none";
+	}
+});
 
   Template.layout.helpers({
     if: function(conditional, options) {
