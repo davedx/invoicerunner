@@ -110,6 +110,16 @@
   </div>
 </div>
 
+<div id="view-invoice-modal" class="modal hide">
+	<div id="view-invoice-modal-header" class="modal-header">
+		<button type="button" class="close" id="view-invoice-modal-close">&times;</button>
+		<h3>View invoice</h3>
+	</div>
+	<div id="view-invoice-modal-body">
+		<iframe frameborder="0" id="invoice"></iframe>
+	</div>
+</div>
+
 <div class="row">
   <div class="processing-tab tab {{tab_visible 'processing'}} span6">
     <h4 class="light">Processing</h4>
@@ -126,9 +136,12 @@
     <ul class="processing">
       {{#each processing}}
         <li>
-        	<div class="box invoice">
-        		<a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>
-            <form id="invoice-form_{{id}}" class="form-horizontal">
+        	<div class="box invoice">				
+			<form id="invoice-form_{{id}}" class="form-horizontal">
+				<div class="pull-right">
+					<a class="pull-right btn btn-info view-invoice">View invoice</a>
+					<a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>				
+				</div>
               <div class="control-group">
                 <label class="control-label" for="company">
                   Company:
@@ -210,9 +223,10 @@
     </ul>
     {{/if}}
   </div>
+  
   <div class="payable-tab tab {{tab_visible 'payable'}} span6">
-    <h4 class="light">Payable</h4>
-
+	 <h4 class="light">Payable</h4>
+		
     {{#if payableNone}}
     <div class="box invoice">
       <p class="lead">
