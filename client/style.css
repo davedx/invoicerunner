@@ -23,3 +23,24 @@ input, textarea,.uneditable-input {
 	padding: 15px;
 	display: block;
 }
+@media (max-width: 480px) {
+	.form-horizontal .control-label {
+		float:left;
+	}
+    .control-group .control-label {
+		width:20%;
+	}
+	.form-horizontal .controls  {
+		margin-left: 20px;
+	}
+	.controls .btn-save {
+		margin-left: 18%;
+	}
+	#view-invoice-modal {
+		left: 5%; 
+		width: 90%;
+	}
+	.buttons {
+		margin: 0 0 3% 30%;
+	}
+}

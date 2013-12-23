@@ -121,6 +121,7 @@ if (Meteor.isClient) {
 		if(invoiceModal.is(':visible')){
 			invoiceModal.hide();
 			invoiceModal.css("top","5%");
+			document.getElementById('invoice').src = "";
 		}else {			
 			if(this.url.length>0){
 				document.getElementById('invoice').src = this.url;
@@ -128,6 +129,7 @@ if (Meteor.isClient) {
 				var position=invoiceModal.position();
 				var top=parseInt(position.top) + $(document).scrollTop();
 				invoiceModal.css("top",top);
+				
 				// get height of the modal content
 				var contentHeight = invoiceModal.height() - $("#view-invoice-modal-header").outerHeight() - 15*2;
 				// enlarge modal content and iframe
@@ -144,7 +146,12 @@ if (Meteor.isClient) {
 		event.preventDefault();
     },
 	'click #view-invoice-modal-close' : function (event) {
-		document.getElementById('view-invoice-modal').style.display = "none";
+		var invoiceModal = $("#view-invoice-modal");
+		if(invoiceModal.is(':visible')){
+			invoiceModal.hide();
+			invoiceModal.css("top","5%");
+			document.getElementById("invoice").src = "";
+		}
 	}
 });
 
