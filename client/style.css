@@ -1,0 +1,56 @@
+.view-invoice {
+	margin-left: 5px;
+}
+.form-horizontal .control-label {
+	padding-left:5px;
+	width:100px;
+}
+input, textarea,.uneditable-input {
+	width:180px;
+}
+.form-horizontal .controls {
+	margin-left:110px;
+}
+#view-invoice-modal {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	width: 48%;
+	height: 90%;
+	margin: 0;
+}
+#view-invoice-modal-body {
+	padding: 15px;
+	display: block;
+}
+@media (max-width: 480px) {
+	.form-horizontal .control-label {
+		float:left;
+	}
+    .control-group .control-label {
+		width:20%;
+	}
+	.form-horizontal .controls  {
+		margin-left: 20px;
+	}
+	.controls .btn-save {
+		margin-left: 18%;
+	}
+	#view-invoice-modal {
+		left: 5%; 
+		width: 90%;
+	}
+	.buttons {
+		margin: 0 0 3% 30%;
+	}
+}
+#upload-invoice-modal {
+	margin: 0;
+	position: absolute;
+	top: 170px;
+	left:350px;
+}
+#upload-invoice-modal-close {
+	margin-right: 10px;
+	margin-top: 5px;
+}

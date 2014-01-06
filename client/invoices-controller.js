@@ -7,7 +7,7 @@ if (Meteor.isClient) {
   function getPageVar (sVar) {
     return decodeURI(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURI(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
   }
-
+  
   var longDate = function (date) {
     if(!date) return '';
       return moment(date).format("MMM Do YYYY");
@@ -53,6 +53,7 @@ if (Meteor.isClient) {
       console.log(form);
       var id = this._id;
       Invoices.update(id, {$set: form}, function (err) {
+		//console.log("err: " + err);
         var msg;
         if(err) {
           msg = 'Error saving invoice. Try again in a moment.';
@@ -115,8 +116,45 @@ if (Meteor.isClient) {
       var invoice_id = $('.btn-paid').data('invoice-id');
       Invoices.update(invoice_id, {$set: {status: 'paid'}});
       $('#payment_modal').modal('hide');
-    }
-  });
+    },
+	'click a.view-invoice': function (event) {	
+		var invoiceModal = $("#view-invoice-modal");
+		if(invoiceModal.is(':visible')){
+			invoiceModal.hide();
+			invoiceModal.css("top","5%");
+			document.getElementById('invoice').src = "";
+		}else {			
+			if(this.url.length>0){
+				document.getElementById('invoice').src = this.url;
+				invoiceModal.show();
+				var position=invoiceModal.position();
+				var top=parseInt(position.top) + $(document).scrollTop();
+				invoiceModal.css("top",top);
+				
+				// get height of the modal content
+				var contentHeight = invoiceModal.height() - $("#view-invoice-modal-header").outerHeight() - 15*2;
+				// enlarge modal content and iframe
+				$("#view-invoice-modal-body").height(contentHeight);
+				$("#invoice").height(contentHeight);
+				
+				//get width of the modal content
+				var contentWidth = $("#view-invoice-modal").width() - 15*2;
+				// enlarge modal content and iframe
+				$("#view-invoice-modal-body").width(contentWidth);
+				$("#invoice").width(contentWidth);
+			}			
+		}		
+		event.preventDefault();
+    },
+	'click #view-invoice-modal-close' : function (event) {
+		var invoiceModal = $("#view-invoice-modal");
+		if(invoiceModal.is(':visible')){
+			invoiceModal.hide();
+			invoiceModal.css("top","5%");
+			document.getElementById("invoice").src = "";
+		}
+	}
+});
 
   Template.layout.helpers({
     if: function(conditional, options) {
@@ -166,6 +204,14 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.new_invoice.rendered = function () {
+  	$("#upload-invoice-modal").hide();
+  	var gotoInvoiceId = Session.get("goto_invoice");
+  	if (gotoInvoiceId) {
+  		$("#upload-invoice-modal").show();
+  	}
+  };
+
   var isTrialAccount = function() {
     var user = Meteor.user();
     if(user && user.profile && user.profile.accountType && user.profile.accountType === 'trial') {
@@ -210,29 +256,54 @@ if (Meteor.isClient) {
   })
 
   Template.new_invoice.events({
-    'click button': function () {
+    'click button.upload-btn': function () {
       filepicker.pick(function (ink) {
-
         Meteor.call('createInvoice', {
           url: ink.url,
           filename: ink.filename,
           mimetype: ink.mimetype
         }, function (error, invoice) {
-          if (!error) {
-            if(confirm("Invoice created. Upload another?")) {
-              // redirect back to this page
-              Router.go('new-invoice');
-            } else {
-              // redirect to home
-              Router.go('invoices');
-            }
-          } else {
-            console.error(error);
-          }
+			if (!error) {
+				Session.set('goto_invoice', invoice);
+			  } else {
+				console.error(error);
+			  }
         });
       });
-    }
-  });
+    },
+	'click #upload-invoice-modal-close': function() {
+		$('#upload-invoice-modal').hide();
+		Session.set('goto_invoice',null);
+	},
+	'click #upload-another-invoice': function() {
+		$('#upload-invoice-modal').hide();
+		Session.set('goto_invoice',null);
+	},
+	'click #edit-invoice': function() {
+		$('#upload-invoice-modal').remove();
+		Router.go('invoices');
+	}
+});
+   
+  Template.invoices.rendered = function () {
+	$(".popover").remove();
+	var gotoInvoiceId = Session.get('goto_invoice');
+	if(gotoInvoiceId) {
+		var formElement = $(".currency_name_" + gotoInvoiceId).closest("form");
+		var height = $(formElement).offset().top;
+		height -= $(".navbar").height();
+		height -= 24;
+		$('html, body').scrollTop(height);
+		$(formElement).popover({
+			content: "Your invoice has been successfully uploaded. Finish entering the data for this invoice so you can track the date it is due, the purchase order number, and the amounts payable."
+		}).popover('show');	
+		Session.set('goto_invoice',null);
+	}else{
+		if($('html, body').scrollTop() > 0) {
+			$('html, body').scrollTop(0);
+		}
+	}
+  };
 
   InvoicesController = RouteController.extend({
     template: 'invoices',
@@ -253,7 +324,7 @@ if (Meteor.isClient) {
       if(Meteor.userId() === null)
         this.render('notLoggedIn');
       else
-        this.render('invoices');
+		this.render('invoices');
 
       this.render('publicFooter',
         { to: 'footer', waitOn: false, data: false }
