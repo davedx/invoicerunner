@@ -11,11 +11,12 @@ Invoices.allow({
     return false; // no cowboy inserts -- use createInvoice method
   },
   update: function (userId, invoice, fields, modifier) {
+  
     if (userId !== invoice.owner)
       return false; // not the owner
 
     var allowed = ["company", "company_id", "invoice_number", "date_due", "subtotal",
-    	"tax", "total", "currency", "approved", "status", "url", "filename", "mimetype"];
+    	"tax", "total", "po_number", "currency", "approved", "status", "url", "filename", "mimetype"];
 
     if (_.difference(fields, allowed).length)
       return false; // tried to write to forbidden field
@@ -221,7 +222,7 @@ if (Meteor.isServer) {
   	    tax: 0,
   	    total: 0,
         currency: 'USD',
-  	    pa_number: '',
+  	    po_number: '',
   	    approved: false,
   	    status: 'processing',
   	    url: options.url,

@@ -28,7 +28,7 @@ if (Meteor.isServer) {
             subtotal: 1000,
             tax: 200,
             total: 1200,
-            pa_number: 'SS-54012',
+            po_number: 'SS-54012',
             approved: i < 5,
             status: 'processing'
           }

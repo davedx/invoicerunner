@@ -81,7 +81,7 @@ if (Meteor.isClient) {
             console.log(form);
 
             Meteor.call('upgradeAccount', form, function (err, account) {
-              if(!err) {
+	        if(!err) {
                 console.log("Success!");
                 Router.go('invoices');
               } else {

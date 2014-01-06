@@ -53,6 +53,7 @@ if (Meteor.isClient) {
       console.log(form);
       var id = this._id;
       Invoices.update(id, {$set: form}, function (err) {
+		console.log("err: " + err);
         var msg;
         if(err) {
           msg = 'Error saving invoice. Try again in a moment.';
@@ -209,7 +210,7 @@ if (Meteor.isClient) {
       Session.set("widgetSet", true);
       filepicker.setKey(key);
     }*/
-	console.log("rendered");
+	//console.log("rendered");
   };
 
   var isTrialAccount = function() {
@@ -306,16 +307,17 @@ if (Meteor.isClient) {
   };
   
   Template.invoices.rendered = function () {
+	$(".popover").remove();
 	var gotoInvoiceId = Session.get('goto_invoice');
-		if(gotoInvoiceId) {
-			var formElement = $(".currency_name_" + gotoInvoiceId).first().parents(".form-horizontal").last();
-			var height = $(formElement).offset().top;
-			height -= $(".navbar").height();
-			height -= 24;
-			$('html, body').scrollTop(height);
-			$(formElement).popover({
-				content: "Your invoice has been successfully uploaded. Finish entering the data for this invoice so you can track the date it is due, the purchase order number, and the amounts payable."
-			}).popover('show');	
+	if(gotoInvoiceId) {
+		var formElement = $(".currency_name_" + gotoInvoiceId).closest("form");
+		var height = $(formElement).offset().top;
+		height -= $(".navbar").height();
+		height -= 24;
+		$('html, body').scrollTop(height);
+		$(formElement).popover({
+			content: "Your invoice has been successfully uploaded. Finish entering the data for this invoice so you can track the date it is due, the purchase order number, and the amounts payable."
+		}).popover('show');	
 		Session.set('goto_invoice',null);
 	}else{
 		if($('html, body').scrollTop() > 0) {
