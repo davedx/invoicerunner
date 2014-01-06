@@ -209,6 +209,7 @@ if (Meteor.isClient) {
       Session.set("widgetSet", true);
       filepicker.setKey(key);
     }*/
+	console.log("rendered");
   };
 
   var isTrialAccount = function() {
@@ -255,29 +256,73 @@ if (Meteor.isClient) {
   })
 
   Template.new_invoice.events({
-    'click button': function () {
+    'click button.upload-btn': function () {
       filepicker.pick(function (ink) {
-
         Meteor.call('createInvoice', {
           url: ink.url,
           filename: ink.filename,
           mimetype: ink.mimetype
         }, function (error, invoice) {
-          if (!error) {
-            if(confirm("Invoice created. Upload another?")) {
-              // redirect back to this page
-              Router.go('new-invoice');
-            } else {
-              // redirect to home
-              Router.go('invoices');
-            }
+			if (!error) {
+				Session.set('goto_invoice',invoice);
+				showUploadInvoice();
+				/*
+				if(confirm("Invoice created. Upload another?")) {
+				  // redirect back to this page
+				  Router.go('new-invoice');
+				} else {
+				  // redirect to home
+				  Router.go('invoices');
+				}
+				*/
           } else {
             console.error(error);
           }
         });
       });
     }
-  });
+});
+  function uploadInvoiceModalClose() {
+		var uploadModal = $("#upload-invoice-modal");
+		if(uploadModal.is(':visible')){
+			uploadModal.hide();
+		}
+	};
+  function showUploadInvoice(){
+	var html= "";
+	html+= '<div id="upload-invoice-modal" class="modal">';
+	html+= '<div class="modal-content">';	
+	html+= '<button type="button" class="close" id="upload-invoice-modal-close" onclick="$(\'#upload-invoice-modal\').remove()">&times;</button>';
+	html+= '</div>';
+	html+= '<div class="modal-body">';
+	html+= '<p>Your invoice has been successfully uploaded. Do you want to finish entering the data for this invoice, or upload another invoice?</p>';
+	html+= '</div>';
+	html+= '<div class="modal-footer">';
+	html+= '<button type="button" class="btn btn-default" onclick="$(\'#upload-invoice-modal\').remove();Router.go(\'invoices\')">Edit invoice</button>';
+	html+= '<button type="button" class="btn btn-default" onclick="$(\'#upload-invoice-modal\').remove()">Upload another invoice</button>';
+	html+= '</div>';
+	html+= '</div>';
+	$("body").append(html);
+  };
+  
+  Template.invoices.rendered = function () {
+	var gotoInvoiceId = Session.get('goto_invoice');
+		if(gotoInvoiceId) {
+			var formElement = $(".currency_name_" + gotoInvoiceId).first().parents(".form-horizontal").last();
+			var height = $(formElement).offset().top;
+			height -= $(".navbar").height();
+			height -= 24;
+			$('html, body').scrollTop(height);
+			$(formElement).popover({
+				content: "Your invoice has been successfully uploaded. Finish entering the data for this invoice so you can track the date it is due, the purchase order number, and the amounts payable."
+			}).popover('show');	
+		Session.set('goto_invoice',null);
+	}else{
+		if($('html, body').scrollTop() > 0) {
+			$('html, body').scrollTop(0);
+		}
+	}
+  };
 
   InvoicesController = RouteController.extend({
     template: 'invoices',
@@ -298,7 +343,7 @@ if (Meteor.isClient) {
       if(Meteor.userId() === null)
         this.render('notLoggedIn');
       else
-        this.render('invoices');
+		this.render('invoices');
 
       this.render('publicFooter',
         { to: 'footer', waitOn: false, data: false }
