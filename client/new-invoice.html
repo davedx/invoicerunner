@@ -1,7 +1,7 @@
 <template name="new_invoice">
 	<div class="span12 box main-box">
 		<h2>New invoice</h2>
-		
+
 		<p class="lead">Upload invoices from your computer, smartphone camera, Dropbox or more.</p>
 
 		{{#if isTrial}}
@@ -20,18 +20,6 @@
 		<p>Interested in using <strong>OCR (Optical Character Recognition)</strong> or <strong>automatic email imports</strong> to streamline your business even more?</p>
 
 		<p>Check out our <a href="{{pathFor 'pricing'}}">Gold and Platinum</a> plans to see what's possible.</p>
-	</div>
-	<div id="upload-invoice-modal" class="modal hide">
-		<div class="modal-content">
-			<button type="button" class="close" id="upload-invoice-modal-close">&times;</button>
-		</div>
-		<div class="modal-body">
-			<p>Your invoice has been successfully uploaded. Do you want to finish entering the data for this invoice, or upload another invoice?</p>
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-default" id="edit-invoice">Edit invoice</button>
-			<button type="button" class="btn btn-default" id="upload-another-invoice">Upload another invoice</button>
-		</div>
 	</div>
 </template>
 <template name="upload_control">

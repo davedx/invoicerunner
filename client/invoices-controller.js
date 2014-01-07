@@ -53,7 +53,7 @@ if (Meteor.isClient) {
       console.log(form);
       var id = this._id;
       Invoices.update(id, {$set: form}, function (err) {
-		//console.log("err: " + err);
+		console.log("err: " + err);
         var msg;
         if(err) {
           msg = 'Error saving invoice. Try again in a moment.';
@@ -210,12 +210,7 @@ if (Meteor.isClient) {
       Session.set("widgetSet", true);
       filepicker.setKey(key);
     }*/
-	console.log("new-invoice rendered");
-	$("#upload-invoice-modal").hide();
-	var gotoInvoiceId = Session.get("goto_invoice");
-	if (gotoInvoiceId) {
-		$("#upload-invoice-modal").show();
-	}
+	//console.log("rendered");
   };
 
   var isTrialAccount = function() {
@@ -270,27 +265,47 @@ if (Meteor.isClient) {
           mimetype: ink.mimetype
         }, function (error, invoice) {
 			if (!error) {
-				Session.set('goto_invoice', invoice);
-			  } else {
-				console.error(error);
-			  }
+				Session.set('goto_invoice',invoice);
+				showUploadInvoice();
+				/*
+				if(confirm("Invoice created. Upload another?")) {
+				  // redirect back to this page
+				  Router.go('new-invoice');
+				} else {
+				  // redirect to home
+				  Router.go('invoices');
+				}
+				*/
+          } else {
+            console.error(error);
+          }
         });
       });
-    },
-	'click #upload-invoice-modal-close': function() {
-		$('#upload-invoice-modal').hide();
-		Session.set('goto_invoice',null);
-	},
-	'click #upload-another-invoice': function() {
-		$('#upload-invoice-modal').hide();
-		Session.set('goto_invoice',null);
-	},
-	'click #edit-invoice': function() {
-		$('#upload-invoice-modal').remove();
-		Router.go('invoices');
-	}
+    }
 });
-   
+  function uploadInvoiceModalClose() {
+		var uploadModal = $("#upload-invoice-modal");
+		if(uploadModal.is(':visible')){
+			uploadModal.hide();
+		}
+	};
+  function showUploadInvoice(){
+	var html= "";
+	html+= '<div id="upload-invoice-modal" class="modal">';
+	html+= '<div class="modal-content">';	
+	html+= '<button type="button" class="close" id="upload-invoice-modal-close" onclick="$(\'#upload-invoice-modal\').remove()">&times;</button>';
+	html+= '</div>';
+	html+= '<div class="modal-body">';
+	html+= '<p>Your invoice has been successfully uploaded. Do you want to finish entering the data for this invoice, or upload another invoice?</p>';
+	html+= '</div>';
+	html+= '<div class="modal-footer">';
+	html+= '<button type="button" class="btn btn-default" onclick="$(\'#upload-invoice-modal\').remove();Router.go(\'invoices\')">Edit invoice</button>';
+	html+= '<button type="button" class="btn btn-default" onclick="$(\'#upload-invoice-modal\').remove()">Upload another invoice</button>';
+	html+= '</div>';
+	html+= '</div>';
+	$("body").append(html);
+  };
+  
   Template.invoices.rendered = function () {
 	$(".popover").remove();
 	var gotoInvoiceId = Session.get('goto_invoice');
