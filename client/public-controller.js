@@ -24,7 +24,11 @@ if (Meteor.isClient) {
         accountType: 'trial'
       };
       console.log(form);
-
+		if(!$('#terms').is(':checked')) {
+        alert('Please confirm you have read the terms and conditions.');
+        event.preventDefault();
+        return false;
+		}	
       Accounts.createUser(form, function (err) {
         if(err) {
           console.error("Error creating user: ", err);
@@ -32,7 +36,7 @@ if (Meteor.isClient) {
           Router.go('invoices');
         }
       });
-
+	  
       event.preventDefault();
     }
   });
