@@ -153,6 +153,16 @@ if (Meteor.isClient) {
 			invoiceModal.css("top","5%");
 			document.getElementById("invoice").src = "";
 		}
+	},	
+	'click .company': function(event) {
+		if ($(event.target).val() == "Company name") {
+			$(event.target).val("");
+		};			
+	},
+	'blur .company': function(event) {
+		if ($(event.target).val() == "") {
+			$(event.target).val("Company name");
+		};
 	}
 });
 
@@ -309,6 +319,19 @@ if (Meteor.isClient) {
 			$('html, body').scrollTop(0);
 		}
 	}
+	
+	$(".company").typeahead({
+			source: function() {	
+				var companies = new Array();
+				Companies.find({}, {fields: {name : 1}}).forEach(function (company) {
+					if(company.name.length>0 && $.inArray( company.name, companies ) == -1) {
+						companies.push(company.name);
+					}
+				});	
+				return companies;
+			},
+			items: 5
+	});
   };
 
   InvoicesController = RouteController.extend({
