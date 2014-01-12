@@ -322,12 +322,10 @@ if (Meteor.isClient) {
 	
 	$(".company").typeahead({
 			source: function() {	
-				var companies = new Array();
-				Companies.find({}, {fields: {name : 1}}).forEach(function (company) {
-					if(company.name.length>0 && $.inArray( company.name, companies ) == -1) {
-						companies.push(company.name);
-					}
-				});	
+				var companies = [];
+				_.filter(Companies.find({}, {fields: {name :1}}).fetch(), function (company){
+					return companies.push(company.name);
+				});
 				return companies;
 			},
 			items: 5
