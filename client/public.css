@@ -3,6 +3,35 @@
 		
 	}
 }
+body {
+	background-image: none;
+}
+@media (min-width: 980px) {
+  body {
+    padding-top: 30px;
+  }
+}
+
+.ipad {
+	width: 400px;
+	height: 300px;
+	background-image: url('/girl-with-iPad-2k.jpg');
+	background-size: cover;
+}
+.main, .container {
+	width: 100%;
+}
+.landing-top {
+	width: 100%;
+}
+.story {
+	background-color: white;
+	height: 300px;
+}
+.story-text {
+	padding: 20px;
+	max-width: 600px;
+}
 .navbar-inner-public a {
 	color: #111 !important;
 	font-weight: bold;
