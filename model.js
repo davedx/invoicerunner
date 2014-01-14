@@ -190,8 +190,10 @@ if (Meteor.isServer) {
 /*      check(options, {
         name: NonEmptyString
       });*/
-
-      if(!this.userId)
+	  if (options.name.length == 0 || !options.name.match( /^[a-z0-9]+$/i)) {	
+		throw new Meteor.Error(403, "Enter a valid company name!");		
+	  }
+	  if(!this.userId)
         throw new Meteor.Error(403, "You must be logged in");
 
       return Companies.insert({

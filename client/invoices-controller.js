@@ -82,7 +82,6 @@ if (Meteor.isClient) {
       $('.btn-paid').data('invoice-id', invoice_id);
       var company = Companies.findOne({name: company_name});
       if(!company) {
-        console.log("no company found");
         $('#add-company-name').html(company_name);
         $('#add_company_modal').modal();
       } else {
@@ -100,7 +99,7 @@ if (Meteor.isClient) {
       var company_name = $('#add-company-name').html();
       console.log("Adding "+company_name+" with method "+payment_method);
 
-      Meteor.call('createCompany', {
+	  Meteor.call('createCompany', {
         name: company_name,
         payment: payment_method
       }, function (error, company) {
@@ -160,6 +159,7 @@ if (Meteor.isClient) {
 		};			
 	},
 	'blur .company': function(event) {
+	return;
 		if ($(event.target).val() == "") {
 			$(event.target).val("Company name");
 		};
@@ -319,17 +319,15 @@ if (Meteor.isClient) {
 			$('html, body').scrollTop(0);
 		}
 	}
-	
-	$(".company").typeahead({
-			source: function() {	
-				var companies = [];
-				_.filter(Companies.find({}, {fields: {name :1}}).fetch(), function (company){
-					return companies.push(company.name);
-				});
-				return companies;
-			},
-			items: 5
-	});
+	 $(".company").typeahead({
+        source: function() {
+			var companies = _.filter(Companies.find({}, {fields: {name :1}}).fetch(), function (company){
+				return company.name.length > 0;
+			});
+			return _.map(companies, function(company) { return company.name; }); 
+		},
+        items: 5
+        }); 
   };
 
   InvoicesController = RouteController.extend({
