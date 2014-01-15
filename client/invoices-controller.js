@@ -48,26 +48,24 @@ if (Meteor.isClient) {
       $.each($(event.target).closest('form').serializeArray(), function() {
           form[this.name] = this.value;
       });
-	  form['approved'] = form['approved'] == 'on' ? true : false;
+      form['approved'] = form['approved'] == 'on' ? true : false;
       form['currency'] = $('.currency_name_' + this._id).html();
       console.log(form);
-	  
-	  var msg;
-	  if (form['company'].length <= 1 || form['company'].length > 60) {
-		msg = "Invalid company name.";
-	  } else {
-	  var id = this._id;
-      Invoices.update(id, {$set: form}, function (err) {
-		//console.log("err: " + err);
+	
+      var id = this._id;
+	 
+	  Meteor.call('updateInvoice', id, form, function (err, invoice) {
+		console.log("err: " + err);
+		console.log("invoice: " + invoice);
         var msg;
 		if(err) {
-          msg = 'Error saving invoice. Try again in a moment.';
+          //msg = 'Error saving invoice. Try again in a moment.';
+		  msg = err.reason;
         }
 		else {
           msg = 'Invoice saved.';
         }
-	  });
-	  }	
+		 
 		var feedback = $(event.target).next();
         feedback.html(msg);
         feedback.show();
@@ -80,6 +78,7 @@ if (Meteor.isClient) {
           });
         }, 1000);
         $(event.target).prop('disabled', false);
+      });
       event.preventDefault();
     },
     'click .payment-button': function (event, template) {
