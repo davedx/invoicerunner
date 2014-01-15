@@ -36,13 +36,13 @@
           <li>
             {{loginButtons align="right"}}
           </li>
-        </ul>
+		 </ul>
       </div>
     </div>
 
     <section class="main">
       {{yield}}
-    </section>
+    </section> 
   </div>
   <footer>
     {{yield "footer"}}
@@ -147,7 +147,7 @@
                   Company:
                 </label>
                 <div class="controls">
-                  <input type="text" name="company" class="company" value="{{company}}">
+                  <input type="text" autocomplete="off" name="company" class="company" value="{{company}}">
                 </div>
               </div>
               <div class="control-group">

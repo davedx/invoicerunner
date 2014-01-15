@@ -51,16 +51,22 @@ if (Meteor.isClient) {
       form['approved'] = form['approved'] == 'on' ? true : false;
       form['currency'] = $('.currency_name_' + this._id).html();
       console.log(form);
+	
       var id = this._id;
-      Invoices.update(id, {$set: form}, function (err) {
-		//console.log("err: " + err);
+	 
+	  Meteor.call('updateInvoice', id, form, function (err, invoice) {
+		console.log("err: " + err);
+		console.log("invoice: " + invoice);
         var msg;
-        if(err) {
-          msg = 'Error saving invoice. Try again in a moment.';
-        } else {
+		if(err) {
+          //msg = 'Error saving invoice. Try again in a moment.';
+		  msg = err.reason;
+        }
+		else {
           msg = 'Invoice saved.';
         }
-        var feedback = $(event.target).next();
+		 
+		var feedback = $(event.target).next();
         feedback.html(msg);
         feedback.show();
         feedback.css('opacity', '1.0');
@@ -82,7 +88,6 @@ if (Meteor.isClient) {
       $('.btn-paid').data('invoice-id', invoice_id);
       var company = Companies.findOne({name: company_name});
       if(!company) {
-        console.log("no company found");
         $('#add-company-name').html(company_name);
         $('#add_company_modal').modal();
       } else {
@@ -99,8 +104,8 @@ if (Meteor.isClient) {
       var payment_method = $('#add-company-payment-method').val();
       var company_name = $('#add-company-name').html();
       console.log("Adding "+company_name+" with method "+payment_method);
-
-      Meteor.call('createCompany', {
+		
+	  Meteor.call('createCompany', {
         name: company_name,
         payment: payment_method
       }, function (error, company) {
@@ -153,6 +158,16 @@ if (Meteor.isClient) {
 			invoiceModal.css("top","5%");
 			document.getElementById("invoice").src = "";
 		}
+	},	
+	'click .company': function(event) {
+		if ($(event.target).val() == "Company name") {
+			$(event.target).val("");
+		};			
+	},
+	'blur .company': function(event) {
+		if ($(event.target).val() == "") {
+			$(event.target).val("Company name");
+		};
 	}
 });
 
@@ -303,6 +318,15 @@ if (Meteor.isClient) {
 			$('html, body').scrollTop(0);
 		}
 	}
+	 $(".company").typeahead({
+        source: function() {
+			var companies = _.filter(Companies.find({}, {fields: {name :1}}).fetch(), function (company){
+				return company.name.length > 0;
+			});
+			return _.map(companies, function(company) { return company.name; }); 
+		},
+        items: 5
+        }); 
   };
 
   InvoicesController = RouteController.extend({

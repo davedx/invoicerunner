@@ -17,7 +17,7 @@ Invoices.allow({
 
     var allowed = ["company", "company_id", "invoice_number", "date_due", "subtotal",
     	"tax", "total", "po_number", "currency", "approved", "status", "url", "filename", "mimetype"];
-
+	
     if (_.difference(fields, allowed).length)
       return false; // tried to write to forbidden field
 
@@ -190,8 +190,11 @@ if (Meteor.isServer) {
 /*      check(options, {
         name: NonEmptyString
       });*/
-
-      if(!this.userId)
+	  	  
+	  if (!options.name.match(/^[a-z0-9]+$/i)) {	
+		throw new Meteor.Error(403, "Enter a valid company name!");		
+	  }
+	  if(!this.userId)
         throw new Meteor.Error(403, "You must be logged in");
 
       return Companies.insert({
@@ -229,6 +232,13 @@ if (Meteor.isServer) {
   	    filename: options.filename,
   	    mimetype: options.mimetype
   	   });
-    	}
+    },
+	
+	updateInvoice: function (id, options) {
+	  if (options.company.length <= 1 || options.company.length > 60)
+        throw new Meteor.Error(403, "Invalid company name");
+    
+	  return Invoices.update (id, {$set: options});
+	}
    });
 }
