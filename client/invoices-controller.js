@@ -48,19 +48,27 @@ if (Meteor.isClient) {
       $.each($(event.target).closest('form').serializeArray(), function() {
           form[this.name] = this.value;
       });
-      form['approved'] = form['approved'] == 'on' ? true : false;
+	  form['approved'] = form['approved'] == 'on' ? true : false;
       form['currency'] = $('.currency_name_' + this._id).html();
       console.log(form);
-      var id = this._id;
+	  
+	  var msg;
+	  if (form['company'].length <= 1 || form['company'].length > 60) {
+		msg = "Invalid company name.";
+	  } else {
+	  var id = this._id;
       Invoices.update(id, {$set: form}, function (err) {
 		//console.log("err: " + err);
         var msg;
-        if(err) {
+		if(err) {
           msg = 'Error saving invoice. Try again in a moment.';
-        } else {
+        }
+		else {
           msg = 'Invoice saved.';
         }
-        var feedback = $(event.target).next();
+	  });
+	  }	
+		var feedback = $(event.target).next();
         feedback.html(msg);
         feedback.show();
         feedback.css('opacity', '1.0');
@@ -72,7 +80,6 @@ if (Meteor.isClient) {
           });
         }, 1000);
         $(event.target).prop('disabled', false);
-      });
       event.preventDefault();
     },
     'click .payment-button': function (event, template) {
@@ -82,7 +89,6 @@ if (Meteor.isClient) {
       $('.btn-paid').data('invoice-id', invoice_id);
       var company = Companies.findOne({name: company_name});
       if(!company) {
-        console.log("no company found");
         $('#add-company-name').html(company_name);
         $('#add_company_modal').modal();
       } else {
@@ -99,8 +105,8 @@ if (Meteor.isClient) {
       var payment_method = $('#add-company-payment-method').val();
       var company_name = $('#add-company-name').html();
       console.log("Adding "+company_name+" with method "+payment_method);
-
-      Meteor.call('createCompany', {
+		
+	  Meteor.call('createCompany', {
         name: company_name,
         payment: payment_method
       }, function (error, company) {
@@ -313,17 +319,15 @@ if (Meteor.isClient) {
 			$('html, body').scrollTop(0);
 		}
 	}
-	
-	$(".company").typeahead({
-			source: function() {	
-				var companies = [];
-				_.filter(Companies.find({}, {fields: {name :1}}).fetch(), function (company){
-					return companies.push(company.name);
-				});
-				return companies;
-			},
-			items: 5
-	});
+	 $(".company").typeahead({
+        source: function() {
+			var companies = _.filter(Companies.find({}, {fields: {name :1}}).fetch(), function (company){
+				return company.name.length > 0;
+			});
+			return _.map(companies, function(company) { return company.name; }); 
+		},
+        items: 5
+        }); 
   };
 
   InvoicesController = RouteController.extend({
