@@ -190,7 +190,8 @@ if (Meteor.isServer) {
 /*      check(options, {
         name: NonEmptyString
       });*/
-	  if (options.name.length == 0 || !options.name.match( /^[a-z0-9]+$/i)) {	
+	  	  
+	  if (!options.name.match(/^[a-z0-9]+$/i)) {	
 		throw new Meteor.Error(403, "Enter a valid company name!");		
 	  }
 	  if(!this.userId)
