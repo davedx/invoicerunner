@@ -50,35 +50,33 @@ if (Meteor.isClient) {
       });
       form['approved'] = form['approved'] == 'on' ? true : false;
       form['currency'] = $('.currency_name_' + this._id).html();
-      console.log(form);
 	
       var id = this._id;
 	 
-	  Meteor.call('updateInvoice', id, form, function (err, invoice) {
-        var msg;
-		if(err) {
-          //msg = 'Error saving invoice. Try again in a moment.';
-		  msg = err.reason;
-        }
-		else {
-          msg = 'Invoice saved.';
-        }
-		 
-		var feedback = $(event.target).next();
-        feedback.html(msg);
-        feedback.show();
-        feedback.css('opacity', '1.0');
-        setTimeout(function () {
-          feedback.animate({
-            opacity: 0.25,
-          }, 500, function () {
-            feedback.hide();
-          });
-        }, 1000);
-        $(event.target).prop('disabled', false);
+			Meteor.call('updateInvoice', id, form, function (err, invoice) {
+				var msg;
+				if(err) {
+					//msg = 'Error saving invoice. Try again in a moment.';
+					msg = err.reason;
+				}	else {
+					msg = 'Invoice saved.';
+				}
+			 
+				var feedback = $(event.target).next();
+				feedback.html(msg);
+				feedback.show();
+				feedback.css('opacity', '1.0');
+				setTimeout(function () {
+					feedback.animate({
+						opacity: 0.25,
+					}, 500, function () {
+						feedback.hide();
+					});
+				}, 1000);
+				$(event.target).prop('disabled', false);
       });
-      event.preventDefault();
-    },
+			event.preventDefault();
+		},
     'click .payment-button': function (event, template) {
       var company_id = parseInt(event.target.getAttribute('data-company-id'));
       var company_name = event.target.getAttribute('data-company-name');
@@ -98,12 +96,11 @@ if (Meteor.isClient) {
         $('#payment_modal').modal();
       }
     },
-    'click .btn-save-payment': function (event) {
-      var payment_method = $('#add-company-payment-method').val();
-      var company_name = $('#add-company-name').html();
-      console.log("Adding "+company_name+" with method "+payment_method);
+		'click .btn-save-payment': function (event) {
+			var payment_method = $('#add-company-payment-method').val();
+			var company_name = $('#add-company-name').html();
 		
-	  Meteor.call('createCompany', {
+			Meteor.call('createCompany', {
         name: company_name,
         payment: payment_method
       }, function (error, company) {
@@ -190,22 +187,25 @@ if (Meteor.isClient) {
     return Invoices.find({status: 'paid'}).count() === 0;
   };
 
-  Template.invoices.helpers({
-    date_badge: function (date) {
-      var days_diff = daysDiff(date);
-      var bt = '';
-      if(days_diff < 1)
-        bt = ' badge-important';
-      else if(days_diff < 7)
-        bt = ' badge-warning';
-      return 'badge' + bt;
-    },
-    long_date: function (date) {
-      return longDate(date);
-    },
-    in_days: function (date) {
-      return inDays(date);
-    },
+	Handlebars.registerHelper('date_badge', function (date) {
+		var days_diff = daysDiff(date);
+		var bt = '';
+		if(days_diff < 1)
+			bt = ' badge-important';
+		else if(days_diff < 7)
+			bt = ' badge-warning';
+		return 'badge' + bt;
+	});
+
+	Handlebars.registerHelper('long_date', function (date) {
+		return longDate(date);
+	});
+
+	Handlebars.registerHelper('in_days', function (date) {
+		return inDays(date);
+	});
+
+	Template.invoices.helpers({
     tab_visible: function (tab) {
       var currTab = getPageVar('tab');
       if(currTab === tab) return '';
