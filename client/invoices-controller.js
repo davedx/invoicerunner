@@ -55,8 +55,6 @@ if (Meteor.isClient) {
       var id = this._id;
 	 
 	  Meteor.call('updateInvoice', id, form, function (err, invoice) {
-		console.log("err: " + err);
-		console.log("invoice: " + invoice);
         var msg;
 		if(err) {
           //msg = 'Error saving invoice. Try again in a moment.';

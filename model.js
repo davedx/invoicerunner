@@ -235,7 +235,7 @@ if (Meteor.isServer) {
     },
 	
 	updateInvoice: function (id, options) {
-	  if (options.company.length <= 1 || options.company.length > 60)
+	  if (options.company !== undefined && (options.company.length <= 1 || options.company.length > 60))
         throw new Meteor.Error(403, "Invalid company name");
     
 	  return Invoices.update (id, {$set: options});
