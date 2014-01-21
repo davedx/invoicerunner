@@ -78,6 +78,7 @@ if (Meteor.isClient) {
 			event.preventDefault();
 		},
     'click .payment-button': function (event, template) {
+      event.preventDefault();
       var company_id = parseInt(event.target.getAttribute('data-company-id'));
       var company_name = event.target.getAttribute('data-company-name');
       var invoice_id = this._id;
