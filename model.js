@@ -234,11 +234,27 @@ if (Meteor.isServer) {
   	   });
     },
 	
-	updateInvoice: function (id, options) {
+	updateInvoice: function (id, options) {	
+			
 	  if (options.company !== undefined && (options.company.length <= 1 || options.company.length > 60))
         throw new Meteor.Error(403, "Invalid company name");
-    
-	  return Invoices.update (id, {$set: options});
+        
+	  if (!this.userId)
+        throw new Meteor.Error(403, "You must be logged in");  
+        
+	  return Invoices.update(id, {
+		  $set: {
+			approved: options.approved,
+			company: options.company,
+			currency: options.currency,
+			date_due: options.date_due,
+			invoice_number: options.invoice_number,
+			po_number: options.po_number,
+			subtotal: options.subtotal,
+			tax: options.tax,
+			total: options.total
+			}
+		});
 	}
    });
 }
