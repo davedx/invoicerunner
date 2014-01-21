@@ -1,8 +1,3 @@
-Accounts.config({
-  forbidClientAccountCreation: true
-});
-
-
 if (Meteor.isServer) {
   var seed = function () {
     var genDate = function (i) {
@@ -75,6 +70,12 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     console.log("Bootstrapping.");
     Hooks.init();
+  });
+  // NOTE: Meteor now warns that this is only in the client, but
+  // the behaviour is correct: we want to manually invoke account
+  // creation ourself.
+  Accounts.config({
+    forbidClientAccountCreation: true
   });
   //TODO: would be great if this was only fired when a user actually LOGS IN,
   //at the moment it also fires on page reload
