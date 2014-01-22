@@ -10,8 +10,9 @@ Invoices.allow({
   insert: function (userId, invoice) {
     return false; // no cowboy inserts -- use createInvoice method
   },
-  update: function (userId, invoice, fields, modifier) {
   
+  update: function (userId, invoice, fields, modifier) {
+   
     if (userId !== invoice.owner)
       return false; // not the owner
 
@@ -20,7 +21,7 @@ Invoices.allow({
 	
     if (_.difference(fields, allowed).length)
       return false; // tried to write to forbidden field
-
+    
     return true;
   },
   remove: function (userId, invoice) {
@@ -235,26 +236,25 @@ if (Meteor.isServer) {
     },
 	
 	updateInvoice: function (id, options) {	
-			
+	
+	 var whitelist = ["company", "invoice_number", "date_due", "subtotal",
+    	"tax", "total", "po_number", "currency", "approved"];
+	       
 	  if (options.company !== undefined && (options.company.length <= 1 || options.company.length > 60))
         throw new Meteor.Error(403, "Invalid company name");
         
 	  if (!this.userId)
         throw new Meteor.Error(403, "You must be logged in");  
-        
-	  return Invoices.update(id, {
-		  $set: {
-			approved: options.approved,
-			company: options.company,
-			currency: options.currency,
-			date_due: options.date_due,
-			invoice_number: options.invoice_number,
-			po_number: options.po_number,
-			subtotal: options.subtotal,
-			tax: options.tax,
-			total: options.total
-			}
-		});
+     
+     var finalOptions = {};
+     
+     for(var key in whitelist) {
+		var field = whitelist[key]; 
+		if (options[field] !== undefined) {
+			finalOptions[field] = options[field];
+		}
+	 };
+	 return Invoices.update(id, {$set: finalOptions});
 	}
    });
 }
