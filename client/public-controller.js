@@ -110,6 +110,14 @@ if (Meteor.isClient) {
       this.render(
         'publicFooter', { to: 'footer', waitOn: false, data: false }
       );
+    },
+    
+    public_cancelaccount: function () {
+      this.render('public_cancelaccount');
+
+      this.render(
+        'publicFooter', { to: 'footer', waitOn: false, data: false }
+      );
     }
   });
 }
