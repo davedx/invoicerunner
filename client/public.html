@@ -254,6 +254,16 @@
 		<p>support@invoicerunner.com</p>
 	</div>
 </template>
+
+<template name="public_cancelaccount">
+	<div class="span12 box main-box">
+		<h3>Canceling my account</h3>
+		<p>If you would like to cancel your account, we'll be so sorry to see you go! Canceling takes effect immediately – you won't be charged again, and your account will be inaccessible.</p>
+		<p>All of your invoices will be deleted permanently.</p>
+		<p>Please send an email to  <a href="mailto:support@invoicerunner.com">support@invoicerunner.com</a> from the email address of the account you would like to cancel, and we will process your request.</p>
+	</div>
+</template>
+
 <template name="public_termsandconditions">
 	<div class="span12 box main-box">
 		<h3>Terms and Conditions</h3>
@@ -385,6 +395,10 @@
 			</li>
 			<li>
 				<a href="{{pathFor 'home'}}">Invoice management software</a>
+			</li>
+			<li>
+				<a href="{{pathFor 'cancelaccount'}}">Cancel account</a>
+			</li>	
 		</ul>
 	</div>
 	<p class="clearfix"></p>
