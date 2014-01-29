@@ -212,16 +212,25 @@ if (Meteor.isServer) {
         filename: NonEmptyString,
         mimetype: NonEmptyString
       });
-
+		
+	  
       if (!this.userId)
         throw new Meteor.Error(403, "You must be logged in");
+       
+       var d = new Date();
+       var month = d.getMonth()+1;
+	   var day = d.getDate();
 
+	   var currentDate = d.getFullYear() + '/' +
+		  (month<10 ? '0' : '') + month + '/' +
+		  (day<10 ? '0' : '') + day;
+        
       return Invoices.insert({
   	  	owner: this.userId,
   	    company: 'Company name',
   	    company_id: 0,
   	    invoice_number: '0',
-  	    date_due: new Date().setDate('2020-01-01'),
+  	    date_due: currentDate,
   	    subtotal: 0,
   	    tax: 0,
   	    total: 0,
@@ -233,6 +242,7 @@ if (Meteor.isServer) {
   	    filename: options.filename,
   	    mimetype: options.mimetype
   	   });
+
     },
 	
 	updateInvoice: function (id, options) {	
