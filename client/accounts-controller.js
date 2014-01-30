@@ -92,7 +92,37 @@ if (Meteor.isClient) {
           }
         });
       }
-    }
+    },				
+     'blur input': function (event) {
+		console.log("name: " + $(event.target).attr('name') + ", value: " + $(event.target).val()); 
+	    Meteor.call('validateAccountStripe', {
+		   name : $(event.target).attr('name'), value : $(event.target).val(),
+		   },
+	   function (err) {
+	   var elementName = $(event.target).attr("name");
+	   if(err) {
+		 $("#" + elementName + "_error").text(err.reason).removeClass("hide");
+         
+		 } else {
+		$("#" + elementName + "_error").text("").addClass("hide");
+		}
+	  });
+  },
+	  
+	  'blur textarea': function (event) {
+		console.log("name: " + $(event.target).attr('name') + ", value: " + $(event.target).val()); 
+	    Meteor.call('validateAccountStripe', {
+		   name : $(event.target).attr('name'), value : $(event.target).val(),
+		   },
+	   function (err) {
+	   var elementName = $(event.target).attr("name");
+	   if(err) {
+		 $("#" + elementName + "_error").text(err.reason).removeClass("hide");
+		 } else {
+		$("#" + elementName + "_error").text("").addClass("hide");
+		}
+	   });	
+	  }  
   });
 
   AccountsController = RouteController.extend({

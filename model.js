@@ -50,6 +50,11 @@ if (Meteor.isServer) {
         throw new Meteor.Error(500, 'Mailchimp error');
       }
     },
+   validateEmail: function (options) {
+	   if(!options.email.match(/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9])+\.([a-zA-Z])+$/)) {
+			throw new Meteor.Error(403, "Invalid email");
+		}		
+	},
 
     upgradeAccountStripe: function (options) {
       var stripeKeyTest = 'sk_test_rymPpU927JzHGsyn1FImWSOA';
@@ -105,6 +110,41 @@ if (Meteor.isServer) {
         throw new Error("You are not logged in.");
       }
     },
+    
+    validateAccountStripe: function (options) {
+		switch(options.name) {
+		case 'company_name':
+			if (!options.value.match(/^[a-z 0-9]{2,60}$/i))
+			throw new Meteor.Error(403, "Invalid company name");
+			break;
+		
+        case 'company_address':
+			if (!options.value.match(/^[a-z 0-9]{2,60}$/i))
+			throw new Meteor.Error(403, "Invalid company address");
+			break;
+				
+        case 'card_number':
+		   if (!options.value.match(/^[0-9]{16}$/))
+		   throw new Meteor.Error(403, "Invalid card number");
+	       break;
+	       
+	    case 'card_expiry_month':	
+		   if (!options.value.match(/^(0?[1-9]|1[012])$/))
+		   throw new Meteor.Error(403, "Invalid card expiry month");
+	   	   break;   
+	   	   
+	    case 'card_expiry_year':
+		   if (!options.value.match(/^(20(1[4-9]|[2-4][0-9]|50))$/))
+		   throw new Meteor.Error(403, "Invalid card expiry year");	
+	       break;
+	       
+	    case 'card_holdername':
+		   if (!options.value.match(/^[a-z ]{2,60}$/i))
+		   throw new Meteor.Error(403, "Invalid card name");
+		   break;
+	   }
+	  return true; 
+	 },
 
     upgradeAccount: function (options) {
       var paymillKey = 'c807ea7cfc00c6faa443b629656a5834';
@@ -212,16 +252,25 @@ if (Meteor.isServer) {
         filename: NonEmptyString,
         mimetype: NonEmptyString
       });
-
+		
+	  
       if (!this.userId)
         throw new Meteor.Error(403, "You must be logged in");
+       
+       var d = new Date();
+       var month = d.getMonth()+1;
+	   var day = d.getDate();
 
+	   var currentDate = d.getFullYear() + '/' +
+		  (month<10 ? '0' : '') + month + '/' +
+		  (day<10 ? '0' : '') + day;
+        
       return Invoices.insert({
   	  	owner: this.userId,
   	    company: 'Company name',
   	    company_id: 0,
   	    invoice_number: '0',
-  	    date_due: new Date().setDate('2020-01-01'),
+  	    date_due: currentDate,
   	    subtotal: 0,
   	    tax: 0,
   	    total: 0,
@@ -233,6 +282,7 @@ if (Meteor.isServer) {
   	    filename: options.filename,
   	    mimetype: options.mimetype
   	   });
+
     },
 	
 	updateInvoice: function (id, options) {	
@@ -256,5 +306,5 @@ if (Meteor.isServer) {
 	 };
 	 return Invoices.update(id, {$set: finalOptions});
 	}
-   });
+  });
 }

@@ -23,27 +23,7 @@ input, textarea,.uneditable-input {
 	padding: 15px;
 	display: block;
 }
-@media (max-width: 480px) {
-	.form-horizontal .control-label {
-		float:left;
-	}
-    .control-group .control-label {
-		width:20%;
-	}
-	.form-horizontal .controls  {
-		margin-left: 20px;
-	}
-	.controls .btn-save {
-		margin-left: 18%;
-	}
-	#view-invoice-modal {
-		left: 5%; 
-		width: 90%;
-	}
-	.buttons {
-		margin: 0 0 3% 30%;
-	}
-}
+
 #upload-invoice-modal {
 	margin: 0;
 	position: absolute;
@@ -55,5 +35,229 @@ input, textarea,.uneditable-input {
 	margin-top: 5px;
 }
 .offset4 {
-	margin-left:290px;
+	margin-left: 290px;
+}
+.main-box {
+	margin-left: auto;
+    margin-right: auto;
+}
+.main-box > p, .main-box > div,.main-box > h2, .main-box > h1, .main-box > button {
+	margin-right: 30px;
+	margin-left: 30px;
+}
+#login-buttons.login-buttons-dropdown-align-right #login-dropdown-list {
+	margin-top: 15px;
+	margin-right: 0px;
+}
+#login-buttons {
+	margin-right: 30px;
+}
+.navbar .nav {
+	margin-left: 40px;
+}
+p {
+   text-align: justify;
+	}
+.main-box > h4 {
+	margin-left: 30px;
+}	
+.checkbox input[type="checkbox"] {
+	margin-top: -1px;
+}
+.trial-footer h4 {
+	margin-right: 30px;
+	margin-left: 30px;
+	text-align: justify;
+}
+.navbar-inner-invoices .nav-left {
+	margin-left: 40px!important	;
+}
+.form-horizontal .control-label.invoice-number {
+	width:120px;
+	margin-left:-20px;
+}
+	#hmenu {
+	display: none;
+}
+	#vmenu {
+	display: block;
+	}
+
+
+@media (min-width: 768px) and (max-width: 979px){
+	.container {
+		width: 100%;
+	}
+	.row {
+		width: 100%;
+		margin:0px;
+	}
+	.span6 {
+		width: 45%;
+		margin: 0px;
+	}
+	.processing-tab {
+		margin-left: 4%;
+		margin-right: 1%;
+	}
+	.payable-tab {
+		margin-left: 1%;
+		margin-right: 4%;
+	}
+	.top-group {
+		float: left;
+		margin-top: 10px;
+	}
+	.control-group {
+		width: 100%;
+	}
+	.form-horizontal .control-label {
+		width: 29%;
+		margin-left: 1%; 
+		padding-left: 0px;
+	}
+	.form-horizontal .controls {
+		width: 68%;
+		margin-left: 2%;
+		float: left;
+	}
+	.offset4 {
+		margin-left: 0px;
+	}
+	.span8 {
+		width: 80%;
+		margin: 0px auto;
+		float: none;
+	}
+	.span12 {
+		width: 90%;
+		margin: 0px auto;
+		float: none;
+	}
+	.span4 {
+		width: 29%;
+		margin: 0px 2%;
+	}
+	.form-horizontal.signup-group .control-label {
+		width: 9%;
+	}
+	.form-horizontal.signup-group .controls {
+		width: 88%;
+	}
+	#upload-invoice-modal {
+		width: 60%;
+		left: 20%;
+	}
+	.invoice {
+		margin: 15px;
+	}
+	.light {
+		margin-left: 15px;
+	}
+}
+@media (max-width: 767px) {
+	body{
+		background-image: url("/low_contrast_linen.png");	
+	}
+	body .processing-tab h4 {
+		color: #EEEEEE;
+	}
+	body .payable-tab h4 {
+		color: #EEEEEE;
+	}
+	.processing-tab {
+		width: 80%;
+	}
+	.payable-tab {
+		width: 80%;
+	}
+	.offset4 {
+		margin-left: 0px;
+	}
+	.span8 {
+		width: 80%;
+		margin-left: 25%;
+		float: none;
+	}
+	.span4 {
+		width: 60%;
+		margin: 0px auto;
+	}
+	.span12 {
+		padding-bottom: 1%;
+	}
+} 
+@media (max-width: 480px) {
+	body{
+		background-image: url("/low_contrast_linen.png");	
+	}
+	body .processing-tab h4 {
+		color: #EEEEEE;
+	}
+	.navbar .nav {
+		margin-left: 10px;
+	}
+	#login-buttons {
+		margin-right: 0px;
+	}
+	.navbar-inner-invoices .nav-left {
+		margin-left: 10px !important;
+	}
+	.span4 {
+		width: 80%;
+	}
+	.span12 {
+		padding-bottom: 3%;	
+	}
+	.span8 {
+		margin-left: 20%;
+	}
+	.span6 {
+		width: 100%;
+		float: none;
+	}
+	.control-group {
+		width: 100%;
+	}
+	.form-horizontal .control-label {
+		float: left;
+		width:27%;
+		text-align: right;
+		margin-top: 1%;
+	}
+	.form-horizontal .controls {
+		width: 66%;
+	}
+	.top-group {
+		float: left;
+		margin-top: 10px;
+	}
+	footer {
+		margin-top: 10%;
+		padding-top: 10%;
+	}
+	#upload-invoice-modal {
+		width: 80%;
+		left: 10%;
+		top: 40%
+	}
+	#hmenu {
+	display: block;
+	float: left;
+}
+	#vmenu {
+		display: none;
+	}
+	.dropdown-menu > li > a {
+		line-height: 30px;
+	}
+	.dropdown-menu > li > a:hover {
+		background: #777777;
+	}
+	.navbar .nav > li > a {
+		margin-bottom: 5px;
+	}
+	.navbar .nav > li > a:hover {
+		background: none;
+	}
 }

@@ -7,7 +7,7 @@
 	</div>
 
   <form action="" method="POST" id="payment-form" class="form-horizontal pull-left">
-		<p class="payment-errors alert-error span3" style="display:none;"></p>
+		<p class="payment-errors alert-error error span3" style="display:none;"></p>
 
 		<div id="payment-form-cc">
 
@@ -15,12 +15,14 @@
 				<label class="company-name-label control-label" for="company-name">Company name:</label>
 				<div class="controls">
 					<input name="company_name" class="company-name span3" type="text" size="30" placeholder="ACME Ltd">
+					<span class="error hide" id="company_name_error"></span>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="company-address-label control-label" for="company-address">Address:</label>
 				<div class="controls">
 					<textarea name="company_address" class="company-address span3" type="text" rows="3" cols="30" placeholder="10 Long Rd"></textarea>
+				    <span class="error hide" id="company_address_error"></span>
 				</div>
 			</div>
 			<div class="control-group">
@@ -39,21 +41,25 @@
 			<div class="control-group">
 				<label class="card-number-label control-label" for="card-number">Credit card number:</label>
 				<div class="controls">
-					<input class="card-number span2" type="text" size="20" value="4242424242424242" data-stripe="number">
+					<input name="card_number" class="card-number span2" type="text" size="20" value="4242424242424242" data-stripe="number">
+				    <span class="error hide" id="card_number_error"></span>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="card-expiry-label control-label" for="card-expiry-month">Expiry date: (MM/YYYY)</label>
 				<div class="controls">
-					<input class="card-expiry-month span1" type="text" size="2" value="12" data-stripe="exp-month">
+					<input name="card_expiry_month" class="card-expiry-month span1" type="text" size="2" value="12" data-stripe="exp-month">
+					<span class="error hide" id="card_expiry_month_error"></span>
 					<span>&nbsp;</span><span class="hidden-phone"> / </span><span>&nbsp;</span>
-					<input class="card-expiry-year span1" type="text" size="4" value="2015" data-stripe="exp-year">
+					<input name="card_expiry_year" class="card-expiry-year span1" type="text" size="4" value="2015" data-stripe="exp-year">
+					<span class="error hide" id="card_expiry_year_error"></span>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="card-holdername-label control-label" for="card-holdername">Name on card:</label>
 				<div class="controls">
-					<input class="card-holdername span3" type="text" size="20" value="Joe Test">
+					<input name="card_holdername" class="card-holdername span3" type="text" size="20" value="Joe Test">
+					<span class="error hide" id="card_holdername_error"></span>	
 				</div>
 			</div>
 			<div class="control-group">
