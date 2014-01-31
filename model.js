@@ -244,7 +244,27 @@ if (Meteor.isServer) {
         payment: options.payment
       });
     },
-
+	
+	   validateDateDue: function (options) {		 
+		 if (!options.value.match(/^(0?[1-9]|[12]+[0-9]|3[01])-(0?[1-9]|1[012])-(20(1[3-9]|[2-4][0-9]|50))$/))
+		   throw new Meteor.Error(403, "Invalid date");
+		   
+		 var dateArray = options.value.split("-");
+		 var day = parseInt(dateArray[0]);
+		 var month = parseInt(dateArray[1]);
+		 var year = parseInt(dateArray[2]);
+		
+		 if (day == 31 && (month == 4 || month == 6 || month == 9 || month == 11)) // 31 days in months of 30 days
+			throw new Meteor.Error(403, "Invalid date");
+		 if ((day == 30 || day == 31) && month == 2) 
+			throw new Meteor.Error(403, "Invalid date"); // 30/31 days in february
+		 if (day == 29 && year%4 != 0)
+			throw new Meteor.Error(403, "Invalid date"); // 29 days in february leap year
+			
+			console.log("date is ok");
+		 return true;
+	 },    
+	
     // options should include: title, description, x, y, public
     createInvoice: function (options) {
       check(options, {
@@ -256,14 +276,14 @@ if (Meteor.isServer) {
 	  
       if (!this.userId)
         throw new Meteor.Error(403, "You must be logged in");
-       
+    	  
        var d = new Date();
        var month = d.getMonth()+1;
 	   var day = d.getDate();
 
-	   var currentDate = d.getFullYear() + '/' +
-		  (month<10 ? '0' : '') + month + '/' +
-		  (day<10 ? '0' : '') + day;
+	   var currentDate = (day<10 ? '0' : '') + day + '-' +
+		  (month<10 ? '0' : '') + month + '-' +
+		  d.getFullYear() ;
         
       return Invoices.insert({
   	  	owner: this.userId,
