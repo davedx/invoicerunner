@@ -51,7 +51,7 @@ if (Meteor.isServer) {
       }
     },
    validateEmail: function (options) {
-	   if(!options.email.match(/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9])+\.([a-zA-Z])+$/)) {
+		if(!options.email.match(/^(([^@]+)@([^.@]+)\.([a-z]{2,3})(\.[a-z]{2,3})?)$/)) {
 			throw new Meteor.Error(403, "Invalid email");
 		}		
 	},
@@ -113,35 +113,20 @@ if (Meteor.isServer) {
     
     validateAccountStripe: function (options) {
 		switch(options.name) {
-		case 'company_name':
-			if (!options.value.match(/^[a-z 0-9]{2,60}$/i))
+		case 'company-name':
+			if (!options.value.match(/^((.+){2,30})$/))
 			throw new Meteor.Error(403, "Invalid company name");
 			break;
 		
-        case 'company_address':
-			if (!options.value.match(/^[a-z 0-9]{2,60}$/i))
+        case 'company-address':
+			if (!options.value.match(/^((.+){2,90})$/))
 			throw new Meteor.Error(403, "Invalid company address");
 			break;
 				
-        case 'card_number':
+        case 'card-number':
 		   if (!options.value.match(/^[0-9]{16}$/))
 		   throw new Meteor.Error(403, "Invalid card number");
 	       break;
-	       
-	    case 'card_expiry_month':	
-		   if (!options.value.match(/^(0?[1-9]|1[012])$/))
-		   throw new Meteor.Error(403, "Invalid card expiry month");
-	   	   break;   
-	   	   
-	    case 'card_expiry_year':
-		   if (!options.value.match(/^(20(1[4-9]|[2-4][0-9]|50))$/))
-		   throw new Meteor.Error(403, "Invalid card expiry year");	
-	       break;
-	       
-	    case 'card_holdername':
-		   if (!options.value.match(/^[a-z ]{2,60}$/i))
-		   throw new Meteor.Error(403, "Invalid card name");
-		   break;
 	   }
 	  return true; 
 	 },
@@ -246,24 +231,12 @@ if (Meteor.isServer) {
     },
 	
 	   validateDateDue: function (options) {		 
-		 if (!options.value.match(/^(0?[1-9]|[12]+[0-9]|3[01])-(0?[1-9]|1[012])-(20(1[3-9]|[2-4][0-9]|50))$/))
-		   throw new Meteor.Error(403, "Invalid date");
-		   
-		 var dateArray = options.value.split("-");
-		 var day = parseInt(dateArray[0]);
-		 var month = parseInt(dateArray[1]);
-		 var year = parseInt(dateArray[2]);
-		
-		 if (day == 31 && (month == 4 || month == 6 || month == 9 || month == 11)) // 31 days in months of 30 days
-			throw new Meteor.Error(403, "Invalid date");
-		 if ((day == 30 || day == 31) && month == 2) 
-			throw new Meteor.Error(403, "Invalid date"); // 30/31 days in february
-		 if (day == 29 && year%4 != 0)
-			throw new Meteor.Error(403, "Invalid date"); // 29 days in february leap year
-			
-			console.log("date is ok");
+		 if (!(moment(options.value, "DD-MM-YYYY").isValid())) { 
+		    throw new Meteor.Error(403, "Invalid date");	
+	     };
+		 console.log("date is ok");
 		 return true;
-	 },    
+	 },   
 	
     // options should include: title, description, x, y, public
     createInvoice: function (options) {
@@ -272,19 +245,29 @@ if (Meteor.isServer) {
         filename: NonEmptyString,
         mimetype: NonEmptyString
       });
-		
-	  
+	 
       if (!this.userId)
         throw new Meteor.Error(403, "You must be logged in");
     	  
-       var d = new Date();
-       var month = d.getMonth()+1;
-	   var day = d.getDate();
+        var d = new Date();
+        var month = d.getMonth()+1;
+    	var day = d.getDate();
 
 	   var currentDate = (day<10 ? '0' : '') + day + '-' +
-		  (month<10 ? '0' : '') + month + '-' +
-		  d.getFullYear() ;
-        
+       (month<10 ? '0' : '') + month + '-' +
+        d.getFullYear() ;
+      
+      /*
+      var day = moment();
+      console.log("day is :"+day); 
+      var currentDate = moment(day,"DD-MM-YYYY");
+      console.log("currentDate is :"+currentDate);
+      var currentDate2 = moment();
+      console.log("currentDate2 is :"+currentDate2);
+      */ 
+      
+      
+      
       return Invoices.insert({
   	  	owner: this.userId,
   	    company: 'Company name',

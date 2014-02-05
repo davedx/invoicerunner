@@ -32,13 +32,23 @@ if (Meteor.isClient) {
       Accounts.createUser(form, function (err) {
         if(err) {
           console.error("Error creating user: ", err);
+          event.preventDefault();
+          return false;
         } else {
           Router.go('invoices');
         }
       });
-	  
-      event.preventDefault();
-    }
+    },
+    'blur #verifyEmail': function (event) {
+	  Meteor.call('validateEmail', {email: $("#verifyEmail").val()}, function (err) {
+		if(err) {
+			$("span.error").removeClass("hide");
+			console.log(err);
+		} else {
+			$("span.error").addClass("hide");
+		}
+	   });	
+	  }   
   });
 
   Template.public_shortlist.events({
