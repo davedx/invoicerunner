@@ -230,10 +230,16 @@ if (Meteor.isServer) {
       });
     },
 	
-	   validateDateDue: function (options) {		 
-		 if (!(moment(options.value, "YYYY-MM-DD").isValid())) { 
-		    throw new Meteor.Error(403, "Invalid date");	
-	     };
+	   validateDateDue: function (options) {	
+		 var m = moment(options.value, "YYYY-MM-DD");
+		 console.log(m.parsingFlags().unusedTokens.length); 
+		 if(m.parsingFlags().unusedTokens.length > 0) { 
+			throw new Meteor.Error(403, "Date format: YYYY-MM-DD"); 
+		 }
+		 if(!m.isValid()) {
+			 console.log("Invalid date");
+			 throw new Meteor.Error(403, "Invalid date");	
+		 }
 		 console.log("date is ok");
 		 return true;
 	 },   
