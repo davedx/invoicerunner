@@ -231,7 +231,7 @@ if (Meteor.isServer) {
     },
 	
 	   validateDateDue: function (options) {		 
-		 if (!(moment(options.value, "DD-MM-YYYY").isValid())) { 
+		 if (!(moment(options.value, "YYYY-MM-DD").isValid())) { 
 		    throw new Meteor.Error(403, "Invalid date");	
 	     };
 		 console.log("date is ok");
@@ -248,29 +248,15 @@ if (Meteor.isServer) {
 	 
       if (!this.userId)
         throw new Meteor.Error(403, "You must be logged in");
-    	  
-       /* var d = new Date();
-        var month = d.getMonth()+1;
-    	var day = d.getDate();
-
-	   var currentDate = (day<10 ? '0' : '') + day + '-' +
-       (month<10 ? '0' : '') + month + '-' +
-        d.getFullYear() ;
-      */
-      
-      var day = moment().toDate();
-      console.log("day is :"+day); 
-      var currentDate = moment(day,"DD-MM-YYYY");
-      console.log("currentDate is :"+currentDate);
-         
-      
-      
+   
+      var currentDate = moment().format('YYYY-MM-DD') ;
+           
       return Invoices.insert({
   	  	owner: this.userId,
   	    company: 'Company name',
   	    company_id: 0,
   	    invoice_number: '0',
-  	    date_due: day,
+  	    date_due:currentDate,
   	    subtotal: 0,
   	    tax: 0,
   	    total: 0,
