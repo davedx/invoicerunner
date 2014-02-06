@@ -1,4 +1,20 @@
 if (Meteor.isClient) {
+  var validateNewAccount = function (event) {
+	  var elementClass = $(event.target).attr('class').split(" ");
+	  var elementName = elementClass[0];
+	  console.log("name: " + elementName + ", value: " + $(event.target).val()); 
+	    Meteor.call(
+			'validateAccountStripe', 
+			{name : elementName, value : $(event.target).val()},
+			function (err) {
+				if(err) {
+					$("#" + elementName + "-error").text(err.reason).removeClass("hide");
+				} else {
+					$("#" + elementName + "-error").text("").addClass("hide");
+				}
+			}
+		);	  
+   }
   Template.new_account_stripe.events({
     'change .subscription': function (event) {
       var plans = [
@@ -18,6 +34,22 @@ if (Meteor.isClient) {
         event.preventDefault();
         return;
       }
+      
+	  if ($('input.card-expiry-month').val().length == 0) {
+		alert('Invalid card expiry month');
+        event.preventDefault();
+        return;
+	  }
+	   if ($('input.card-expiry-year').val().length == 0) {
+		alert('Invalid card expiry year');
+        event.preventDefault();
+        return;
+	  }
+	   if ($('input.card-holdername').val().length == 0) {
+		alert('Invalid card name');
+        event.preventDefault();
+        return;
+	  }
 
       $('.newaccount-btn').attr("disabled", "disabled");
       var formlang = 'en';
@@ -91,8 +123,10 @@ if (Meteor.isClient) {
             event.preventDefault();
           }
         });
-      }
-    }
+      } 
+    },				
+     'blur input': validateNewAccount,
+	 'blur textarea': validateNewAccount	 
   });
 
   AccountsController = RouteController.extend({

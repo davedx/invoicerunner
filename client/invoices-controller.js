@@ -13,7 +13,7 @@ if (Meteor.isClient) {
       return moment(date).format("MMM Do YYYY");
   }
 
-  var daysDiff = function (date) {
+  var daysDiff = function (date) { 
     if(!date) return '';
     var now = moment();
     var momentDate = moment(date);
@@ -102,13 +102,14 @@ if (Meteor.isClient) {
 			var company_name = $('#add-company-name').html();
 		
 			Meteor.call('createCompany', {
-        name: company_name,
-        payment: payment_method
-      }, function (error, company) {
-        if (error) {
-          console.error(error);
-        }
-      });
+				name: company_name,
+				payment: payment_method
+			  }, 
+			  function (error, company) {
+				if (error) {
+				  console.error(error);
+				}
+			  });
 
       $('#add_company_modal').modal('hide');
     },
@@ -164,7 +165,22 @@ if (Meteor.isClient) {
 		if ($(event.target).val() == "") {
 			$(event.target).val("Company name");
 		};
-	}
+	},
+	'blur .date_due': function (event) {
+		console.log("name: " + $(event.target).attr('name') + ", value: " + $(event.target).val()); 
+	    Meteor.call('validateDateDue', {
+		   name : $(event.target).attr('name'), value : $(event.target).val(),
+		   },
+	   function (err) {
+	   var elementName = $(event.target).attr("name");
+	   if(err) {
+		 $("#" + elementName + "_error").text(err.reason).removeClass("hide");
+         
+		 } else {
+		$("#" + elementName + "_error").text("").addClass("hide");
+		}
+	  });
+  }
 });
 
   Template.layout.helpers({
@@ -267,7 +283,7 @@ if (Meteor.isClient) {
       }
       return 0;
     }
-  })
+  });
 
   Template.new_invoice.events({
     'click button.upload-btn': function () {
@@ -316,7 +332,7 @@ if (Meteor.isClient) {
 		if($('html, body').scrollTop() > 0) {
 			$('html, body').scrollTop(0);
 		}
-	}
+	};
 	 $(".company").typeahead({
         source: function() {
 			var companies = _.filter(Companies.find({}, {fields: {name :1}}).fetch(), function (company){
@@ -324,9 +340,9 @@ if (Meteor.isClient) {
 			});
 			return _.map(companies, function(company) { return company.name; }); 
 		},
-        items: 5
-        }); 
-  };
+        items: 5,
+        });	
+ };
 
   InvoicesController = RouteController.extend({
     template: 'invoices',

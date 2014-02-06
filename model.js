@@ -50,6 +50,11 @@ if (Meteor.isServer) {
         throw new Meteor.Error(500, 'Mailchimp error');
       }
     },
+   validateEmail: function (options) {
+		if(!options.email.match(/^(([^@]+)@([^.@]+)\.([a-z]{2,3})(\.[a-z]{2,3})?)$/)) {
+			throw new Meteor.Error(403, "Invalid email");
+		}		
+	},
 
     upgradeAccountStripe: function (options) {
       var stripeKeyTest = 'sk_test_rymPpU927JzHGsyn1FImWSOA';
@@ -105,6 +110,26 @@ if (Meteor.isServer) {
         throw new Error("You are not logged in.");
       }
     },
+    
+    validateAccountStripe: function (options) {
+		switch(options.name) {
+		case 'company-name':
+			if (!options.value.match(/^((.+){2,30})$/))
+			throw new Meteor.Error(403, "Invalid company name");
+			break;
+		
+        case 'company-address':
+			if (!options.value.match(/^((.+){2,90})$/))
+			throw new Meteor.Error(403, "Invalid company address");
+			break;
+				
+        case 'card-number':
+		   if (!options.value.match(/^[0-9]{16}$/))
+		   throw new Meteor.Error(403, "Invalid card number");
+	       break;
+	   }
+	  return true; 
+	 },
 
     upgradeAccount: function (options) {
       var paymillKey = 'c807ea7cfc00c6faa443b629656a5834';
@@ -204,7 +229,21 @@ if (Meteor.isServer) {
         payment: options.payment
       });
     },
-
+	
+	   validateDateDue: function (options) {	
+		 var m = moment(options.value, "YYYY-MM-DD");
+		 console.log(m.parsingFlags().unusedTokens.length); 
+		 if(m.parsingFlags().unusedTokens.length > 0) { 
+			throw new Meteor.Error(403, "Date format: YYYY-MM-DD"); 
+		 }
+		 if(!m.isValid()) {
+			 console.log("Invalid date");
+			 throw new Meteor.Error(403, "Invalid date");	
+		 }
+		 console.log("date is ok");
+		 return true;
+	 },   
+	
     // options should include: title, description, x, y, public
     createInvoice: function (options) {
       check(options, {
@@ -212,16 +251,18 @@ if (Meteor.isServer) {
         filename: NonEmptyString,
         mimetype: NonEmptyString
       });
-
+	 
       if (!this.userId)
         throw new Meteor.Error(403, "You must be logged in");
-
+   
+      var currentDate = moment().format('YYYY-MM-DD') ;
+           
       return Invoices.insert({
   	  	owner: this.userId,
   	    company: 'Company name',
   	    company_id: 0,
   	    invoice_number: '0',
-  	    date_due: new Date().setDate('2020-01-01'),
+  	    date_due:currentDate,
   	    subtotal: 0,
   	    tax: 0,
   	    total: 0,
@@ -233,6 +274,7 @@ if (Meteor.isServer) {
   	    filename: options.filename,
   	    mimetype: options.mimetype
   	   });
+
     },
 	
 	updateInvoice: function (id, options) {	
@@ -256,5 +298,5 @@ if (Meteor.isServer) {
 	 };
 	 return Invoices.update(id, {$set: finalOptions});
 	}
-   });
+  });
 }

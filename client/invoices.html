@@ -10,10 +10,42 @@
   <div class="container">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner navbar-inner-invoices">
-        <ul class="nav nav-left">
+		<ul class="nav nav-left" id="hmenu">
+		  <li class="dropdown">
+		   <a class=" btn btn-navbar dropdown-toggle" data-toggle="dropdown">
+			<span class="icon-bar"></span> 
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		   </a>
+		   <ul class="dropdown-menu">
+			 <li class="hidden-phone">
+			   <a href="{{pathFor 'invoices'}}">Invoices</a>
+			 </li>
+			 <li class="visible-phone">
+			   <a id="nav_processing" href="{{pathFor 'invoices'}}?tab=processing">Processing</a>
+			 </li>
+			 <li class="visible-phone">
+			   <a id="nav_payable" href="{{pathFor 'invoices'}}?tab=payable">Payable</a>
+			 </li>
+			 <li>
+			   <a href="{{pathFor 'new-invoice'}}">New invoice</a>
+			 </li>
+			 <li class="hidden-phone">
+			   <a href="{{pathFor 'invoices/paid'}}">Paid</a>
+			 </li>
+			  {{#if isTrialAccount}}
+			 <li id="openfull-btn">
+			    <a href="{{pathFor 'accounts/new'}}">Open full account</a>
+			 </li>
+			  {{/if}}
+		    </ul>
+          </li> 
+		 </ul> 
+        <ul class="nav nav-left" id="vmenu">
           <li class="hidden-phone">
             <a href="{{pathFor 'invoices'}}">Invoices</a>
           </li>
+          
           <li class="visible-phone">
             <a id="nav_processing" href="{{pathFor 'invoices'}}?tab=processing">Processing</a>
           </li>
@@ -142,7 +174,7 @@
 					<a class="pull-right btn btn-info view-invoice">View invoice</a>
 					<a class="pull-right btn btn-info" href="{{url}}"  target="_blank">Open invoice</a>				
 			</div>
-              <div class="control-group">
+              <div class="control-group top-group">
                 <label class="control-label" for="company">
                   Company:
                 </label>
@@ -165,6 +197,7 @@
                 <div class="controls">
                   <input type="date" name="date_due" class="date_due" value="{{date_due}}">
                   <div class="{{date_badge date_due}}">{{in_days date_due}}</div>
+                  <span class="error hide" id="date_due_error"></span>
                 </div>
               </div>
               <div class="control-group">
@@ -217,6 +250,7 @@
                 </div>
               </div>
               <div class="control-group">
+				<label class="control-label"></label>
                 <div class="controls">
         	      	<button class="btn-save btn">Save</button>
                   <div class="alert save-feedback">
@@ -285,7 +319,7 @@
 <template name="invoice_approved">
   <div class="box invoice">
     <form id="invoice-form_{{id}}" class="form-horizontal">
-    <a class="pull-right btn btn-info" href="{{url}}">Open invoice</a>
+    <a class="pull-right btn btn-info" href="{{url}}" target="_blank">Open invoice</a>
     <input type="hidden" class="company" value="{{company}}">
     <h3>{{company}}</h3>
     Invoice {{invoice_number}}<br>
