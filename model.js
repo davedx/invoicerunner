@@ -249,23 +249,20 @@ if (Meteor.isServer) {
       if (!this.userId)
         throw new Meteor.Error(403, "You must be logged in");
     	  
-        var d = new Date();
+       /* var d = new Date();
         var month = d.getMonth()+1;
     	var day = d.getDate();
 
 	   var currentDate = (day<10 ? '0' : '') + day + '-' +
        (month<10 ? '0' : '') + month + '-' +
         d.getFullYear() ;
+      */
       
-      /*
-      var day = moment();
+      var day = moment().toDate();
       console.log("day is :"+day); 
       var currentDate = moment(day,"DD-MM-YYYY");
       console.log("currentDate is :"+currentDate);
-      var currentDate2 = moment();
-      console.log("currentDate2 is :"+currentDate2);
-      */ 
-      
+         
       
       
       return Invoices.insert({
@@ -273,7 +270,7 @@ if (Meteor.isServer) {
   	    company: 'Company name',
   	    company_id: 0,
   	    invoice_number: '0',
-  	    date_due: currentDate,
+  	    date_due: day,
   	    subtotal: 0,
   	    tax: 0,
   	    total: 0,
