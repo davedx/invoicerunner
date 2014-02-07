@@ -14,7 +14,7 @@ if (Meteor.isClient) {
   });
   
   Template.public_freetrial.events({
-    'click .freetrial-btn': function (event) {
+    'click .freetrial-btn': function (event) {	
       console.log("submitting form");
       form={};
       $.each($(event.target).closest('form').serializeArray(), function() {
@@ -29,21 +29,26 @@ if (Meteor.isClient) {
         event.preventDefault();
         return false;
 		}	
-      Accounts.createUser(form, function (err) {
-        if(err) {
-          console.error("Error creating user: ", err);
-          event.preventDefault();
-          return false;
-        } else {
-          Router.go('invoices');
+	  Meteor.call('validateEmail', {email: $("#verifyEmail").val()}, function (err) {
+		if(err) {
+		  console.log("Invalid email");
+		} else {	
+        Accounts.createUser(form, function (err) {
+          if(err) {
+		    console.error("Error creating user: ", err);
+          } else {	
+            Router.go('invoices');
+          }
+        });
         }
       });
-    },
+     event.preventDefault();
+     },
     'blur #verifyEmail': function (event) {
 	  Meteor.call('validateEmail', {email: $("#verifyEmail").val()}, function (err) {
 		if(err) {
 			$("span.error").removeClass("hide");
-			console.log(err);
+			//console.log(err);
 		} else {
 			$("span.error").addClass("hide");
 		}

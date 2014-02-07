@@ -81,8 +81,11 @@ p {
 }
 	#vmenu {
 	display: block;
-	}
-
+}
+.error {
+	 color: #FF0000;
+	 font-size: 13px;
+}
 
 @media (min-width: 768px) and (max-width: 979px){
 	.container {
