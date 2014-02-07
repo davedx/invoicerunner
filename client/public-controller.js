@@ -2,8 +2,21 @@ if (Meteor.isClient) {
 
   Template.public_layout.rendered = function() {
     $('#signup-link').click(function(e) {
-      console.log("Signup link clicked");
       e.preventDefault();
+    });
+    var scrollToFreeTrial = function() {
+      $('html, body').animate({
+          scrollTop: $("#freetrialAnchor").offset().top
+      }, 600);      
+    };
+    var parts = window.location.href.split('#');
+    if(parts.length > 1 && parts[1] === 'freetrial') {
+      scrollToFreeTrial();
+    } else {
+      $('html, body').scrollTop(0);// = 0;
+    }
+    $('.freeTrialLink').click(function() {
+      scrollToFreeTrial();
     });
     $('body').addClass('public-body');
   };

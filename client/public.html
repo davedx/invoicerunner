@@ -16,6 +16,9 @@
 				   <li>
 					 <a href="{{pathFor 'pricing'}}">Plans and pricing</a>
 				   </li>
+				   <li>
+					 <a class="freeTrialLink" href="{{pathFor 'home' hash=freetrial}}#freetrial">Sign up</a>
+				   </li>
 				</ul>
 		   </li>
 		</ul>
@@ -26,6 +29,9 @@
 		  <li>
 		    <a href="{{pathFor 'pricing'}}">Plans and pricing</a>
 		  </li>
+			<li>
+				<a class="freeTrialLink" href="{{pathFor 'home' hash=freetrial}}#freetrial">Sign up</a>
+			</li>
 		 </ul>
 		
         <ul class="nav pull-right nav-login">
@@ -111,7 +117,7 @@
 	</div>
 	<h3 class="visible-phone">Invoice management software to streamline your business</h3>
 	<div class="clearfix"></div>
-	<div class="row">
+	<div id="freetrialAnchor" class="row">
 		{{> public_freetrial}}
 	</div>
 </template>
