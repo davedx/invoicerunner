@@ -71,6 +71,9 @@ if (Meteor.isServer) {
     console.log("Bootstrapping.");
     Hooks.init();
   });
+  // NOTE: Meteor now warns that this is only in the client, but
+  // the behaviour is correct: we want to manually invoke account
+  // creation ourself.
   Accounts.config({
     forbidClientAccountCreation: true
   });
