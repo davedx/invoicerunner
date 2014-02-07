@@ -8,13 +8,16 @@ ul {
 .invoice {
 	margin: 15px 15px 15px 0;
 	padding: 10px;
-	min-height: 400px;
+	min-height: 440px;
 }
 .invoice h3 {
 	margin: 0;
 }
 .invoice .badge {
 	margin-bottom: 4px;
+}
+.form-horizontal .narrow-group {
+	margin-bottom: 10px;
 }
 .subtotal, .total {
 	width: 120px;

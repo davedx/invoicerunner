@@ -31,9 +31,8 @@ if (Meteor.isClient) {
 			return 'Tomorrow';
 		else if(days_diff < 0)
 			return 'Overdue by ' + (-days_diff) + ' days';
-		else if(days_diff < 7)
-			return 'In ' + days_diff + ' days';
-		return '';
+
+		return 'In ' + days_diff + ' days';
 	}
 
 	Template.invoices.events({
