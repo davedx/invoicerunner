@@ -15,7 +15,7 @@ if (Meteor.isClient) {
 
 	var daysDiff = function (date) { 
 		if(!date) return '';
-		var now = moment();
+		var now = moment().startOf('day');
 		var momentDate = moment(date);
 		var days_diff = momentDate.diff(now, 'days');
 		return days_diff;
