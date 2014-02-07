@@ -101,13 +101,13 @@ if (Meteor.isClient) {
 			var company_name = $('#add-company-name').html();
 		
 			Meteor.call('createCompany', {
-				name: company_name,
-				payment: payment_method
+					name: company_name,
+					payment: payment_method
 				}, 
 				function (error, company) {
-				if (error) {
-					console.error(error);
-				}
+					if (error) {
+						console.error(error);
+					}
 				});
 
 			$('#add_company_modal').modal('hide');

@@ -208,15 +208,13 @@ if (Meteor.isServer) {
 		},
 
 		createCompany: function (options) {
-/*      check(options, {
-				name: NonEmptyString
-			});*/
-				
-		if (!options.name.match(/^[a-z \-0-9]+$/i)) {	
-		throw new Meteor.Error(403, "Enter a valid company name!");		
-		}
-		if(!this.userId)
+			if(options.name.length <= 1 || options.name.length > 60) {
+				throw new Meteor.Error(403, "Company name must be between 2 and 60 characters long.");		
+			}
+			
+			if(!this.userId) {
 				throw new Meteor.Error(403, "You must be logged in");
+			}
 
 			return Companies.insert({
 				owner: this.userId,

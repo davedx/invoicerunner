@@ -13,7 +13,7 @@ if (Meteor.isClient) {
     if(parts.length > 1 && parts[1] === 'freetrial') {
       scrollToFreeTrial();
     } else {
-      $('html, body').scrollTop(0);// = 0;
+      $('html, body').scrollTop(0);
     }
     $('.freeTrialLink').click(function() {
       scrollToFreeTrial();
