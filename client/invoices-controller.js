@@ -15,7 +15,7 @@ if (Meteor.isClient) {
 
 	var daysDiff = function (date) { 
 		if(!date) return '';
-		var now = moment();
+		var now = moment().startOf('day');
 		var momentDate = moment(date);
 		var days_diff = momentDate.diff(now, 'days');
 		return days_diff;
@@ -26,14 +26,13 @@ if (Meteor.isClient) {
 		if(days_diff === '')
 			return '';
 		if(days_diff == 0)
-			return ' - Today';
+			return 'Today';
 		else if(days_diff == 1)
-			return ' - Tomorrow';
+			return 'Tomorrow';
 		else if(days_diff < 0)
 			return 'Overdue by ' + (-days_diff) + ' days';
-		else if(days_diff < 7)
-			return ' - In ' + days_diff + ' days';
-		return '';
+
+		return 'In ' + days_diff + ' days';
 	}
 
 	Template.invoices.events({

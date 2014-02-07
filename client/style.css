@@ -2,11 +2,8 @@
 	margin-left: 5px;
 }
 .form-horizontal .control-label {
-	padding-left:5px;
-	width:100px;
-}
-input, textarea,.uneditable-input {
-	width:180px;
+	margin-right: 5px;
+	width: 105px;
 }
 .form-horizontal .controls {
 	margin-left:110px;

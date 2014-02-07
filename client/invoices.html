@@ -171,8 +171,8 @@
         	<div class="box invoice">				
 			<form id="invoice-form_{{id}}" class="form-horizontal">
 			<div class="pull-right buttons">
-					<a class="pull-right btn btn-info view-invoice">View invoice</a>
-					<a class="pull-right btn btn-info" href="{{url}}"  target="_blank">Open invoice</a>				
+					<a class="pull-right btn btn-info view-invoice">View</a>
+					<a class="pull-right btn btn-info" href="{{url}}"  target="_blank">Open</a>				
 			</div>
               <div class="control-group top-group">
                 <label class="control-label" for="company">
@@ -233,7 +233,7 @@
                   </div>
                 </div>
               </div>
-			   <div class="control-group">
+    			   <div class="control-group">
                 <label class="control-label" for="subtotal">
                   PO number:
                 </label>
@@ -241,7 +241,7 @@
                   <input type="text" name="po_number" class="po_number" value="{{po_number}}">
                 </div>
               </div>
-              <div class="control-group">
+              <div class="control-group narrow-group">
       	      	<label class="control-label" for="approved">
                   Approved:
                 </label>
@@ -249,8 +249,8 @@
                   <input class="approved" type="checkbox" name="approved">
                 </div>
               </div>
-              <div class="control-group">
-				<label class="control-label"></label>
+              <div class="control-group narrow-group">
+				        <label class="control-label"></label>
                 <div class="controls">
         	      	<button class="btn-save btn">Save</button>
                   <div class="alert save-feedback">
@@ -323,7 +323,7 @@
     <input type="hidden" class="company" value="{{company}}">
     <h3>{{company}}</h3>
     Invoice {{invoice_number}}<br>
-    <span class="{{date_badge date_due}}">{{long_date date_due}} {{in_days date_due}}</span><br>
+    <span class="{{date_badge date_due}}">{{long_date date_due}} - {{in_days date_due}}</span><br>
     <div class="form-horizontal">
 
       <div class="control-group">

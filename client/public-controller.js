@@ -4,7 +4,8 @@ if (Meteor.isClient) {
     $('#signup-link').click(function(e) {
       console.log("Signup link clicked");
       e.preventDefault();
-    });  
+    });
+    $('body').addClass('public-body');
   };
   
   Template.public_home.events({
