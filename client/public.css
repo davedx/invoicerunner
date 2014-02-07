@@ -1,12 +1,6 @@
-body{
+.public-body {
 	background-image: none !important;
 	background-color: #f3f3f3;
-}
-
-@media (max-width: 767px) {
-	.box {
-		
-	}
 }
 .navbar-inner-public a {
 	color: #111 !important;
@@ -36,9 +30,7 @@ body{
 	background-size: cover;
 	background-position: center;
 }
-.main, .container {
-	width: 100%;
-}
+
 .landing-top {
 	width: 100%;
 }
@@ -49,7 +41,8 @@ body{
 .story-text {
 	padding: 25px 10px 25px 30px;
 	background: white;
-	height: 550px;
+	box-sizing: border-box;
+	height: 600px;
 }
 .story-text h3 {
 	font-size: 20.5px;
@@ -70,4 +63,7 @@ body{
 .resp-icons i {
 	margin-right: 27px;
 	color: #333355;
+}
+.screenshots-row {
+	background: #335;
 }
