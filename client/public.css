@@ -12,6 +12,13 @@
 .public-box {
 	padding: 20px 0px;
 }
+
+.freetrial {
+	padding: 25px 10px 25px 30px;
+	box-sizing: border-box;
+	background: white;
+}
+
 .freetrial-btn {
 	height: 40px;
 	width: 220px;
