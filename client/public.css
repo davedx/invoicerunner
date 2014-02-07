@@ -14,9 +14,13 @@
 }
 
 .freetrial {
-	padding: 25px 10px 25px 30px;
 	box-sizing: border-box;
 	background: white;
+	padding-top: 20px;
+}
+.freetrial h3 {
+	margin: 0 20px 20px 25px;
+	line-height: 34px;
 }
 
 .freetrial-btn {
@@ -28,6 +32,7 @@
 }
 .trial-footer h4 {
 	font-weight: normal;
+	font-size: 16.5px;
 }
 
 .ipad {
@@ -49,7 +54,7 @@
 	padding: 25px 10px 25px 30px;
 	background: white;
 	box-sizing: border-box;
-	height: 600px;
+	min-height: 600px;
 }
 .story-text h3 {
 	font-size: 20.5px;
@@ -91,4 +96,14 @@
 	border-top: 1px solid #88A;
 	color: #222;
 	padding: 5px 15px;
+}
+.screenshots-row a:hover {
+	text-decoration: none;
+}
+@media (max-width: 767px) {
+	.screenshots-row h3 {
+		position: static;
+		font-size: 17px;
+		line-height: 20px;
+	}
 }

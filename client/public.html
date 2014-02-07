@@ -68,8 +68,8 @@
 
 
 <template name="public_home">
-	<div class="row hidden-phone">
-		<div class="span6">
+	<div class="row">
+		<div class="span6 hidden-phone">
 			<div class="ipad"></div>
 		</div>
 		<div class="span6 story-text">
@@ -80,7 +80,7 @@
 			<h4>Invoice Runner is:</h4>
 			<ul>
 				<li><i class="fa fa-check"></i> Incredibly easy to use</li>
-				<li><i class="fa fa-check"></i> Blazing fast - optimized for speed</li>
+				<li><i class="fa fa-check"></i> Super fast - optimized for speed</li>
 				<li><i class="fa fa-check"></i> Works perfectly on mobile, tablets and computers</li>
 			</ul>
 			<div class="resp-icons">
@@ -95,27 +95,26 @@
 			<div>
 				<a href="/invoice-runner-view-invoice.png" target="_blank">
 					<img src="/invoice-runner-view-invoice.png">
+					<h3>Easily view, open and save scans or PDFs of invoices</h3>
 				</a>
-				<h3>Easily view, open and save scans or PDFs of invoices</h3>
 			</div>
 
 			<div>
 				<a href="/invoice-runner-upload-invoice.png" target="_blank">
 					<img src="/invoice-runner-upload-invoice.png">
+					<h3>Upload your invoices from anywhere, even your phone camera</h3>
 				</a>
-				<h3>Upload your invoices from anywhere, even your phone camera</h3>
 			</div>
 
 			<div>
 				<a href="/invoice-runner-pay-invoice.png" target="_blank">
 					<img src="/invoice-runner-pay-invoice.png">
+					<h3>Manage payment information and track payments</h3>
 				</a>
-				<h3>Manage payment information and track payments</h3>
 			</div>
 
 		</div>
 	</div>
-	<h3 class="visible-phone">Invoice management software to streamline your business</h3>
 	<div class="clearfix"></div>
 	<div id="freetrialAnchor" class="row">
 		{{> public_freetrial}}
@@ -185,10 +184,10 @@
 
 <template name="public_freetrial">
 	<div class="span12 freetrial">
-	<h3>Start managing your invoices today. Take the stress out of tracking what's due, when, and to who.</h3>
+		<h3>Start managing your invoices today. Take the stress out of tracking what's due, when, and to who.</h3>
   <form class="form-horizontal signup-group">
     <div class="control-group">
-      <label class="control-label" for="subtotal">
+      <label class="control-label" for="email">
         Email:
       </label>
       <div class="controls">
@@ -197,7 +196,7 @@
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label" for="subtotal">
+      <label class="control-label" for="password">
         Password:
       </label>
       <div class="controls">
@@ -219,7 +218,8 @@
 			</div>
 		</div>
     <div class="trial-footer">
-    	<h4>Signing up to our free trial gives you a fully functional account with up to three invoices, so you can learn how Invoice Runner works and how it will help with the day-to-day running of your business. If you like what you see, click the <strong>&quot;Open full account&quot;</strong> button at any time to upgrade to one of our paid plans.</h4>
+    	<h4>Signing up to our free trial gives you a fully functional account with up to three invoices, so you can learn how Invoice Runner works and how it will help with the day-to-day running of your business.</h4>
+    	<h4>You can upgrade to a paid plan at any time by clicking the <strong>&quot;Open full account&quot;</strong> button at the top of the page.</h4>
     </div>
   </form>
 </div>
@@ -459,28 +459,29 @@
 	</div>
 </template>
 <template name="publicFooter">
-	<div class="span8 offset4">
-		<ul>
-			<li>
-				<a href="{{pathFor 'termsandconditions'}}">Terms and conditions</a>
-			</li>
-			<li>
-				<a href="{{pathFor 'privacypolicy'}}">Privacy policy</a>
-			</li>
-			<li>
-				<a href="{{pathFor 'pricing'}}">Pricing</a>
-			</li>
-			<li>
-				<a href="{{pathFor 'home'}}">Invoice management software</a>
-			</li>
-			<li>
-				<a href="{{pathFor 'cancelaccount'}}">Cancel account</a>
-			</li>	
-		</ul>
+	<div class="row">
+		<div class="span8 offset4">
+			<ul>
+				<li>
+					<a href="{{pathFor 'termsandconditions'}}">Terms and conditions</a>
+				</li>
+				<li>
+					<a href="{{pathFor 'privacypolicy'}}">Privacy policy</a>
+				</li>
+				<li>
+					<a href="{{pathFor 'pricing'}}">Pricing</a>
+				</li>
+				<li>
+					<a href="{{pathFor 'home'}}">Invoice management software</a>
+				</li>
+				<li>
+					<a href="{{pathFor 'cancelaccount'}}">Cancel account</a>
+				</li>	
+			</ul>
+		</div>
 	</div>
-	<p class="clearfix"></p>
-	<br><br>
-	<p class="redskyforge">· A <a href="http://redskyforge.com"><strong>Red Sky Forge</strong></a> product ·<br><br>
-	<span class="small">Version 0.15</span></p>
+	<div class="row">
+		<div class="redskyforge span8 offset4">· A <a href="http://redskyforge.com"><strong>Red Sky Forge</strong></a> product ·<br>
+	<span class="small">Version 0.15</span></div>
 	</div>
 </template>
