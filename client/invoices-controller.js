@@ -232,6 +232,10 @@ if (Meteor.isClient) {
 		}
 	});
 
+	Template.layout.rendered = function() {
+    $('body').removeClass('public-body');
+	};
+
 	Template.new_invoice.rendered = function () {
 		$("#upload-invoice-modal").hide();
 		var gotoInvoiceId = Session.get("goto_invoice");

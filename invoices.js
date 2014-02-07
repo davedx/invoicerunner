@@ -79,7 +79,7 @@ if (Meteor.isServer) {
   });
   //TODO: would be great if this was only fired when a user actually LOGS IN,
   //at the moment it also fires on page reload
-  Hooks.onLoggedIn = function () {
-    Router.go('invoices');
-  };
+  // Hooks.onLoggedIn = function () {
+  //   Router.go('invoices');
+  // };
 }

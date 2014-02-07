@@ -19,4 +19,9 @@ if(Meteor.isClient) {
     login(user, pass, newCallback);
 
   });
+
+  Meteor.logout = _.wrap(Meteor.logout, function(logout) {
+    logout();
+    Router.go('home');
+  });
 }
