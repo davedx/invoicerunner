@@ -57,19 +57,16 @@ if (Meteor.isServer) {
 	},
 
 		upgradeAccountStripe: function (options) {
-			var stripeKeyTest = 'sk_test_rymPpU927JzHGsyn1FImWSOA';
-			var stripeKeyLive = 'sk_live_Y12o20xI5mAiKdr1BAhyHz4x';
-			var live = false;
-			var key = live ? stripeKeyLive : stripeKeyTest;
+			var key = process.env.STRIPE_SECRET;
 			var baseUrl = 'https://api.stripe.com/v1/';
 
 			var user = Meteor.user();
 			var email = user.emails[0].address;
 			var index = options.subscriptionIndex;
 			var plans = [
-				{ name: 'professional', price: 19 },
-				{ name: 'company', price: 49 },
-				{ name: 'enterprise', price: 99 }
+				{ name: 'Professional', price: 19 },
+				{ name: 'Small Business', price: 49 },
+				{ name: 'Enterprise', price: 99 }
 			];
 			var plan = plans[index];
 
