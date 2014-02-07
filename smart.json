@@ -5,6 +5,7 @@
       "branch": "dev"
     },
     "moment": {},
-    "event-hooks": {}
+    "event-hooks": {},
+    "font-awesome": {}
   }
 }

@@ -7,23 +7,29 @@
         "branch": "dev"
       },
       "moment": {},
-      "event-hooks": {}
+      "event-hooks": {},
+      "font-awesome": {}
     },
     "packages": {
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "47e1ed3f995c393fb37a9b4e86b9aeca10c6e631"
+        "commit": "7b57d5ae8bc6ec31ddf1f44fd8ecdcfa5bdd119e"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
-        "tag": "v2.2.1",
-        "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
+        "tag": "v2.5.1",
+        "commit": "8c9bc5d3fc96705057737cb9743d555417f6e551"
       },
       "event-hooks": {
         "git": "https://github.com/BenjaminRH/meteor-event-hooks.git",
         "tag": "v1.4.3",
         "commit": "ba4f3d7887748458618d29615492906f0c88d31c"
+      },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.0.3",
+        "commit": "61e9361384347547ae144f8228faa4deffda23db"
       }
     }
   }

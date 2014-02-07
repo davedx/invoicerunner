@@ -1,3 +1,8 @@
+body{
+	background-image: none !important;
+	background-color: #f3f3f3;
+}
+
 @media (max-width: 767px) {
 	.box {
 		
@@ -9,9 +14,6 @@
 }
 .navbar-inner-public .nav-left a:hover {
 	background-color: #ddd !important;
-}
-.main-box {
-/*	padding: 20px;*/
 }
 .public-box {
 	padding: 20px 0px;
@@ -28,10 +30,11 @@
 }
 
 .ipad {
-	width: 400px;
-	height: 300px;
+	width: 620px;
+	height: 600px;
 	background-image: url('/girl-with-iPad-2k.jpg');
 	background-size: cover;
+	background-position: center;
 }
 .main, .container {
 	width: 100%;
@@ -39,11 +42,32 @@
 .landing-top {
 	width: 100%;
 }
-.story {
-	background-color: white;
-	height: 300px;
+.landing-box {
+	max-width: 1024px;
+	margin: 0 auto;
 }
 .story-text {
-	padding: 20px;
-	max-width: 600px;
+	padding: 25px 10px 25px 30px;
+	background: white;
+	height: 550px;
+}
+.story-text h3 {
+	font-size: 20.5px;
+	line-height: 30px;
+	margin-top: 20px;
+}
+.story-text h4 {
+	margin: 20px 37px;
+}
+.story-text li {
+	font-size: 19px;
+	margin: 10px;
+}
+.resp-icons {
+	width: 100%;
+	padding: 8px 34px;
+}
+.resp-icons i {
+	margin-right: 27px;
+	color: #333355;
 }
