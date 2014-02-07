@@ -27,9 +27,9 @@ if (Meteor.isClient) {
     },
   });
   
-  Template.public_freetrial.events({
+  Template.public_home.events({
     'click .freetrial-btn': function (event) {
-      console.log("submitting form");
+      event.preventDefault();
       form={};
       $.each($(event.target).closest('form').serializeArray(), function() {
           form[this.name] = this.value;
@@ -37,16 +37,13 @@ if (Meteor.isClient) {
       form.profile = {
         accountType: 'trial'
       };
-      console.log(form);
-		if(!$('#terms').is(':checked')) {
-        alert('Please confirm you have read the terms and conditions.');
-        event.preventDefault();
-        return false;
-		}	
+  		if(!$('#terms').is(':checked')) {
+          alert('Please confirm you have read the terms and conditions.');
+          return false;
+  		}	
       Accounts.createUser(form, function (err) {
         if(err) {
-          console.error("Error creating user: ", err);
-          event.preventDefault();
+          alert("Error creating user: " + err.reason);
           return false;
         } else {
           Router.go('invoices');
