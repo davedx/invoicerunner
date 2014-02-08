@@ -1,3 +1,7 @@
+.upgrade-box {
+	padding: 8px 20px;
+	box-sizing: border-box;	
+}
 .newaccount-btn {
 	height: 40px;
 	width: 220px;
@@ -17,4 +21,26 @@
 }
 .payment-errors {
 	display: none;
+}
+@media (min-width: 980px) {
+	#payment-form-cc label {
+		width: 160px;
+	}
+	#payment-form-cc .controls {
+		margin-left: 180px;
+	}
+	#payment-form-cc label.checkbox {
+		width: 300px;
+	}
+}
+@media (max-width: 767px) {
+	.controls .card-expiry-month,
+	.controls .card-expiry-year {
+		width: 100px;
+		float: left;
+	}
+	.controls .card-expiry-year {
+		margin-left: 5px;
+		float: left;
+	}
 }
