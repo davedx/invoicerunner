@@ -19,9 +19,9 @@ if (Meteor.isClient) {
 	Template.new_account_stripe.events({
 		'change .subscription': function (event) {
 			var plans = [
-				{ name: 'professional', price: 19 },
-				{ name: 'company', price: 49 },
-				{ name: 'enterprise', price: 99 }
+				{ name: 'Professional', price: 19 },
+				{ name: 'Small Business', price: 49 },
+				{ name: 'Enterprise', price: 99 }
 			];
 			var plan = event.target.selectedIndex;
 			$('#currentPlan').html(plans[plan].name);

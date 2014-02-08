@@ -1,222 +1,224 @@
 <template name="new_account_stripe">
-<div class="span12 box main-box">
-	<h3>Consolidate your invoice management. Choose the plan that suits your business.</h3>
+<div class="row">
+	<div class="span12 box upgrade-box">
+		<h3>Consolidate your invoice management. Choose the plan that suits your business.</h3>
 
-	<div class="pull-right visible-desktop span4 ssl-hint">
-		<p class="well lead">All traffic including your credit card information is protected by industry standard SSL encryption.</p>
-	</div>
-
-  <form action="" method="POST" id="payment-form" class="form-horizontal pull-left">
-		<p class="payment-errors alert-error error span3" style="display:none;"></p>
-
-		<div id="payment-form-cc">
-
-			<div class="control-group">
-				<label class="company-name-label control-label" for="company-name">Company name:</label>
-				<div class="controls">
-					<input name="company_name" class="company-name span3" type="text" size="30" placeholder="ACME Ltd">
-					<span class="error hide" id="company-name-error"></span>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="company-address-label control-label" for="company-address">Address:</label>
-				<div class="controls">
-					<textarea name="company_address" class="company-address span3" type="text" rows="3" cols="30" placeholder="10 Long Rd"></textarea>
-				    <span class="error hide" id="company-address-error"></span>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="company-country-label control-label" for="company-country">Country:</label>
-				<div class="controls">
-					{{> countries}}
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="company-tax-label control-label" for="company-tax">VAT number if registered:</label>
-				<div class="controls">
-					<input name="company_tax" class="company-tax span3" type="text" size="30" placeholder="UK1234567890">
-				</div>
-			</div>
-
-			<div class="control-group">
-				<label class="card-number-label control-label" for="card-number">Credit card number:</label>
-				<div class="controls">
-					<input class="card-number span2" type="text" size="20" value="4242424242424242" data-stripe="number">
-				    <span class="error hide" id="card-number-error"></span>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="card-expiry-label control-label" for="card-expiry-month">Expiry date: (MM/YYYY)</label>
-				<div class="controls">
-					<input class="card-expiry-month span1" type="text" size="2" value="12" data-stripe="exp-month">
-					<span class="error hide" id="card-expiry-month-error"></span>
-					<span>&nbsp;</span><span class="hidden-phone"> / </span><span>&nbsp;</span>
-					<input class="card-expiry-year span1" type="text" size="4" value="2015" data-stripe="exp-year">
-					<span class="error hide" id="card-expiry-year-error"></span>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="card-holdername-label control-label" for="card-holdername">Name on card:</label>
-				<div class="controls">
-					<input class="card-holdername span3" type="text" size="20" value="Joe Test">
-					<span class="error hide" id="card-holdername-error"></span>	
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="card-cvc-label control-label">CVC</label>
-				<div class="controls">
-					<input class="card-cvc span1" type="text" size="4" value="111" data-stripe="cvc">
-				</div>
-			</div>
-			<div class="controls controls-row">
-				<div class="span3 card-icon"></div>
-			</div>
-	    <div class="control-group">
-	    	<label class="control-label" for="subscription">
-	    		Subscription:
-	    	</label>
-	    	<div class="controls">
-	    		<select name="subscription" class="subscription">
-	    			<option value="professional" selected>Professional</option>
-	    			<option value="company">Small Business</option>
-	    			<option value="enterprise">Enterprise</option>
-	    		</select>
-	    	</div>
-	    </div>
-	    <div class="control-group">
-	    	<div class="controls">
-	    		<label class="checkbox">
-						<input id="terms" type="checkbox"> I have read the <a href="{{pathFor 'termsandconditions'}}">Terms and Conditions</a>
-					</label>
-				</div>
-			</div>
-	    <div class="control-group">
-	    	<div class="controls alert payment-errors">
-	    	</div>
-	    </div>
-	    		
-	    <div class="control-group">
-	    	<div class="controls">
-					<button type="submit" class="btn btn-success newaccount-btn">Submit</button>
-				</div>
-			</div>
+		<div class="pull-right visible-desktop span4 ssl-hint">
+			<p class="well lead">All traffic including your credit card information is protected by industry standard SSL encryption.</p>
 		</div>
-	</form>
 
-	<div class="clearfix"></div>
+	  <form action="" method="POST" id="payment-form" class="form-horizontal pull-left">
+			<p class="payment-errors alert-error error span3" style="display:none;"></p>
 
-  <div class="newaccount-footer alert alert-info">
-  	<h4>Your plan: <span id="currentPlan">Professional</span> for $<span id="currentPrice">19</span> per month</h4>
-  	<p>You can cancel or upgrade your plan at any time.</p>
-  	<p>This plan includes <strong>industry strength SSL security</strong>, <strong>unlimited</strong> invoices and companies and <strong>email and chat</strong> support.</p>
-	</div>
-</div>
-</template>
+			<div id="payment-form-cc">
 
-<template name="new_account">
-<div class="span12 box main-box">
-	<h3>Consolidate your invoice management. Choose the plan that suits your business.</h3>
+				<div class="control-group">
+					<label class="company-name-label control-label" for="company-name">Company name:</label>
+					<div class="controls">
+						<input name="company_name" class="company-name span3" type="text" size="30">
+						<span class="error hide" id="company-name-error"></span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="company-address-label control-label" for="company-address">Address:</label>
+					<div class="controls">
+						<textarea name="company_address" class="company-address span3" type="text" rows="3" cols="30"></textarea>
+					    <span class="error hide" id="company-address-error"></span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="company-country-label control-label" for="company-country">Country:</label>
+					<div class="controls">
+						{{> countries}}
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="company-tax-label control-label" for="company-tax">VAT number if registered:</label>
+					<div class="controls">
+						<input name="company_tax" class="company-tax span3" type="text" size="30">
+					</div>
+				</div>
 
-	<div class="pull-right visible-desktop span4 ssl-hint">
-		<p class="well lead">All traffic including your credit card information is protected by industry standard SSL encryption.</p>
-	</div>
-  <form id="payment-form" class="form-horizontal pull-left">
-		<p class="payment-errors alert-error span3" style="display:none;"></p>
+				<div class="control-group">
+					<label class="card-number-label control-label" for="card-number">Credit card number:</label>
+					<div class="controls">
+						<input class="card-number span2" type="text" size="20" value="" data-stripe="number">
+					    <span class="error hide" id="card-number-error"></span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="card-expiry-label control-label" for="card-expiry-month">Expiry date: (MM/YYYY)</label>
+					<div class="controls">
+						<input class="card-expiry-month span1" type="text" size="2" value="" data-stripe="exp-month">
+						<span class="error hide" id="card-expiry-month-error"></span>
+						<span>&nbsp;</span><span class="hidden-phone"> / </span><span>&nbsp;</span>
+						<input class="card-expiry-year span1" type="text" size="4" value="" data-stripe="exp-year">
+						<span class="error hide" id="card-expiry-year-error"></span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="card-holdername-label control-label" for="card-holdername">Name on card:</label>
+					<div class="controls">
+						<input class="card-holdername span3" type="text" size="20" value="">
+						<span class="error hide" id="card-holdername-error"></span>	
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="card-cvc-label control-label">CVC</label>
+					<div class="controls">
+						<input class="card-cvc span1" type="text" size="4" value="" data-stripe="cvc">
+					</div>
+				</div>
+				<div class="controls controls-row">
+					<div class="span3 card-icon"></div>
+				</div>
+		    <div class="control-group">
+		    	<label class="control-label" for="subscription">
+		    		Subscription:
+		    	</label>
+		    	<div class="controls">
+		    		<select name="subscription" class="subscription">
+		    			<option value="professional" selected>Professional</option>
+		    			<option value="company" disabled>Small Business (Coming soon!)</option>
+		    			<option value="enterprise" disabled>Enterprise (Coming soon!)</option>
+		    		</select>
+		    	</div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="controls">
+		    		<label class="checkbox">
+							<input id="terms" type="checkbox"> I have read the <a href="{{pathFor 'termsandconditions'}}">Terms and Conditions</a>
+						</label>
+					</div>
+				</div>
+		    <div class="control-group">
+		    	<div class="controls alert payment-errors">
+		    	</div>
+		    </div>
+		    		
+		    <div class="control-group">
+		    	<div class="controls">
+						<button type="submit" class="btn btn-success newaccount-btn">Submit</button>
+					</div>
+				</div>
+			</div>
+		</form>
 
-		<div id="payment-form-cc">
+		<div class="clearfix"></div>
 
-			<div class="control-group">
-				<label class="company-name-label control-label" for="company-name">Company name:</label>
-				<div class="controls">
-					<input name="company_name" class="company-name span3" type="text" size="30" placeholder="ACME Ltd">
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="company-address-label control-label" for="company-address">Address:</label>
-				<div class="controls">
-					<textarea name="company_address" class="company-address span3" type="text" rows="3" cols="30" placeholder="10 Long Rd"></textarea>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="company-country-label control-label" for="company-country">Country:</label>
-				<div class="controls">
-					{{> countries}}
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="company-tax-label control-label" for="company-tax">VAT number if registered:</label>
-				<div class="controls">
-					<input name="company_tax" class="company-tax span3" type="text" size="30" placeholder="UK1234567890">
-				</div>
-			</div>
-
-			<div class="control-group">
-				<label class="card-number-label control-label" for="card-number">Credit card number:</label>
-				<div class="controls">
-					<input class="card-number span2" type="text" size="20" value="4111111111111111">
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="card-expiry-label control-label" for="card-expiry-month">Expiry date: (MM/YYYY)</label>
-				<div class="controls">
-					<input class="card-expiry-month span1" type="text" size="2" value="12">
-					<span>&nbsp;</span><span class="hidden-phone"> / </span><span>&nbsp;</span>
-					<input class="card-expiry-year span1" type="text" size="4" value="2015">
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="card-holdername-label control-label" for="card-holdername">Name on card:</label>
-				<div class="controls">
-					<input class="card-holdername span3" type="text" size="20" value="Joe Test">
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="card-cvc-label control-label">CVC</label>
-				<div class="controls">
-					<input class="card-cvc span1" type="text" size="4" value="111">
-				</div>
-			</div>
-			<div class="controls controls-row">
-				<div class="span3 card-icon"></div>
-			</div>
-	    <div class="control-group">
-	    	<label class="control-label" for="subscription">
-	    		Subscription:
-	    	</label>
-	    	<div class="controls">
-	    		<select name="subscription" class="subscription">
-	    			<option value="offer_6c9a1f0b9b29cd434b57" selected>Professional</option>
-	    			<option value="offer_8e1fd0a5602d0b868e1f">Small business</option>
-	    			<option value="offer_0eabe23ec810943a7673">Enterprise</option>
-	    		</select>
-	    	</div>
-	    </div>
-	    <div class="control-group">
-	    	<div class="controls">
-	    		<label class="checkbox">
-						<input id="terms" type="checkbox"> I have read the <a href="{{pathFor 'termsandconditions'}}">Terms and Conditions</a>
-					</label>
-				</div>
-			</div>
-	    <div class="control-group">
-	    	<div class="controls alert payment-errors">
-	    	</div>
-	    </div>
-	    		
-	    <div class="control-group">
-	    	<div class="controls">
-					<button class="btn btn-success newaccount-btn">Submit</button>
-				</div>
-			</div>
+	  <div class="newaccount-footer alert alert-info">
+	  	<h4>Your plan: <span id="currentPlan">Professional</span> for $<span id="currentPrice">19</span> per month</h4>
+	  	<p>You can cancel or upgrade your plan at any time.</p>
+	  	<p>This plan includes <strong>industry strength SSL security</strong>, <strong>unlimited</strong> invoices and companies and <strong>email and chat</strong> support.</p>
 		</div>
-	</form>
+	</div>
+	</template>
 
-	<div class="clearfix"></div>
+	<template name="new_account">
+	<div class="span12 box main-box">
+		<h3>Consolidate your invoice management. Choose the plan that suits your business.</h3>
 
-  <div class="newaccount-footer alert alert-info">
-  	<h4>Your plan: <span id="currentPlan">Silver</span> for $<span id="currentPrice">19</span> per month</h4>
-  	<p>You can cancel or upgrade your plan at any time.</p>
-  	<p>This plan includes <strong>industry strength SSL security</strong>, <strong>unlimited</strong> invoices and companies and <strong>email and chat</strong> support.</p>
+		<div class="pull-right visible-desktop span4 ssl-hint">
+			<p class="well lead">All traffic including your credit card information is protected by industry standard SSL encryption.</p>
+		</div>
+	  <form id="payment-form" class="form-horizontal pull-left">
+			<p class="payment-errors alert-error span3" style="display:none;"></p>
+
+			<div id="payment-form-cc">
+
+				<div class="control-group">
+					<label class="company-name-label control-label" for="company-name">Company name:</label>
+					<div class="controls">
+						<input name="company_name" class="company-name span3" type="text" size="30" placeholder="ACME Ltd">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="company-address-label control-label" for="company-address">Address:</label>
+					<div class="controls">
+						<textarea name="company_address" class="company-address span3" type="text" rows="3" cols="30" placeholder="10 Long Rd"></textarea>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="company-country-label control-label" for="company-country">Country:</label>
+					<div class="controls">
+						{{> countries}}
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="company-tax-label control-label" for="company-tax">VAT number if registered:</label>
+					<div class="controls">
+						<input name="company_tax" class="company-tax span3" type="text" size="30" placeholder="UK1234567890">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="card-number-label control-label" for="card-number">Credit card number:</label>
+					<div class="controls">
+						<input class="card-number span2" type="text" size="20" value="4111111111111111">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="card-expiry-label control-label" for="card-expiry-month">Expiry date: (MM/YYYY)</label>
+					<div class="controls">
+						<input class="card-expiry-month span1" type="text" size="2" value="12">
+						<span>&nbsp;</span><span class="hidden-phone"> / </span><span>&nbsp;</span>
+						<input class="card-expiry-year span1" type="text" size="4" value="2015">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="card-holdername-label control-label" for="card-holdername">Name on card:</label>
+					<div class="controls">
+						<input class="card-holdername span3" type="text" size="20" value="Joe Test">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="card-cvc-label control-label">CVC</label>
+					<div class="controls">
+						<input class="card-cvc span1" type="text" size="4" value="111">
+					</div>
+				</div>
+				<div class="controls controls-row">
+					<div class="span3 card-icon"></div>
+				</div>
+		    <div class="control-group">
+		    	<label class="control-label" for="subscription">
+		    		Subscription:
+		    	</label>
+		    	<div class="controls">
+		    		<select name="subscription" class="subscription">
+		    			<option value="offer_6c9a1f0b9b29cd434b57" selected>Professional</option>
+		    			<option value="offer_8e1fd0a5602d0b868e1f">Small business</option>
+		    			<option value="offer_0eabe23ec810943a7673">Enterprise</option>
+		    		</select>
+		    	</div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="controls">
+		    		<label class="checkbox">
+							<input id="terms" type="checkbox"> I have read the <a href="{{pathFor 'termsandconditions'}}">Terms and Conditions</a>
+						</label>
+					</div>
+				</div>
+		    <div class="control-group">
+		    	<div class="controls alert payment-errors">
+		    	</div>
+		    </div>
+		    		
+		    <div class="control-group">
+		    	<div class="controls">
+						<button class="btn btn-success newaccount-btn">Submit</button>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<div class="clearfix"></div>
+
+	  <div class="newaccount-footer alert alert-info">
+	  	<h4>Your plan: <span id="currentPlan">Professional</span> for $<span id="currentPrice">19</span> per month</h4>
+	  	<p>You can cancel or upgrade your plan at any time.</p>
+	  	<p>This plan includes <strong>industry strength SSL security</strong>, <strong>unlimited</strong> invoices and companies and <strong>email and Skype</strong> support.</p>
+		</div>
 	</div>
 </div>
 </template>
