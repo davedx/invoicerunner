@@ -54,7 +54,6 @@ if (Meteor.isClient) {
 	  Meteor.call('validateEmail', {email: $("#verifyEmail").val()}, function (err) {
 		if(err) {
 			$("span.error").removeClass("hide");
-			console.log(err);
 		} else {
 			$("span.error").addClass("hide");
 		}
