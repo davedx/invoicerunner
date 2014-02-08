@@ -10,19 +10,21 @@ Test plan
 - Ensure user permissions work (can only edit own invoices)
 - Test full workflow from upload to archive
 
-Future features
-----------------
+Roadmap
+---
 
-1. Financial reports
+1. Customisable email notifications (e.g. when an invoice is due in 3 days you get an email...)
 
-2. Download/export archives
+2. Financial reports
 
-3. OCR module (2nd tier of pricing plan)
+3. Download/export archives
 
-4. Email imports
+4. OCR module (2nd tier of pricing plan)
 
-5. Generate and send invoices? (module)
+5. Email imports: get vendors to email your invoices to your_username@invoicerunner.com to import them
 
-6. Localization
+6. Generate and send invoices? (module) (highly debatable - a huge pivot?)
 
-7. Investigate compliance (regulatory examples): http://www.einvoicingbasics.co.uk/selecting-einvoicing/selecting-einvoicing-solutions/
+7. Localization (chinese, spanish, hindi)
+
+8. Investigate compliance (regulatory examples): http://www.einvoicingbasics.co.uk/selecting-einvoicing/selecting-einvoicing-solutions/
