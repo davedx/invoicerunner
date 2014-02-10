@@ -51,7 +51,7 @@ if (Meteor.isServer) {
 			}
 		},
 	 validateEmail: function (options) {
-		if(!options.email.match(/^(([^@]+)@([^.@]+)\.([a-z]{2,3})(\.[a-z]{2,3})?)$/)) {
+		if(!options.email.match(/^(.+@.+)$/)) {
 			throw new Meteor.Error(403, "Invalid email");
 		}		
 	},

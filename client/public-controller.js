@@ -27,6 +27,22 @@ if (Meteor.isClient) {
     },
   });
   
+   var validateEmail = function(callback) {
+	   var emailToValidate = $("#verifyEmail").val();	   
+	   if (emailToValidate) {
+		   Meteor.call('validateEmail', {email: emailToValidate}, function (err) {
+			if(err) {
+				$("span.error").removeClass("hide");
+			} else {
+				$("span.error").addClass("hide");
+				if(callback) {
+				   callback();
+				}
+			}
+		   });
+	   }
+	}    	
+  
   Template.public_home.events({
     'click .freetrial-btn': function (event) {
       event.preventDefault();
@@ -40,25 +56,21 @@ if (Meteor.isClient) {
   		if(!$('#terms').is(':checked')) {
           alert('Please confirm you have read the terms and conditions.');
           return false;
-  		}	
-      Accounts.createUser(form, function (err) {
-        if(err) {
-          alert("Error creating user: " + err.reason);
-          return false;
-        } else {
-          Router.go('invoices');
-        }
-      });
+  		}
+  		validateEmail( 	
+			function() { 
+				Accounts.createUser(form, function (err) {
+					if(err) {
+						alert("Error creating user: " + err.reason);
+						return false;
+					} else {
+						Router.go('invoices');
+					}
+				});
+			}
+		);
     },
-    'blur #verifyEmail': function (event) {
-	  Meteor.call('validateEmail', {email: $("#verifyEmail").val()}, function (err) {
-		if(err) {
-			$("span.error").removeClass("hide");
-		} else {
-			$("span.error").addClass("hide");
-		}
-	   });	
-	  }   
+    'blur #verifyEmail':validateEmail,
   });
 
   Template.public_shortlist.events({
