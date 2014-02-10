@@ -27,7 +27,7 @@ if (Meteor.isClient) {
     },
   });
   
-   var validateEmail = function(event, callback) {
+   var validateEmail = function(callback) {
 	   var emailToValidate = $("#verifyEmail").val();	   
 	   if (emailToValidate) {
 		   Meteor.call('validateEmail', {email: emailToValidate}, function (err) {
@@ -57,8 +57,7 @@ if (Meteor.isClient) {
           alert('Please confirm you have read the terms and conditions.');
           return false;
   		}
-  		validateEmail(
-			event, 	
+  		validateEmail( 	
 			function() { 
 				Accounts.createUser(form, function (err) {
 					if(err) {
@@ -71,9 +70,7 @@ if (Meteor.isClient) {
 			}
 		);
     },
-    'blur #verifyEmail': function(event) {
-		validateEmail(event);
-	}
+    'blur #verifyEmail':validateEmail,
   });
 
   Template.public_shortlist.events({
