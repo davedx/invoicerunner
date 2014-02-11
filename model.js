@@ -108,21 +108,6 @@ if (Meteor.isServer) {
 			}
 		},
 		
-		validateAccountStripe: function (options) {
-		switch(options.name) {
-		case 'company-name':
-			if (!options.value.match(/^((.+){2,30})$/))
-			throw new Meteor.Error(403, "Invalid company name");
-			break;
-		
-				case 'company-address':
-			if (!options.value.match(/^((.+){2,90})$/))
-			throw new Meteor.Error(403, "Invalid company address");
-			break;
-		 }
-		return true; 
-	 },
-
 		upgradeAccount: function (options) {
 			var paymillKey = 'c807ea7cfc00c6faa443b629656a5834';
 			var baseUrl = 'https://api.paymill.com/v2/';
