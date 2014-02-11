@@ -72,6 +72,12 @@ Router.map(function () {
     action: 'public_privacypolicy'
   });
   
+  this.route('support', {
+    controller: 'PublicController',
+    layoutTemplate: 'public_layout',
+    action: 'public_support'
+  });
+  
   this.route('cancelaccount', {
     controller: 'PublicController',
     layoutTemplate: 'public_layout',

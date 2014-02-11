@@ -144,6 +144,14 @@ if (Meteor.isClient) {
       );
     },
     
+    public_support: function () {
+      this.render('public_support');
+
+      this.render(
+        'publicFooter', { to: 'footer', waitOn: false, data: false }
+      );
+    },
+    
     public_cancelaccount: function () {
       this.render('public_cancelaccount');
 
@@ -151,5 +159,6 @@ if (Meteor.isClient) {
         'publicFooter', { to: 'footer', waitOn: false, data: false }
       );
     }
+    
   });
 }
