@@ -1,17 +1,11 @@
 if (Meteor.isClient) {
-	var validateNewAccount = function (event) {
-		var elementName = $(event.target).attr('class').split(" ")[0];
-		if($(event.target).val().length == 0) { 
-			var msgError = "";
-			if($(event.target).is("input"))
-				msgError = "Invalid company name";
-			else
-				msgError= "Invalid address name";
-			$("#" + elementName + "-error").text(msgError).removeClass("hide"); 
-		} else {
-		    $("#" + elementName + "-error").text("").addClass("hide");	
-		}
-	 }
+	var checkLength = function(event) {
+	 	if ($(event.target).val().length > 0) {
+			$("form#payment-form").find('p.payment-errors').text("").hide();				
+			event.preventDefault();				
+			return;	
+		} 
+	}	
 	Template.new_account_stripe.events({
 		'change .subscription': function (event) {
 			var plans = [
@@ -31,20 +25,34 @@ if (Meteor.isClient) {
 				event.preventDefault();
 				return;
 			}
-			
+			if ($('input.company-name').val().length == 0) {
+				$("form#payment-form").find('p.payment-errors').text("Invalid company name").show();
+				$('html, body').animate({ scrollTop: 0 }, 0);
+				event.preventDefault();				
+				return;
+			}
+			if ($('textarea.company-address').val().length == 0) {
+				$("form#payment-form").find('p.payment-errors').text("Invalid company address").show();
+				$('html, body').animate({ scrollTop: 0 }, 0);
+				event.preventDefault();				
+				return;
+			}
 			if ($('input.card-expiry-month').val().length == 0) {
-				alert('Invalid card expiry month');
-				event.preventDefault();
+				$("form#payment-form").find('p.payment-errors').text("Invalid card month").show();
+				$('html, body').animate({ scrollTop: 0 }, 0);
+				event.preventDefault();				
 				return;
 			}
 			if ($('input.card-expiry-year').val().length == 0) {
-				alert('Invalid card expiry year');
-				event.preventDefault();
+				$("form#payment-form").find('p.payment-errors').text("Invalid card year").show();
+				$('html, body').animate({ scrollTop: 0 }, 0);
+				event.preventDefault();				
 				return;
 			}
 			if ($('input.card-holdername').val().length == 0) {
-				alert('Invalid card name');
-				event.preventDefault();
+				$("form#payment-form").find('p.payment-errors').text("Invalid card name").show();
+				$('html, body').animate({ scrollTop: 0 }, 0);
+				event.preventDefault();				
 				return;
 			}
 
@@ -52,9 +60,12 @@ if (Meteor.isClient) {
 
 			stripeAPI.upgradeAccount();
 			event.preventDefault();
-		},				
-		'blur .company-name': validateNewAccount,
-		'blur .company-address': validateNewAccount
+		},	
+		'blur input.company-name': checkLength,
+		'blur textarea.company-address': checkLength,
+		'blur input.card-expiry-month': checkLength,
+		'blur input.card-expiry-year': checkLength,	
+		'blur input.card-holdername': checkLength	
 	});
 
 	AccountsController = RouteController.extend({

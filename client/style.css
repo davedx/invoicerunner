@@ -79,6 +79,16 @@ p {
 	#vmenu {
 	display: block;
 	}
+#payment-form-cc {
+	clear: both;
+}
+.msgError {
+	width: 100%;
+	display: none;
+	margin-bottom: 15px;
+	padding: 3px 0;
+	text-align: center;
+}
 
 
 @media (min-width: 768px) and (max-width: 979px){
