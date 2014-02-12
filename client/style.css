@@ -33,6 +33,7 @@
 }
 .offset4 {
 	margin-left: 290px;
+	width: 800px;
 }
 .main-box {
 	margin-left: auto;
@@ -79,7 +80,9 @@ p {
 	#vmenu {
 	display: block;
 	}
-
+#support {
+	padding-left: 10px;
+}
 
 @media (min-width: 768px) and (max-width: 979px){
 	.container {
