@@ -1,20 +1,16 @@
 if (Meteor.isClient) {
 	var validateNewAccount = function (event) {
-		return;
-		var elementClass = $(event.target).attr('class').split(" ");
-		var elementName = elementClass[0];
-		console.log("name: " + elementName + ", value: " + $(event.target).val()); 
-			Meteor.call(
-			'validateAccountStripe', 
-			{name : elementName, value : $(event.target).val()},
-			function (err) {
-				if(err) {
-					$("#" + elementName + "-error").text(err.reason).removeClass("hide");
-				} else {
-					$("#" + elementName + "-error").text("").addClass("hide");
-				}
-			}
-		);	  
+		var elementName = $(event.target).attr('class').split(" ")[0];
+		if($(event.target).val().length == 0) { 
+			var msgError = "";
+			if($(event.target).is("input"))
+				msgError = "Invalid company name";
+			else
+				msgError= "Invalid address name";
+			$("#" + elementName + "-error").text(msgError).removeClass("hide"); 
+		} else {
+		    $("#" + elementName + "-error").text("").addClass("hide");	
+		}
 	 }
 	Template.new_account_stripe.events({
 		'change .subscription': function (event) {
@@ -41,7 +37,7 @@ if (Meteor.isClient) {
 				event.preventDefault();
 				return;
 			}
-		 if ($('input.card-expiry-year').val().length == 0) {
+			if ($('input.card-expiry-year').val().length == 0) {
 				alert('Invalid card expiry year');
 				event.preventDefault();
 				return;
@@ -57,8 +53,8 @@ if (Meteor.isClient) {
 			stripeAPI.upgradeAccount();
 			event.preventDefault();
 		},				
-		'blur input': validateNewAccount,
-		'blur textarea': validateNewAccount	 
+		'blur .company-name': validateNewAccount,
+		'blur .company-address': validateNewAccount
 	});
 
 	AccountsController = RouteController.extend({
