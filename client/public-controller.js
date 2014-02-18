@@ -19,6 +19,11 @@ if (Meteor.isClient) {
       scrollToFreeTrial();
     });
     $('body').addClass('public-body');
+    $('.carousel').carousel({
+            pause: true,
+            interval: false
+            
+     });	
   };
   
   Template.public_home.events({

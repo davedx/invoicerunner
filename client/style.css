@@ -80,6 +80,29 @@ p {
 	display: block;
 	}
 
+.story-text {
+	float:right;
+	min-height: 550px;
+}
+.carousel-indicators li {
+  margin-left: 15px;
+  background-color: #CACACB;
+  height: 12px;
+  width: 12px;
+}
+
+.carousel-indicators .active {
+  background-color: #53A853;
+}
+.carouselContainer {
+	border: 1px solid #777777;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px 1px #222222;
+ }
+.screenshots-row {
+    float: right;
+    margin-left: 20px;
+}
 
 @media (min-width: 768px) and (max-width: 979px){
 	.container {
