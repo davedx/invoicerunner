@@ -329,7 +329,10 @@ if (Meteor.isClient) {
 		$('html, body').scrollTop(height);
 		$(formElement).popover({
 			content: "Your invoice has been successfully uploaded. Finish entering the data for this invoice so you can track the date it is due, the purchase order number, and the amounts payable."
-		}).popover('show');	
+		}).popover('show');
+		$('html').click(function() {
+		$(formElement).popover('hide');
+		});	
 		Session.set('goto_invoice',null);
 	}else{
 		if($('html, body').scrollTop() > 0) {
