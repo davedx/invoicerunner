@@ -1,17 +1,16 @@
 if (Meteor.isClient) {
-	var validateNewAccount = function (event) {
-		var elementName = $(event.target).attr('class').split(" ")[0];
-		if($(event.target).val().length == 0) { 
-			var msgError = "";
-			if($(event.target).is("input"))
-				msgError = "Invalid company name";
-			else
-				msgError= "Invalid address name";
-			$("#" + elementName + "-error").text(msgError).removeClass("hide"); 
+	var validateInput = function (className) {
+		var msgError = className.replace(/[-.]/g, ' ');
+		if ($(className).val().length == 0) {
+			$("form#payment-form").find('p.payment-errors').text("Please enter your " + msgError + ".").show();
+			$('html, body').animate({ scrollTop: 0 }, 0);
+			return false;
 		} else {
-		    $("#" + elementName + "-error").text("").addClass("hide");	
+		   $("form#payment-form").find('p.payment-errors').text("").hide();	
+		   return true;				
 		}
-	 }
+	}
+
 	Template.new_account_stripe.events({
 		'change .subscription': function (event) {
 			var plans = [
@@ -25,36 +24,55 @@ if (Meteor.isClient) {
 		},
 		'click .newaccount-btn': function (event) {
 			var translation = PaymillTranslations.getAll();
+			
+            event.preventDefault();
 
 			if(!$('#terms').is(':checked')) {
 				alert('Please confirm you have read the terms and conditions.');
-				event.preventDefault();
 				return;
 			}
 			
-			if ($('input.card-expiry-month').val().length == 0) {
-				alert('Invalid card expiry month');
-				event.preventDefault();
+			if (!validateInput('.company-name')) {
 				return;
 			}
-			if ($('input.card-expiry-year').val().length == 0) {
-				alert('Invalid card expiry year');
-				event.preventDefault();
+			if (!validateInput('.company-address')) {
 				return;
 			}
-			if ($('input.card-holdername').val().length == 0) {
-				alert('Invalid card name');
-				event.preventDefault();
+			if (!validateInput('.card-expiry-month')) {
 				return;
 			}
-
+			if (!validateInput('.card-expiry-year')) {
+				return;
+			}
+			if (!validateInput('.card-holdername')) {
+				return;
+			}
+			if(!validateInput('.card-number')) {
+				return;
+			}
+			if(!validateInput('.card-cvc')) {
+				return;
+			}
 			$('.newaccount-btn').attr("disabled", "disabled");
-
+alert("Passed");
+return;
 			stripeAPI.upgradeAccount();
-			event.preventDefault();
-		},				
-		'blur .company-name': validateNewAccount,
-		'blur .company-address': validateNewAccount
+		},	
+		'blur input.company-name': function(event) {
+				Meteor.otherFunctions.validateInput('.company-name');
+		},
+		'blur textarea.company-address': function(event) {
+				Meteor.otherFunctions.validateInput('.company-address');
+		},
+		'blur input.card-expiry-month': function(event) {
+				Meteor.otherFunctions.validateInput('.card-expiry-month');
+		},
+		'blur input.card-expiry-year': function(event) {
+				Meteor.otherFunctions.validateInput('.card-expiry-year');
+		},	
+		'blur input.card-holdername': function(event) {
+				Meteor.otherFunctions.validateInput('.card-holdername');
+		}, 
 	});
 
 	AccountsController = RouteController.extend({
