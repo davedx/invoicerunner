@@ -73,10 +73,10 @@ p {
 	width:120px;
 	margin-left:-20px;
 }
-	#hmenu {
+#hmenu {
 	display: none;
 }
-	#vmenu {
+#vmenu {
 	display: block;
 	}
 
@@ -90,6 +90,12 @@ p {
   height: 12px;
   width: 12px;
 }
+.carousel-indicators {
+	padding-top: 540px;
+}
+.carousel-indicators:hover{
+	cursor: pointer;
+}
 
 .carousel-indicators .active {
   background-color: #53A853;
@@ -98,10 +104,10 @@ p {
 	border: 1px solid #777777;
     border-radius: 5px;
     box-shadow: 2px 2px 4px 1px #222222;
+    margin-bottom: 50px;
  }
-.screenshots-row {
-    float: right;
-    margin-left: 20px;
+#main-page {
+    margin-bottom: 40px;
 }
 
 @media (min-width: 768px) and (max-width: 979px){

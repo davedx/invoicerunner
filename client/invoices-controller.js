@@ -295,11 +295,11 @@ if (Meteor.isClient) {
 					filename: ink.filename,
 					mimetype: ink.mimetype
 				}, function (error, invoice) {
-			if (!error) {
-				Session.set('goto_invoice', invoice);
-				} else {
-				console.error(error);
-				}
+					if (!error) {
+						Session.set('goto_invoice', invoice);
+					} else {
+						console.error(error);
+					}
 				});
 			});
 		},
