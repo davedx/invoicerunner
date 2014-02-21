@@ -54,8 +54,7 @@ if (Meteor.isClient) {
 				return;
 			}
 			$('.newaccount-btn').attr("disabled", "disabled");
-alert("Passed");
-return;
+
 			stripeAPI.upgradeAccount();
 		},	
 		'blur input.company-name': function(event) {
