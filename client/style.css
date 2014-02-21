@@ -168,6 +168,17 @@ p {
 @media (max-width: 767px) {
 	body{
 		background-image: url("/low_contrast_linen.png");	
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	#main-content {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.main {
+		padding-left: 30px;
 	}
 	body .processing-tab h4 {
 		color: #EEEEEE;
@@ -185,9 +196,12 @@ p {
 		margin-left: 0px;
 	}
 	.span8 {
-		width: 80%;
-		margin-left: 25%;
+		width: 100%;
+		margin-left: 5%;
 		float: none;
+	}
+	.redskyforge {
+		margin-left: 0%;
 	}
 	.span4 {
 		width: 60%;
@@ -195,6 +209,18 @@ p {
 	}
 	.span12 {
 		padding-bottom: 1%;
+	}
+	footer {
+		height: 100%;
+		margin-top: 30px;
+	}
+	footer li {
+		margin-right: 15px;
+	}
+	.box {
+		border: 1px solid #777777;
+		border-radius: 5px;
+		box-shadow: 2px 2px 4px 1px #222222;
 	}
 } 
 @media (max-width: 480px) {
@@ -220,7 +246,7 @@ p {
 		padding-bottom: 3%;	
 	}
 	.span8 {
-		margin-left: 20%;
+		margin-left: 10%;
 	}
 	.span6 {
 		width: 100%;
@@ -244,7 +270,20 @@ p {
 	}
 	footer {
 		margin-top: 10%;
-		padding-top: 10%;
+		padding-top: 5%;
+	}
+	.redskyforge {
+		margin-left: 0%;
+	}
+	.main {
+		padding-left: 0px;
+	}
+	#hmenu a {
+		margin: 0px;
+		background-color:#EAEAEA;
+	}
+	#hmenu a:hover {
+		background-color: #3DA4C2;
 	}
 	#upload-invoice-modal {
 		width: 80%;
@@ -269,5 +308,8 @@ p {
 	}
 	.navbar .nav > li > a:hover {
 		background: none;
+	}
+	.navbar-inner-invoices .nav-left li, .btn {
+		border-radius: 0px;
 	}
 }
