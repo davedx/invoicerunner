@@ -127,7 +127,7 @@ p {
 		padding-left: 0px;
 	}
 	.form-horizontal .controls {
-		width: 68%;
+		width: 65%;
 		margin-left: 2%;
 		float: left;
 	}
@@ -196,7 +196,13 @@ p {
 	.span12 {
 		padding-bottom: 1%;
 	}
-} 
+	.controls input {
+		width: 200px;			
+	}
+	.controls .subtotal, .controls .total, .controls .tax {
+		width: 135px;
+	}
+}
 @media (max-width: 480px) {
 	body{
 		background-image: url("/low_contrast_linen.png");	
@@ -252,22 +258,28 @@ p {
 		top: 40%
 	}
 	#hmenu {
-	display: block;
-	float: left;
-}
+		display: block;
+		float: left;
+	}
 	#vmenu {
 		display: none;
 	}
 	.dropdown-menu > li > a {
-		line-height: 30px;
+		line-height: 40px;
 	}
 	.dropdown-menu > li > a:hover {
 		background: #777777;
+	}
+	.dropdown-menu > li {
+		margin-bottom: 5px;
 	}
 	.navbar .nav > li > a {
 		margin-bottom: 5px;
 	}
 	.navbar .nav > li > a:hover {
 		background: none;
+	}
+	.navbar-inner-invoices .nav-left li {
+		margin: 4px 4px;
 	}
 }
