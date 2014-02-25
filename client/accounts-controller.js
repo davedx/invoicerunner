@@ -23,6 +23,7 @@ if (Meteor.isClient) {
 			$('#currentPrice').html(plans[plan].price);
 		},
 		'click .newaccount-btn': function (event) {
+						
 			var translation = PaymillTranslations.getAll();
 			
             event.preventDefault();
@@ -72,24 +73,12 @@ if (Meteor.isClient) {
 		'blur input.card-holdername': function(event) {
 				Meteor.otherFunctions.validateInput('.card-holdername');
 		},
-		'click #upload-account-modal-close': function() {
-			$('#upload-account-modal').hide();
-			Session.set('goto_account',null);
-		},
 		'click #to-invoices': function() {
 			$('#upload-account-modal').remove();
 			Router.go('invoices');
 		} 
 	});
 	
-	Template.new_account_stripe.rendered = function () {
-		$("#upload-account-modal").hide();
-		var gotoAccountId = Session.get("goto_account");
-		if (gotoAccountId) {
-			$("#upload-account-modal").show();
-		}
-	};
-
 	AccountsController = RouteController.extend({
 		template: 'accounts',
 
