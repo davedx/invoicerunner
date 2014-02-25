@@ -54,8 +54,7 @@ if (Meteor.isClient) {
 				return;
 			}
 			$('.newaccount-btn').attr("disabled", "disabled");
-alert("Passed");
-return;
+
 			stripeAPI.upgradeAccount();
 		},	
 		'blur input.company-name': function(event) {
@@ -72,8 +71,24 @@ return;
 		},	
 		'blur input.card-holdername': function(event) {
 				Meteor.otherFunctions.validateInput('.card-holdername');
-		}, 
+		},
+		'click #upload-account-modal-close': function() {
+			$('#upload-account-modal').hide();
+			Session.set('goto_account',null);
+		},
+		'click #to-invoices': function() {
+			$('#upload-account-modal').remove();
+			Router.go('invoices');
+		} 
 	});
+	
+	Template.new_account_stripe.rendered = function () {
+		$("#upload-account-modal").hide();
+		var gotoAccountId = Session.get("goto_account");
+		if (gotoAccountId) {
+			$("#upload-account-modal").show();
+		}
+	};
 
 	AccountsController = RouteController.extend({
 		template: 'accounts',

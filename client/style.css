@@ -74,7 +74,7 @@ p {
 	width:120px;
 	margin-left:-20px;
 }
-	#hmenu {
+#hmenu {
 	display: none;
 }
 #vmenu {
@@ -92,6 +92,17 @@ p {
 	margin-bottom: 15px;
 	padding: 3px 0;
 	text-align: center;
+}
+#upload-account-modal {
+	margin: 0;
+	position: absolute;
+	width: 27%;
+	top: 700px;
+	left:520px;
+}
+#upload-account-modal-close {
+	margin-right: 10px;
+	margin-top: 5px;
 }
 
 @media (min-width: 768px) and (max-width: 979px){
@@ -164,6 +175,7 @@ p {
 	.light {
 		margin-left: 15px;
 	}
+	
 }
 @media (max-width: 767px) {
 	body{
