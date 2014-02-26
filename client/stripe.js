@@ -25,7 +25,6 @@ if(Meteor.isClient) {
 						});
 						form.ccToken = response.id;
 						form.subscriptionIndex = $('.subscription').get(0).selectedIndex;
-						console.log(form);
 						Meteor.call('upgradeAccountStripe', form, function (err, account) {
 							if(!err) {
 								console.log("Success!");

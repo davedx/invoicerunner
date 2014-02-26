@@ -38,7 +38,6 @@ if (Meteor.isServer) {
   };
 
   Meteor.startup(seed);
-  console.log("Starting");
   Meteor.publish('invoices', function () {
     return Invoices.find({owner: this.userId});
   });
@@ -68,7 +67,6 @@ if (Meteor.isServer) {
 } else {
   // client side:
   Meteor.startup(function () {
-    console.log("Bootstrapping.");
     Hooks.init();
   });
   // NOTE: Meteor now warns that this is only in the client, but
