@@ -1,6 +1,14 @@
 if (Meteor.isClient) {
 
   Template.public_layout.rendered = function() {
+
+    if(Meteor.user()) {
+      $('#login-buttons-logout').before('<div class="login-button" id="goto_invoices">Invoices</div>');
+      $('#goto_invoices').click(function() {
+        Router.go('invoices');
+      });
+    }
+
     $('#signup-link').click(function(e) {
       e.preventDefault();
     });
