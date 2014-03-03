@@ -58,6 +58,9 @@ if (Meteor.isServer) {
 
 		upgradeAccountStripe: function (options) {
 			var key = process.env.STRIPE_SECRET;
+			if(!key) {
+				key = "sk_test_rymPpU927JzHGsyn1FImWSOA";
+			}
 			var baseUrl = 'https://api.stripe.com/v1/';
 
 			var user = Meteor.user();
@@ -80,7 +83,7 @@ if (Meteor.isServer) {
 					plan: plan.name
 				}
 			});
-			console.log(clientResult);
+			//console.log(clientResult);
 			if(clientResult.statusCode !== 200) {
 				console.error("Error connecting to Stripe");
 				throw new Meteor.Error(500, "Stripe error");
@@ -101,7 +104,6 @@ if (Meteor.isServer) {
 						'profile.companyTaxNumber': options.company_tax
 					}
 				});
-				console.log("Updated user!");
 				return {status: 'ok'};
 			} else {
 				throw new Error("You are not logged in.");

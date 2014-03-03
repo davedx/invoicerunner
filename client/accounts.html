@@ -15,7 +15,7 @@
 				<div class="control-group">
 					<label class="company-name-label control-label" for="company-name">Company name:</label>
 					<div class="controls">
-						<input name="company_name" class="company-name span3" type="text" size="30">
+						<input name="company_name" class="company-name span3" type="text" size="30" value="">
 					</div>
 				</div>
 				<div class="control-group">
@@ -104,6 +104,16 @@
 	  	<h4>Your plan: <span id="currentPlan">Professional</span> for $<span id="currentPrice">19</span> per month</h4>
 	  	<p>You can cancel or upgrade your plan at any time.</p>
 	  	<p>This plan includes <strong>industry strength SSL security</strong>, <strong>unlimited</strong> invoices and companies and <strong>email and chat</strong> support.</p>
+		</div>
+	</div>
+	<div id="upload-account-modal" class="modal hide">
+		<div class="modal-content">
+		</div>
+		<div class="modal-body">
+			<p>Your account has been successfully upgraded to a monthly subscription. Thank you for choosing Invoice Runner!</p>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" id="to-invoices">To invoices</button>
 		</div>
 	</div>
 	</template>

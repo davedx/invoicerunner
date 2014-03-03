@@ -23,6 +23,7 @@ if (Meteor.isClient) {
 			$('#currentPrice').html(plans[plan].price);
 		},
 		'click .newaccount-btn': function (event) {
+						
 			var translation = PaymillTranslations.getAll();
 			
             event.preventDefault();
@@ -57,23 +58,12 @@ if (Meteor.isClient) {
 
 			stripeAPI.upgradeAccount();
 		},	
-		'blur input.company-name': function(event) {
-				Meteor.otherFunctions.validateInput('.company-name');
-		},
-		'blur textarea.company-address': function(event) {
-				Meteor.otherFunctions.validateInput('.company-address');
-		},
-		'blur input.card-expiry-month': function(event) {
-				Meteor.otherFunctions.validateInput('.card-expiry-month');
-		},
-		'blur input.card-expiry-year': function(event) {
-				Meteor.otherFunctions.validateInput('.card-expiry-year');
-		},	
-		'blur input.card-holdername': function(event) {
-				Meteor.otherFunctions.validateInput('.card-holdername');
-		}, 
+		'click #to-invoices': function() {
+			$('#upload-account-modal').remove();
+			Router.go('invoices');
+		} 
 	});
-
+	
 	AccountsController = RouteController.extend({
 		template: 'accounts',
 
