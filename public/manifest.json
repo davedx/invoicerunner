@@ -1,0 +1,19 @@
+{
+  "name": "Invoice Runner",
+  "description": "Simplify your invoice workflow: from your smartphone camera to payment, with one smart app.",
+  "version": "1.0",
+  "app": {
+    "urls": [
+      "*://invoicerunner.com"
+    ],
+    "launch": {
+      "web_url": "https://invoicerunner.com"
+    }
+  },
+  "icons": {
+    "128": "ir_icon_128.png"
+  },
+  "permissions": [
+    "unlimitedStorage"
+  ]
+}
