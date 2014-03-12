@@ -35,12 +35,12 @@ Router.map(function () {
     action: 'new'
   });
 
-  this.route('home', {
-    controller: 'PublicController',
-    layoutTemplate: 'public_layout',
-    action: 'public_home',
-    path: '/'
-  });
+  // this.route('home', {
+  //   controller: 'PublicController',
+  //   layoutTemplate: 'public_layout',
+  //   action: 'public_home',
+  //   path: '/'
+  // });
 
   this.route('pricing', {
     controller: 'PublicController',
