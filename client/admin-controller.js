@@ -28,7 +28,18 @@ if (Meteor.isClient) {
         + this.profile.companyTaxNumber;
     }
   });
-
+  
+  Template.admin_layout.rendered = function() {
+	if(Meteor.user()) {
+		$('#login-buttons-logout').before('<div id="login-buttons-open-change-password" class="login-button"><a href="javascript:void(0)" id="editAccount">Edit account</a></div>');
+	}
+  }
+  
+  Template.admin_layout.events ({
+		'click #editAccount': function () {
+			Router.go('accounts/edit'); 	 
+		}
+	});
   AdminController = RouteController.extend({
     template: 'accounts',
 

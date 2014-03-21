@@ -34,14 +34,14 @@ Router.map(function () {
     layoutTemplate: 'layout',
     action: 'new'
   });
-
+  
   this.route('home', {
     controller: 'PublicController',
     layoutTemplate: 'public_layout',
     action: 'public_home',
     path: '/'
   });
-
+ 
   this.route('pricing', {
     controller: 'PublicController',
     layoutTemplate: 'public_layout',
@@ -53,6 +53,12 @@ Router.map(function () {
     layoutTemplate: 'public_layout',
     action: 'public_freetrial'
   });
+   
+   this.route('accounts/edit', {
+    controller: 'PublicController',
+    layoutTemplate: 'public_layout',
+    action: 'edit_account'
+  });	
 
   this.route('shortlist', {
     controller: 'PublicController',

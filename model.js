@@ -206,6 +206,37 @@ if (Meteor.isServer) {
 				payment: options.payment
 			});
 		},
+		
+		updateAccount: function(options) {
+			var foundUser = Meteor.users.findOne(this.userId);
+			if(foundUser) {
+			   Meteor.users.update(this.userId, {
+					$set: {
+						'profile.companyName': options.company_name,
+						'profile.companyAddress': options.company_address,
+						'profile.companyTaxNumber': options.company_tax
+					}
+				});
+				console.log("Updated user!");
+				return {status: 'ok'};
+			} else {
+				throw new Error("You are not logged in.");
+			}	
+		},
+		
+		getUserDetails: function (options) {
+			var foundUser = Meteor.users.findOne(this.userId);
+			if (foundUser) {
+				var returnObject = {
+					company_name : foundUser.profile.companyName,
+					company_address : foundUser.profile.companyAddress, 
+					company_tax : foundUser.profile.companyTaxNumber
+				};
+				return returnObject;
+			} else {
+				return false;
+			}
+		},
 	
 		validateDateDue: function (options) {	
 			var m = moment(options.value, "YYYY-MM-DD");

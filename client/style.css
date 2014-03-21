@@ -101,6 +101,20 @@
 	margin-right: 10px;
 	margin-top: 5px;
 }
+#edit-account-modal {
+	margin: 0;
+	position: absolute;
+	width: 27%;
+	top: 350px;
+	left:520px;
+}
+#login-buttons a  {
+	text-decoration: none;
+}
+#editAccount {
+	color: #FFFFFF!important;
+	font-weight: normal;
+}
 
 @media (min-width: 768px) and (max-width: 979px){
 	.container {

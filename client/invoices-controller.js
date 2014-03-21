@@ -233,9 +233,20 @@ if (Meteor.isClient) {
 	});
 
 	Template.layout.rendered = function() {
-    $('body').removeClass('public-body');
+		$('body').removeClass('public-body');
+		if(Meteor.user()) {
+			if ($("#editAccount").length == 0) {
+				$('#login-buttons-logout').before('<div id="login-buttons-open-change-password" class="login-button"><a href="javascript:void(0)" id="editAccount">Edit account</a></div>');
+			}
+		}
 	};
-
+	
+	Template.layout.events ({
+		'click #editAccount': function () {
+			Router.go('accounts/edit'); 	 
+		}
+	});
+	
 	Template.new_invoice.rendered = function () {
 		$("#upload-invoice-modal").hide();
 		var gotoInvoiceId = Session.get("goto_invoice");
@@ -347,7 +358,7 @@ if (Meteor.isClient) {
 			return _.map(companies, function(company) { return company.name; }); 
 		},
 				items: 5,
-				});	
+				});			
  };
 
 	InvoicesController = RouteController.extend({
