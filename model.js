@@ -214,7 +214,6 @@ if (Meteor.isServer) {
 					$set: {
 						'profile.companyName': options.company_name,
 						'profile.companyAddress': options.company_address,
-						'profile.companyTaxNumber': options.company_tax
 					}
 				});
 				console.log("Updated user!");
@@ -229,8 +228,7 @@ if (Meteor.isServer) {
 			if (foundUser) {
 				var returnObject = {
 					company_name : foundUser.profile.companyName,
-					company_address : foundUser.profile.companyAddress, 
-					company_tax : foundUser.profile.companyTaxNumber
+					company_address : foundUser.profile.companyAddress
 				};
 				return returnObject;
 			} else {
