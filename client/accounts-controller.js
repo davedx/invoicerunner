@@ -45,19 +45,19 @@ if (Meteor.isClient) {
 			if (!validateInput('.company-address', 'payment-form')) {
 				return;
 			}
-			if (!validateInput('.card-expiry-month'), 'payment-form') {
+			if (!validateInput('.card-expiry-month', 'payment-form')) {
 				return;
 			}
-			if (!validateInput('.card-expiry-year'), 'payment-form') {
+			if (!validateInput('.card-expiry-year', 'payment-form')) {
 				return;
 			}
-			if (!validateInput('.card-holdername'), 'payment-form') {
+			if (!validateInput('.card-holdername', 'payment-form')) {
 				return;
 			}
-			if(!validateInput('.card-number'), 'payment-form') {
+			if(!validateInput('.card-number', 'payment-form')) {
 				return;
 			}
-			if(!validateInput('.card-cvc'), 'payment-form') {
+			if(!validateInput('.card-cvc', 'payment-form')) {
 				return;
 			}
 			$('.newaccount-btn').attr("disabled", "disabled");
