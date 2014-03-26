@@ -27,7 +27,19 @@ if (Meteor.isClient) {
       scrollToFreeTrial();
     });
     $('body').addClass('public-body');
+    
+    if(Meteor.user()) {
+		if ($("#editAccount").length == 0) {
+			$('#login-buttons-logout').before('<div id="login-buttons-open-change-password" class="login-button"><a href="javascript:void(0)" id="editAccount">Edit account</a></div>');
+		}
+	}
   };
+  
+  Template.public_layout.events ({
+	  'click #editAccount': function () {
+		  Router.go('accounts/edit'); 	 
+	   }
+  });
   
   Template.public_home.events({
     'click .freetrial-go': function (e) {
@@ -127,6 +139,14 @@ if (Meteor.isClient) {
         'publicFooter', { to: 'footer', waitOn: false, data: false }
       );
     },
+    
+    edit_account: function () {
+      this.render('edit_account');
+
+      this.render(
+        'publicFooter', { to: 'footer', waitOn: false, data: false }
+      );
+    },
 
     public_shortlist: function () {
       this.render('public_shortlist');
@@ -167,6 +187,5 @@ if (Meteor.isClient) {
         'publicFooter', { to: 'footer', waitOn: false, data: false }
       );
     }
-    
   });
 }

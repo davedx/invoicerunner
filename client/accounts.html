@@ -226,3 +226,45 @@
 	</div>
 </div>
 </template>
+
+<template name="edit_account">
+<div class="row">
+	<div class="span12 box upgrade-box">
+		<h3>Edit your profile account.</h3>
+
+	  <form action="" method="POST" id="edit-form" class="form-horizontal pull-left">
+			<p class="editAccount-errors alert-error error span3 msgError"></p>
+				
+				<div class="control-group">
+					<label class="company-name-label control-label" for="company-name">Company name:</label>
+					<div class="controls">
+						<input name="company_name" class="company-name span3" type="text" size="30" value="">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="company-address-label control-label" for="company-address">Address:</label>
+					<div class="controls">
+						<textarea name="company_address" class="company-address span3" type="text" rows="3" cols="30"></textarea>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls alert payment-errors">
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<button type="submit" class="btn btn-success editaccount-btn">Submit</button>
+					</div>
+				</div>
+			</div>	
+		</form>
+	<div id="edit-account-modal" class="modal hide">
+		<div class="modal-content">
+		</div>
+		<div class="modal-body">
+			<p>Your profile account has been successfully upgraded. Thank you for choosing Invoice Runner!</p>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" id="to-invoices">To invoices</button>
+		</div>
+	</div>
+	</template>

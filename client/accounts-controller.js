@@ -1,12 +1,19 @@
 if (Meteor.isClient) {
-	var validateInput = function (className) {
+	var validateInput = function (className, formId) {
 		var msgError = className.replace(/[-.]/g, ' ');
+		var errorClass = "";
+		if (formId == "payment-form"){
+			errorClass = "payment-errors";	
+		} else {
+			errorClass = "editAccount-errors";
+		}
+		console.log("errorClass: " + errorClass);
 		if ($(className).val().length == 0) {
-			$("form#payment-form").find('p.payment-errors').text("Please enter your " + msgError + ".").show();
+			$("form#" + formId).find('p.' + errorClass).text("Please enter your " + msgError + ".").show();
 			$('html, body').animate({ scrollTop: 0 }, 0);
 			return false;
 		} else {
-		   $("form#payment-form").find('p.payment-errors').text("").hide();	
+		   $("form#" + formId).find('p.' + errorClass).text("").hide();	
 		   return true;				
 		}
 	}
@@ -32,26 +39,25 @@ if (Meteor.isClient) {
 				alert('Please confirm you have read the terms and conditions.');
 				return;
 			}
-			
-			if (!validateInput('.company-name')) {
+			if (!validateInput('.company-name', 'payment-form')) {
 				return;
 			}
-			if (!validateInput('.company-address')) {
+			if (!validateInput('.company-address', 'payment-form')) {
 				return;
 			}
-			if (!validateInput('.card-expiry-month')) {
+			if (!validateInput('.card-expiry-month', 'payment-form')) {
 				return;
 			}
-			if (!validateInput('.card-expiry-year')) {
+			if (!validateInput('.card-expiry-year', 'payment-form')) {
 				return;
 			}
-			if (!validateInput('.card-holdername')) {
+			if (!validateInput('.card-holdername', 'payment-form')) {
 				return;
 			}
-			if(!validateInput('.card-number')) {
+			if(!validateInput('.card-number', 'payment-form')) {
 				return;
 			}
-			if(!validateInput('.card-cvc')) {
+			if(!validateInput('.card-cvc', 'payment-form')) {
 				return;
 			}
 			$('.newaccount-btn').attr("disabled", "disabled");
@@ -61,7 +67,57 @@ if (Meteor.isClient) {
 		'click #to-invoices': function() {
 			$('#upload-account-modal').remove();
 			Router.go('invoices');
-		} 
+		}
+	});
+	
+	Template.edit_account.rendered = function() {
+		var userDetails = Meteor.call("getUserDetails", {}, function(error, result) {
+			if (error) {
+				console.log(error.reason);
+			} else {
+				if (result.company_name.length > 0) {
+					$(".company-name").val(result.company_name);
+				}
+				if (result.company_address.length > 0) {	
+					$(".company-address").val(result.company_address);
+				}
+			}
+		});
+	};
+	
+	Template.edit_account.events ({
+		'click .editaccount-btn': function(event) {
+			
+			event.preventDefault();
+			
+			if (!validateInput('.company-name', 'edit-form')) {
+				return;
+			}
+			
+			if (!validateInput('.company-address', 'edit-form')) {
+				return;
+			}
+			Meteor.call(
+				'updateAccount', 
+				{
+					company_name: $(".company-name").val(),
+					company_address: $(".company-address").val(),
+				}, 
+				function (err){
+					if(!err) {
+						console.log("Success!");
+						//Router.go('invoices');
+						$("#edit-account-modal").show();
+					} else {
+						console.error(err);
+					}
+				}
+			);
+		},
+		'click #to-invoices': function() {
+			$('#edit-account-modal').remove();
+			Router.go('invoices');
+		}
 	});
 	
 	AccountsController = RouteController.extend({
@@ -71,7 +127,6 @@ if (Meteor.isClient) {
 			if(!Meteor.user() && !Meteor.loggingIn()) {
 				return Router.go('freetrial');
 			}
-
 			var template = stripeAPI.enabled() ? 'new_account_stripe' : 'new_account';
 			var bridge = stripeAPI.enabled() ? 'https://js.stripe.com/v2/' : 'https://bridge.paymill.com/';
 			this.render(template);
